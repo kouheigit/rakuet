@@ -8,6 +8,6 @@ class indexController extends Controller
 {
 	public function index(Request $request)
 	{
-		return view('index.indexlayout');
+		return view('index.index');
 	}
 }
