@@ -2,8 +2,9 @@
 
 @section('content')
 
-<form action="index" method="post">
-  <button type='submit' name='action' value='add'>スタートする</button>
+<form action="index2" method="post">
+{{ csrf_field() }}
+  <button class="start" type='submit' name='start' value='start'>スタートする</button>
 </form>
 
 @endsection
