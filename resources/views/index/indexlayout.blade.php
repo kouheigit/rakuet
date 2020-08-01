@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
+<!--軽量CSSフレームワーク（デザイン)ファイルの読み込み-->
+<link rel="stylesheet" href="https://cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
 <!--カルーセルパネル用読み込みcss下記bodyの読み込みファイルと本ファイル二つ必要-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.css">
 <!--cssのファイルを読み込む-->
