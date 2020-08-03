@@ -22,6 +22,7 @@ Route::post('index2','indexController@index2');
 
 Route::get('login','loginController@login');
 
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
