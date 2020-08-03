@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', function () {
-	return view('welcome');
-     // return redirect('index');
+       //return view('welcome');
+        return redirect('index');
 });
 
 Route::get('index','indexController@index');
