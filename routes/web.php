@@ -26,3 +26,4 @@ Route::get('login','loginController@login');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('home2','HomeController@home2');
