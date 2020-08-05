@@ -30,21 +30,30 @@ class HomeController extends Controller
     public function home2(Request $request)
     {
 	    $start = $request->input('start');
-	    $atai = 'hikakin';
-	    $maxmurai = 'maxmurai';
-	    
-	    if(!empty($start)){
+	    $moji1=$start;
+	    $moji1 = str_replace('@','',$moji1);//文字を除外
+	    $moji2 = str_replace('.','',$moji1);//文字を除外
+	    $create = "create table $moji2(id int, name varchar(10), col varchar(10))";
+	    $make =$create;
+	    $createtable = DB::statement($make);
+	   // $atai = 'hikakin';
+	   // $maxmurai = 'maxmurai';
+	            
+	            //delete method
 		    /*
 		    $murai ="drop table $atai";
 		    $syamu =$murai;
 		    $start =  DB::statement($syamu);*/
-		   
+	          
+		   // create method
+                   /*
 		    $haramin ="create table $maxmurai(id int, name varchar(10), col varchar(10))";
 		    $appbank =$haramin;
 		    $end = DB::statement($appbank);
-		 //  $end = DB::statement('create table hikakin(id int, name varchar(10), col varchar(10))');
-	    }
-	   return view('home.home2'); 
+		   $end = DB::statement('create table hikakin(id int, name varchar(10), col varchar(10))');
+	          */
+		    return view('home.home2'); 
+		    
 	   // return view('home.home2',compact('start'));
 
     }
