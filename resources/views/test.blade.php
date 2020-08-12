@@ -1,27 +1,7 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-           <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-                  <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                    <p>ようこそラックエットへ</p>
-                    <p>ようこそラックエットへ</p>
-                     <p>ようこそラックエットへ</p>
-                      <p>ようこそラックエットへ</p>
-                      <p>ここの中の枠組みの大きさは文章によって変化します</p>
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
-
+<!DOCTYPE html>
+<html lang="ja">
+<meta charset="UTF-8">
+<body>
+{{$msg}}
+</body>
+</html>

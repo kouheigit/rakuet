@@ -22,6 +22,7 @@ Route::post('index2','indexController@index2');
 
 Route::get('login','loginController@login');
 
+Route::get('test','testController@index');
 
 Auth::routes();
 
