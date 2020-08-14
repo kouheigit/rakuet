@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="{{ asset('css/homeform.css') }}">
 <p class="homedai">{{ Auth::user()->name }}さんようこそラックエットへ</p>
 <!--     {{ Auth::user()->email }}-->
-<form action="home2" method="post">
+<form action="home" method="post">
     {{ csrf_field() }}
   <button class="start" type='submit' name='start' value='{{ Auth::user()->email }}'>体重管理シートを作成する</button>
 </form>

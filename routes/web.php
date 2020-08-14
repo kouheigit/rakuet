@@ -27,4 +27,5 @@ Route::get('test','testController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::post('home2','HomeController@home2');
+Route::post('home','HomeController@homes');
+Route::get('home2','HomeController@home2');
