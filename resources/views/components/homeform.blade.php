@@ -2,12 +2,8 @@
 <p class="homedai">{{ Auth::user()->name }}さんようこそラックエットへ</p>
 <!--     {{ Auth::user()->email }}-->
 <form action="home" method="post">
-    {{ csrf_field() }}
-  <button class="start" type='submit' name='start' value='{{ Auth::user()->email }}'>体重管理シートを作成する</button>
-</form>
-<form action="home" method="post">
    {{csrf_field() }}
-<button class="change" type='submit' name='change' value='{{ Auth::user()->email }}'>体重管理シートを変更する</button>
+<button class="change" type='submit' name='change' value='{{ Auth::user()->email }}'>ボディデータを登録・編集する</button>
 </form>
 <!--
 <form action="home2" method="post">

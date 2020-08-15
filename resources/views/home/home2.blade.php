@@ -2,6 +2,5 @@
 
 @section('body')
 <h1>成功しました</h1>
-{{$syamu}}
 @endsection
 
