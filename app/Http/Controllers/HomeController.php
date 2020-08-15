@@ -71,5 +71,19 @@ class HomeController extends Controller
 		    ->where('email','like', '%' .$member . '%')->get();
 	    return view('home.home2',compact('syamu'));*/
 	    return view('home.home2');
-    } 
+    }
+    public function home2p(Request $request)
+    {
+        // $dell = $request->input('dell');
+	 return redirect("homedell");
+	 
+    }
+    public function homedell(Request $request)
+    {
+	    return view('home.homedell');
+    }
+    public function dellmember(Request $request)
+    {
+	    return view('home.dellmember');
+    }
 }

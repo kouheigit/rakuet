@@ -29,3 +29,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('home','HomeController@homes');
 Route::get('home2','HomeController@home2');
+Route::post('home2','HomeController@home2p');
+Route::get('homedell','HomeController@homedell');
+Route::post('dellmember','HomeController@dellmember');
+
+
