@@ -26,8 +26,13 @@ class HomeController extends Controller
     public function index()
     {
 	    $user = Auth::user()->email;//user情報の取り出しemailの読み込み(重要)
+	    $moji1=$user;
+            $moji1 = str_replace('@','',$moji1);
+            $moji2 = str_replace('.','',$moji1);
+            $users = $moji2; 
+
 	   
-        return view('home',compact('user'));
+        return view('home',compact('users'));
     }
     public function homes(Request $request)
     {
