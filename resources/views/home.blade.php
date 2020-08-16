@@ -20,6 +20,7 @@
                             {{ session('status') }}
                         </div>
 		    @endif
+                    {{$user}}
 		    @component('components.homeform')
                     @endcomponent     
                 </div>
