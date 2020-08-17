@@ -1,10 +1,11 @@
 @extends('layouts.apphome')
 
 @section('body')
-<h1>ここの箇所にボディーデータなどを入力して登録する画面を作る</h1>
+@component('components.hensyu')
+@endcomponent
 <form action="home2" method="post">
  {{csrf_field() }}
-<button class="dell" type='submit' name="dell" value=''>会員データ削除画面へ</button>
+<!--<button class="home2dell" name="dell" value="1" type='submit'>会員データ削除ページへ</button>-->
 </form>
 @endsection
 
