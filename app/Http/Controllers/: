@@ -36,44 +36,64 @@ class HomeController extends Controller
         return view('home',compact('user'));
     }
     public function homes(Request $request)
-    {       /*
+    {
 	    $users = Auth::user()->email;
             $moji1=$users;
             $moji1 = str_replace('@','',$moji1);
 	    $moji2 = str_replace('.','',$moji1);
-	    $user = $moji2;*/
-/*
-            session_start();
-            $user = $_SESSION['user'];
+	    $user = $moji2;
+
 	    $age = $request->input('age');
 	    $heavy = $request->input('heavy');
 	    $tall = $request->input('tall');
 	    $sexual = $request->input('sexual');
-           
-	    DB::table($user)->insert($param);*/
-	   //  return redirect('home2');       
-	     return view('home.home2',compact('tall')); 
+            
+	    $param = [ ['sexual'=>$sexual,'heavy'=>$heavy,'height'=>$tall] ];
+	    DB::table($user)->insert($param);
+	    
+	    //$dell = $request->input('dell');
+	      
+		    return redirect('home2');
+	    
+	    /* if(!empty($start)){
+              $moji1=$start;
+              $moji1 = str_replace('@','',$moji1);
+	      $moji2 = str_replace('.','',$moji1);
+	      $maketable = $start;
+	      session_start();
+	      $_SESSION['member'] = $maketable;
+	     }*/
+	    
+            //テーブルを作成するメソッド
+	    /*
+	    if(!empty($start)){
+	      $moji1=$start;
+	      $moji1 = str_replace('@','',$moji1);//文字を除外
+	      $moji2 = str_replace('.','',$moji1);//文字を除外
+	      $create = "create table $moji2(id int, name varchar(10), col varchar(10))";
+	      $make =$create;
+	      $createtable = DB::statement($make);
+	      //テーブルを削除するメソット
+	    }else if(!empty($dell)){
+	       $moji1=$dell;
+               $moji1 = str_replace('@','',$moji1);
+	       $moji2 = str_replace('.','',$moji1);
+	       $dell1 = "drop table $moji2";
+	       $delltable = DB::statement($dell1);
+	    }*/
+                   
+		   // return view('home.home2'); 
     }
     public function home2(Request $request)
-    {	   
+    {
+	   
 	    /*
 	    session_start();
 	    $member =  $_SESSION['member'];
 	    $syamu = DB::table('users')
 		    ->where('email','like', '%' .$member . '%')->get();
 	    return view('home.home2',compact('syamu'));*/
-	    // return redirect("homedell");
-	    session_start();
-            $user = $_SESSION['user'];
-            $age = $request->input('age');
-            $heavy = $request->input('heavy');
-            $tall = $request->input('tall');
-	    $sexual = $request->input('sexual');
-	    $param = [
-                        'age'=> $request->age,
-                        'heavy'=> $request->heavy,
-                ];
-            DB::table($user)->insert($param);
+            // return redirect("homedell");
 	    return view('home.home2');
     }
     public function home2p(Request $request)
