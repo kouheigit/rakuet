@@ -65,12 +65,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+    $dammy = [ 'age'=>null, ];
 	$moji1 = $data['email'];
         $moji1 = str_replace('@','',$moji1);
         $moji2 = str_replace('.','',$moji1);
-        $create = "create table $moji2(id int auto_increment,index(id),sexual varchar(1),height varchar(4),day varchar(20),weight integer(4), jiki varchar(1),target integer(2))";
+        $create = "create table $moji2(id int auto_increment,index(id), age integer(2),sexual varchar(1),height varchar(4),day varchar(20),weight integer(4), jiki varchar(1),target integer(2))";
         $make =$create;
-        $createtable = DB::statement($make);
+	$createtable = DB::statement($make);
+	DB::table($moji2)->insert($dammy);
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],

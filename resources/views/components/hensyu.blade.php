@@ -1,7 +1,6 @@
 <link rel="stylesheet" href="{{ asset('css/hensyu.css') }}">
 <form id ="soudai" action="home2" method="post">
-  {{ csrf_field() }}
-   
+  {{ csrf_field() }}   
   <h5 class="toshi">年齢</h5>
     <input type="number"class="age" name="age"min="12"maxlength="100">
      <p class="ages">歳</p>
@@ -20,5 +19,5 @@
  <p class="sintyo1">cm</p>
  </input>
  <br>
- <button class='homechange'type='submit'>ボディデータを登録する</button>
+ <button class='homechange'type='submit'>ボディーデータを登録する</button>
 </form>
