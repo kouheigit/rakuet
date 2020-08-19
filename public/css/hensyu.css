@@ -34,6 +34,7 @@ input.heavy{
  /* margin-top:150px;*/
   width:10%;
 }
+
 select.sexual{ 
   display:inline-block;
 　margin-left:150px;
@@ -109,13 +110,13 @@ h3.seibetu{
 color:black;
 font-family:'SimHei';
 font-weight:bold;
-font-size:20px;
+font-size:13px;
 }
 h2.hv{
 font-family:'SimHei';
 font-weight:bold;
 color:black;
-font-size:20px;
+font-size:13px;
 }
 input.heavy{
   width:30%;
@@ -127,7 +128,7 @@ h4.sintyo{
 font-family:'SimHei';
 font-weight:bold;
 color:black;
-font-size:20px;
+font-size:13px;
 }
 p.sintyo1{
   color:black;
@@ -142,27 +143,15 @@ button.homechange{
   margin-left:40px;
 }
 h5.toshi{
+font-size:13px;
 color:black;
 font-family:'SimHei';
 font-weight:bold;
 }
 }
-
-/*
-h3.seibetu{
-margin-top:-95px;
-margin-left:90px;
-color:black;
-font-family:'SimHei';
-font-weight:bold;
-font-size:20px;
+/*スピンボタンを消す*/
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
-
-
-h2.heavy{
-font-family:'SimHei';
-font-weight:bold;
-color:black;
-font-size:20px;
-}
-*/

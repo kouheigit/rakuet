@@ -52,7 +52,7 @@ class HomeController extends Controller
            
 	    DB::table($user)->insert($param);*/
 	   //  return redirect('home2');       
-	     return view('home.home2',compact('tall')); 
+	     return view('home.home2'); 
     }
     public function home2(Request $request)
     {	   
@@ -63,21 +63,23 @@ class HomeController extends Controller
 		    ->where('email','like', '%' .$member . '%')->get();
 	    return view('home.home2',compact('syamu'));*/
 	    // return redirect("homedell");
+	    return view('home.home2');
+    }
+    public function home2p(Request $request)
+    {
 	    session_start();
             $user = $_SESSION['user'];
             $age = $request->input('age');
             $heavy = $request->input('heavy');
             $tall = $request->input('tall');
-	    $sexual = $request->input('sexual');
-	    $param = [
-                        'age'=> $request->age,
-                        'heavy'=> $request->heavy,
+            $sexual = $request->input('sexual');
+            $param = [
+                        'weight'=> $request->heavy,
+                        'height'=> $request->tall,
                 ];
-            DB::table($user)->insert($param);
-	    return view('home.home2');
-    }
-    public function home2p(Request $request)
-    {
+	    DB::table($user)->insert($param);
+	    return redirect('home2'); 
+	 /*削除用メソット後になって必要にある
 	 $dell = $request->input('dell');
 	 $age = $request->input('age');   
 	 if(!empty($dell)){
@@ -86,7 +88,7 @@ class HomeController extends Controller
 		 //ここでデータ・ベースへの登録処理をする
 		 //↓　下の奴はデータ・ベースへ値を入力したら消すか変える
 		 return redirect("home");
-	} 
+	 } */
     }
     public function homedell(Request $request)
     {

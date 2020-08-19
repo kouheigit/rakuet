@@ -68,7 +68,7 @@ class RegisterController extends Controller
 	$moji1 = $data['email'];
         $moji1 = str_replace('@','',$moji1);
         $moji2 = str_replace('.','',$moji1);
-        $create = "create table $moji2(sexual varchar(1),height varchar(4),day varchar(20),weight integer(4), jiki varchar(1),target integer(2))";
+        $create = "create table $moji2(id int auto_increment,index(id),sexual varchar(1),height varchar(4),day varchar(20),weight integer(4), jiki varchar(1),target integer(2))";
         $make =$create;
         $createtable = DB::statement($make);
         return User::create([
