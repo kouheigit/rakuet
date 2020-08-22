@@ -30,10 +30,8 @@ class HomeController extends Controller
             $moji1 = str_replace('@','',$moji1);
             $moji2 = str_replace('.','',$moji1);
 	    $user = $moji2; 
-	    session_start();
-	    $_SESSION['user'] = $user;
-
-        return view('home',compact('user'));
+            $age = DB::table($user)->where('id','name as age')->get();	   
+        return view('home',compact('age'));
     }
     public function homes(Request $request)
     {       
