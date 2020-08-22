@@ -30,7 +30,7 @@ class HomeController extends Controller
             $moji1 = str_replace('@','',$moji1);
             $moji2 = str_replace('.','',$moji1);
 	    $user = $moji2; 
-            $age = DB::table($user)->where('id','name as age')->get();	   
+	    $age = DB::table($user)->select('age')->get();
         return view('home',compact('age'));
     }
     public function homes(Request $request)
@@ -45,14 +45,8 @@ class HomeController extends Controller
 	     return view('home.home2',compact('users')); 
     }
     public function home2(Request $request)
-    {	   
-	    $users = Auth::user()->email;
-            $moji1=$users;
-            $moji1 = str_replace('@','',$moji1);
-            $moji2 = str_replace('.','',$moji1);
-            $user = $moji2;
-            $users =  DB::table($user)->where('id',1)->first();
-	    return view('home.home2',compact('users'));
+    {	  
+            return redirect('home');
     }
     public function home2post(Request $request)
     {
