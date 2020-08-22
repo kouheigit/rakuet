@@ -48,13 +48,14 @@ class HomeController extends Controller
     }
     public function home2(Request $request)
     {	   
-	    $users = Auth::user()->email;
-            $moji1=$users;
-            $moji1 = str_replace('@','',$moji1);
-            $moji2 = str_replace('.','',$moji1);
-            $user = $moji2;
-            $users =  DB::table($user)->where('id',1)->first();
-	    return view('home.home2',compact('users'));
+	    /*
+	    session_start();
+	    $member =  $_SESSION['member'];
+	    $syamu = DB::table('users')
+		    ->where('email','like', '%' .$member . '%')->get();
+	    return view('home.home2',compact('syamu'));*/
+	    // return redirect("homedell");
+	    return view('home.home2');
     }
     public function home2post(Request $request)
     {
