@@ -19,10 +19,8 @@
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
-		    @endif
-		    {{$BMI}}
-                    {{$himan}}
-                    {{$BMR}}	
+	           @endif 
+                    {{$atai->age}}
 		    @component('components.homeform')
                     @endcomponent     
                 </div>
