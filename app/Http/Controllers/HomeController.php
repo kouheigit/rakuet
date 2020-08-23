@@ -26,6 +26,7 @@ class HomeController extends Controller
     public function index()
     {
 	    $users = Auth::user()->email;//user情報の取り出しemailの読み込み(重要)
+	    $name = Auth::user()->name;
 	    $moji1=$users;
             $moji1 = str_replace('@','',$moji1);
             $moji2 = str_replace('.','',$moji1);
@@ -34,6 +35,8 @@ class HomeController extends Controller
 	    $age = $atai->age;
 	    $sexual =$atai->sexual;
 	    $height =$atai->height;
+	    //体重はdiaryから最新のデータを取ってくる
+	    //$ataiとは違うクエリを作り下の文も適宜変更する
 	    $weight =$atai->weight;
 	    
 	    //BMIの計算
@@ -80,7 +83,7 @@ class HomeController extends Controller
 		    $himan="未入力の項目があります";
 	    }
 
-	    return view('home',compact('BMI','BMR','himan'));
+	    return view('home',compact('BMI','BMR','himan','name'));
 	    }	    
 	   } 
 	    

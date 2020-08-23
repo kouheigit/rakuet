@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="{{ asset('css/homeform.css') }}">
-<p class="homedai">{{ Auth::user()->name }}さんようこそラックエットへ</p>
 <!--     {{ Auth::user()->email }}-->
 <form action="home" method="post">
    {{csrf_field() }}

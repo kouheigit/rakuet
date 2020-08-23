@@ -17,12 +17,13 @@
 		  <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+                             {{ session('status') }}
                         </div>
 		    @endif
-		    {{$BMI}}
-                    {{$himan}}
-                    {{$BMR}}	
+                   <p>{{$name}}さんのボディデータ</p>
+		   <p>{{$name}}さんのBMIは{{$BMI}}です</p>
+                   <p>{{$name}}さんの肥満度は{{$himan}}です</p>
+                   <p>{{$name}}さんの基礎代謝量は{{$BMR}}kcalです</p>
 		    @component('components.homeform')
                     @endcomponent     
                 </div>
