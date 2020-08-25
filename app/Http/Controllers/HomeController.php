@@ -38,6 +38,13 @@ class HomeController extends Controller
 	    //体重はdiaryから最新のデータを取ってくる
 	    //$ataiとは違うクエリを作り下の文も適宜変更する
 	    $weight =$atai->weight;
+	    if(is_null($height)&&is_null($weight)&&is_null($age)&&is_null($sexual))
+	    {
+		    $BMI = "未入力の項目がありしたので表示出来ませんでした";
+		    $BMR = "未入力の項目がありましたので表示できませんでした";
+		    $himan="未入力の項目がありましたので表示できませんでした";
+		    return view('home',compact('BMI','BMR','himan','name'));
+	    }else{
 	    
 	    //BMIの計算
 	    if(!is_null($height)&&!is_null($weight))
@@ -47,7 +54,7 @@ class HomeController extends Controller
 	       $kei = $weight / $height2;
 	       $BMI = round($kei);
 	    }else{
-		    $BMI = "未入力項目があります";
+		    $BMI = null;
 	    }
 
 	    //基礎代謝の計算
@@ -67,24 +74,29 @@ class HomeController extends Controller
 	    }
 	    
 	    //肥満度の計算
-	    if(18 > $BMI){
-		    $himan ="低体重";
+
+	    if(is_null($BMI)){
+		    $BMI ="未入力の項目があります";
+		    $himan ="未入力の項目があります";
+	    }elseif(18 > $BMI){
+		    $himan ="低体重です";
 	    }elseif($BMI >=18 && $BMI < 25){
-		    $himan ="普通体重";
+		    $himan ="普通体重です";
 	    }elseif($BMI >=25  && $BMI < 30){
-		    $himan ="肥満度１";
+		    $himan ="肥満度１です";
 	    }elseif($BMI >= 30 && $BMI < 35){
-		    $himan ="肥満度２";
+		    $himan ="肥満度２です";
 	    }elseif($BMI >= 35 && $BMI < 40){
-		    $himan ="肥満度３";
+		    $himan ="肥満度３です";
 	    }elseif($BMI > 40){
-		    $himan ="肥満度４";
+		    $himan ="肥満度４です";
 	    }else{
 		    $himan="未入力の項目があります";
 	    }
 
 	    return view('home',compact('BMI','BMR','himan','name'));
-	    }	    
+	     }	  
+	    }  
 	   } 
 	    
     public function homes(Request $request)

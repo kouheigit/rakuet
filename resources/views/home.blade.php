@@ -21,9 +21,9 @@
                         </div>
 		    @endif
                    <p>{{$name}}さんのボディデータ</p>
-		   <p>{{$name}}さんのBMIは{{$BMI}}です</p>
-                   <p>{{$name}}さんの肥満度は{{$himan}}です</p>
-                   <p>{{$name}}さんの基礎代謝量は{{$BMR}}kcalです</p>
+		   <p>{{$name}}さんのBMIは{{$BMI}}</p>
+                   <p>{{$name}}さんの肥満度は{{$himan}}</p>
+                   <p>{{$name}}さんの基礎代謝量は{{$BMR}}</p>
 		    @component('components.homeform')
                     @endcomponent     
                 </div>
