@@ -6,6 +6,7 @@ body {
 	line-height:2;
 	background: url("../img/fast1.jpg") no-repeat center center;
 	background-size: 1350px;
+	background-repeat: repeat-y;
 }
 img{
 

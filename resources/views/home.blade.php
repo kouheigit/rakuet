@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="https://cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
 <link rel="stylesheet" href="https://cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
 <!--cssファイル-->
-<!--<link rel="stylesheet" href="{{ asset('css/home.css') }}">-->
+<link rel="stylesheet" href="{{ asset('css/home.css') }}">
 <!--jsファイルを読み込む-->
 <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
 <script src="https://unpkg.com/scrollreveal"></script>
@@ -19,14 +19,16 @@
                         <div class="alert alert-success" role="alert">
                              {{ session('status') }}
                         </div>
-		   @endif
-                  <img class="logo" src="{{$gazou}}" width="200" height="200">
-		   <p>{{$name}}さんのボディデータ</p>
-                   <p>{{$name}}さんの現在の体重は{{$weight}}です</p>
-		   <p>{{$name}}さんのBMIは{{$BMI}}</p>
-		   <p>{{$name}}さん{{$himan}}</p>
-                   <p>{{$setumei}}</p>
-                   <p>{{$name}}さんの基礎代謝量は{{$BMR}}</p>
+		@endif
+		   <img class="gazou" src="{{$gazou}}">
+                  <div id="moji">
+		   <h1>{{$name}}さんのボディデータ</h1>
+                   <h2>{{$name}}さんの現在の体重は{{$weight}}</h2>
+		   <h2>{{$name}}さんのBMIは{{$BMI}}</h2>
+		   <h2>{{$name}}さん{{$himan}}</h2>
+                   <h2>{{$setumei}}</h2>
+		   <h2>{{$name}}さんの基礎代謝量は{{$BMR}}</h2>
+		 </div> 
 		    @component('components.homeform')
                     @endcomponent     
                 </div>
@@ -34,8 +36,11 @@
         </div>
     </div>
 </div>
+<p class="test">test</p>
+<div id="button">
 @component('components.menu')
 @endcomponent
+</div>
 
 <!--end-->
 <!--js-->

@@ -1,0 +1,33 @@
+@charset"UTF-8";
+p.test{
+margin-top:800px;
+}
+h1{
+font-size:20px;
+font-weight:bold;
+}
+h2{
+font-size:17px;
+font-weight:bold;
+}
+
+
+@media screen and (min-width:768px) and ( max-width:1300px) {
+img.gazou{
+margin-left:400px;
+width: 200px;
+height:200px;
+}
+.hutoi{
+font-weight: bold;
+}
+#moji{
+margin-top:-200px;
+}
+}
+
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+button.change{
+margin-left:30px;
+}
+}

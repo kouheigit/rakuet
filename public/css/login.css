@@ -3,6 +3,7 @@
 body{
 	background: url("../img/fast1.jpg") no-repeat center center;
 	background-size: 1550px;
+	background-repeat: repeat-y;
 }
 
 h3{

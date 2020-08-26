@@ -46,7 +46,7 @@ class HomeController extends Controller
 		    $BMR = "未入力の項目がありましたので表示できませんでした";
 		    $weight="未入力の項目がありましたので表示できませんでした";
 		    $himan="肥満度は未入力の項目がありましたので表示できませんでした";
-		    $gazou = null;
+		    $gazou ='img/dummy.png';
 		    $setumei = null;
 		    return view('home',compact('BMI','BMR','himan','name','weight','gazou','setumei'));
 	    }else{
@@ -91,7 +91,7 @@ class HomeController extends Controller
 		    $himan ="未入力の項目があります";
 		    $setumei = null;
 	    }elseif(18 > $BMI){
-		    $himan ="低体重です";
+		    $himan ="は低体重です";
 		    $setumei = null;
             if($sexual=="女"){
                      $gazou ='img/woman.png';
@@ -133,9 +133,9 @@ class HomeController extends Controller
 		    $himan ="は肥満度４です";
 		    $setumei ="高度肥満になります";
 	   if($sexual=="女"){
-                    $gazou ="{{ asset('img/woman4.png') }}";
+                    $gazou ='img/woman5.png';
             }else{
-                    $gazou ="{{ asset('img/man4.png') }}";
+                    $gazou ='img/man5.png';
             }
 
 	    }else{
@@ -145,7 +145,7 @@ class HomeController extends Controller
            //画像処理
 
 	    //weightの文字列結合は必ず一番最後にする
-	    $weight.="kg";
+	    $weight.="kgです";
 
 	    return view('home',compact('BMI','BMR','himan','name','weight','setumei','gazou'));
 	     }	  
