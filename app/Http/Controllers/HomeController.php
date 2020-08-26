@@ -47,7 +47,8 @@ class HomeController extends Controller
 		    $weight="未入力の項目がありましたので表示できませんでした";
 		    $himan="肥満度は未入力の項目がありましたので表示できませんでした";
 		    $gazou = null;
-		    return view('home',compact('BMI','BMR','himan','name','weight','gazou'));
+		    $setumei = null;
+		    return view('home',compact('BMI','BMR','himan','name','weight','gazou','setumei'));
 	    }else{
 	    
 	    //BMIの計算
