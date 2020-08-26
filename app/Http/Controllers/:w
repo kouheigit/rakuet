@@ -92,61 +92,29 @@ class HomeController extends Controller
 	    }elseif(18 > $BMI){
 		    $himan ="低体重です";
 		    $setumei = null;
-            if($sexual=="女"){
-                     $gazou ='img/woman.png';
-	    }else{
-	             $gazou ='img/man.png';
-            }
 	    }elseif($BMI >=18 && $BMI < 25){
 		    $himan ="は適正体重です";
 		    $setumei = null;
-	   if($sexual=="女"){
-		   $gazou ='img/woman1.png';
-            }else{
-		    $gazou='img/man1.png';
-	    }
 	    }elseif($BMI >=25  && $BMI < 30){
 		    $himan ="は肥満度１です";
-	   if($sexual=="女"){
-		   $gazou ='img/woman2.png';
-            }else{
-		    $gazou ='img/man2.png';
-            }
 	    }elseif($BMI >= 30 && $BMI < 35){
 		    $himan ="は肥満度２です";
 		    $setumei =null;
-	    if($sexual=="女"){
-		    $gazou ='img/woman3.png';
-            }else{
-		    $gazou ='img/man3.png';
-	    }	    
 	    }elseif($BMI >= 35 && $BMI < 40){
 		    $himan ="は肥満度３です";
 		    $setumei ="高度肥満になります";
-	    if($sexual=="女"){
-                    $gazou ='img/woman4.png';
-            }else{
-                    $gazou ='img/man4.png';
-            }            
 	    }elseif($BMI > 40){
 		    $himan ="は肥満度４です";
 		    $setumei ="高度肥満になります";
-	   if($sexual=="女"){
-                    $gazou ="{{ asset('img/woman4.png') }}";
-            }else{
-                    $gazou ="{{ asset('img/man4.png') }}";
-            }
-
 	    }else{
 		    $himan="未入力の項目があります";
 	    }
 
-           //画像処理
 
 	    //weightの文字列結合は必ず一番最後にする
 	    $weight.="kg";
 
-	    return view('home',compact('BMI','BMR','himan','name','weight','setumei','gazou'));
+	    return view('home',compact('BMI','BMR','himan','name','weight','setumei'));
 	     }	  
 	    }  
 	   } 

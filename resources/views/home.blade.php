@@ -19,10 +19,13 @@
                         <div class="alert alert-success" role="alert">
                              {{ session('status') }}
                         </div>
-		    @endif
-                   <p>{{$name}}さんのボディデータ</p>
+		   @endif
+                  <img class="logo" src="{{$gazou}}" width="200" height="200">
+		   <p>{{$name}}さんのボディデータ</p>
+                   <p>{{$name}}さんの現在の体重は{{$weight}}です</p>
 		   <p>{{$name}}さんのBMIは{{$BMI}}</p>
-                   <p>{{$name}}さんの肥満度は{{$himan}}</p>
+		   <p>{{$name}}さん{{$himan}}</p>
+                   <p>{{$setumei}}</p>
                    <p>{{$name}}さんの基礎代謝量は{{$BMR}}</p>
 		    @component('components.homeform')
                     @endcomponent     
