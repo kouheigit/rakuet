@@ -71,58 +71,16 @@ margin-top:-190px;
 }
 
 @media only screen and (min-width: 320px) and (max-width: 768px) {
-h1{
-  font-size:15px;
-  position: relative;
-  width:250px;
-  padding: 20px;
-  background-color: #ffecb3;
-  border-radius: 10px;
-  box-shadow: 6px 6px 0px 0px #ffcc80;/*影*/
-  margin-bottom: 2em;
-}
-
-
-h1::after{
-  content: '';
-  position: absolute;
-  display: block;
-  width: 0;
-  height: 0;
-  left: 20px;
-  bottom: -15px;
-  border-top: 15px solid #ffecb3;
-  border-right: 15px solid transparent;
-  border-left: 15px solid transparent;
-}
-
-h1::before{
-  content: '';
-  position: absolute;
-  display: block;
-  width: 0;
-  height: 0;
-  left: 27px;
-  bottom: -18px;
-  border-top: 15px solid #ffcc80;
-  border-right: 15px solid transparent;
-  border-left: 15px solid transparent;
-}
-
-#moji{
-margin-top:75px;
-margin-left:20px;
-}
 p.mei{
-margin-top:-340px;
-margin-left:40px;
+margin-top:-210px;
+margin-left:30px;
 font-size:14px;
 font-weight:bold;
 }
 
 
 button.change{
-margin-top:310px;
-margin-left:30px;
+margin-top:220px;
+margin-left:10px;
 }
 }

@@ -38,16 +38,17 @@ class HomeController extends Controller
 	    //体重はdiaryから最新のデータを取ってくる
 	    //$ataiとは違うクエリを作り下の文も適宜変更する
 	    $weight =$atai->weight;
+	    $setumei = null;
 
 
-	    if(is_null($height)&&is_null($weight)&&is_null($age)&&is_null($sexual))
+	    if(is_null($height)&&is_null($weight)&&is_null($age)&&is_null($sexual)&&is_null($setumei))
 	    {
 		    $BMI = "未入力の項目がありましたので表示出来ませんでした";
 		    $BMR = "未入力の項目がありましたので表示できませんでした";
 		    $weight="未入力の項目がありましたので表示できませんでした";
 		    $himan="肥満度は未入力の項目がありましたので表示できませんでした";
 		    $gazou ='img/dummy.png';
-		    $setumei = null;
+		    $setumei ='';
 		    return view('home',compact('BMI','BMR','himan','name','weight','gazou','setumei'));
 	    }else{
 	    

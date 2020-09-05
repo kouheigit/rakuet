@@ -21,13 +21,14 @@
                         </div>
 		@endif
 		   <img class="gazou" src="{{$gazou}}">
-                  <div id="moji">
+		  <div id="moji">
 		   <h1>{{$name}}さんのボディデータ</h1>
                    <h2>{{$name}}さんの現在の体重は{{$weight}}</h2>
 		   <h2>{{$name}}さんのBMIは{{$BMI}}</h2>
-		   <h2>{{$name}}さん{{$himan}}</h2>
+		   <!--元あった場所-->
                    <h2>{{$setumei}}</h2>
 		   <h2>{{$name}}さんの基礎代謝量は{{$BMR}}</h2>
+                   <p class="mei">{{$name}}さん{{$himan}}</p>
 		 </div> 
 		    @component('components.homeform')
                     @endcomponent     
