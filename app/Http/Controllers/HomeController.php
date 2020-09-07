@@ -23,7 +23,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
 	    $users = Auth::user()->email;//user情報の取り出しemailの読み込み(重要)
 	    $name = Auth::user()->name;
@@ -39,6 +39,7 @@ class HomeController extends Controller
 	    //$ataiとは違うクエリを作り下の文も適宜変更する
 	    $weight =$atai->weight;
 	    $setumei = null;
+	    
 
 
 	    if(is_null($height)&&is_null($weight)&&is_null($age)&&is_null($sexual)&&is_null($setumei))
@@ -155,6 +156,10 @@ class HomeController extends Controller
 	    
     public function homes(Request $request)
     {       
+	    $dells = $request->input('dells');
+	    if($dells=='1'){
+		   return redirect('homedell');
+             }
 	    $users = Auth::user()->email;
             $moji1=$users;
             $moji1 = str_replace('@','',$moji1);

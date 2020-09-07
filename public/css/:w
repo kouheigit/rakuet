@@ -1,86 +1,17 @@
 @charset"UTF-8";
-p.test{
-/*画面の大きさを広げるCSS*/
-margin-top:800px;
-}
-h1{
-font-size:20px;
-font-weight:bold;
-}
-h2{
-font-size:17px;
-font-weight:bold;
-}
-
-
 @media screen and (min-width:768px) and ( max-width:1300px) {
-
-h1{
-  position: relative;
-  width:350px;
-  padding: 20px;
-  background-color: #ffecb3;
-  border-radius: 10px;
-  box-shadow: 6px 6px 0px 0px #ffcc80;/*影*/
-  margin-bottom: 2em;
+.change{
+/*position:absolute;*/
+margin-top:-85px;
+margin-left:230px;
 }
-
-
-h1::after{
-  content: '';
-  position: absolute;
-  display: block;
-  width: 0;
-  height: 0;
-  left: 20px;
-  bottom: -15px;
-  border-top: 15px solid #ffecb3;
-  border-right: 15px solid transparent;
-  border-left: 15px solid transparent;
-}
-
-h1::before{
-  content: '';
-  position: absolute;
-  display: block;
-  width: 0;
-  height: 0;
-  left: 27px;
-  bottom: -18px;
-  border-top: 15px solid #ffcc80;
-  border-right: 15px solid transparent;
-  border-left: 15px solid transparent;
-}
-p.mei{
-margin-top:-40px;
-font-size:14px;
-font-weight:bold;
-margin-left:410px;
-}
-img.gazou{
-margin-left:400px;
-width: 200px;
-height:200px;
-}
-.hutoi{
-font-weight: bold;
-}
-#moji{
-margin-top:-190px;
+button.dell{
+color:#ff0000;
 }
 }
-
 @media only screen and (min-width: 320px) and (max-width: 768px) {
-p.mei{
-margin-top:-210px;
-margin-left:30px;
-font-size:14px;
-font-weight:bold;
+.change{
+margin-left:50px;
+}
 }
 
-
-button.change{
-margin-top:220px;
-margin-left:10px;
-}
-}

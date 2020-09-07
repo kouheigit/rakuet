@@ -29,9 +29,27 @@
                    <h2>{{$setumei}}</h2>
 		   <h2>{{$name}}さんの基礎代謝量は{{$BMR}}</h2>
                    <p class="mei">{{$name}}さん{{$himan}}</p>
-		 </div> 
-		    @component('components.homeform')
-                    @endcomponent     
+		 </div>
+                 @component('components.homeform')
+                 @endcomponent
+		 <img class="swim" src="{{ asset('img/swimming.png') }}">
+		  <p class="sport">水泳の1時間あたりの消費カロリー:700kcal</p>
+　               <img class="cycle" src="{{ asset('img/cycle.png') }}">
+		  <p class="sport1">サイクリング1時間あたりの消費カロリー:300kcal</p>
+                    <img class="running" src="{{ asset('img/running.png') }}">
+		  <p class="sport2">ランニング30分あたりの消費カロリー:280kcal</p>
+                  <img class="working" src="{{ asset('img/working.png') }}">
+		  <p class="sport3">ウォーキング1時間あたりの消費カロリー:220kcal</p>
+　　　　　　　　　<img class="kaji" src="{{ asset('img/kaji.png') }}">
+		  <p class="sport4">家事1時間あたりの消費カロリー:80kcal</p>
+                  <img class="kick" src="{{ asset('img/kick.png') }}">
+		  <p class="sport5">キックボクシング1時間あたりの消費カロリー:80kcal</p>
+               <div id="dell">
+                  @component('components.dell')
+		  @endcomponent
+	       </div>
+		  <p class="boxtest"></p>
+                  
                 </div>
             </div>
         </div>
