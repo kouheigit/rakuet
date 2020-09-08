@@ -43,7 +43,7 @@
 　　　　　　　　　<img class="kaji" src="{{ asset('img/kaji.png') }}">
 		  <p class="sport4">家事1時間あたりの消費カロリー:80kcal</p>
                   <img class="kick" src="{{ asset('img/kick.png') }}">
-		  <p class="sport5">キックボクシング1時間あたりの消費カロリー:80kcal</p>
+		  <p class="sport5">キックボクシング1時間あたりの消費カロリー:500kcal</p>
                <div id="dell">
                   @component('components.dell')
 		  @endcomponent

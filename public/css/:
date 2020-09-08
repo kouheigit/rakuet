@@ -210,8 +210,8 @@ font-weight:bold;
 }
 
 img.cycle{
-margin-top:-110px;
-margin-left:175px;
+margin-top:-30px;
+margin-left:-10px;
 width: 60px;
 height: 60px;
 }
