@@ -49,7 +49,7 @@ class HomeController extends Controller
 		    $BMR = "未入力の項目がありましたので表示できませんでした";
 		    $weight="未入力の項目がありましたので表示できませんでした";
 		    $himan="";
-		    $gazou ='img/dummy.png';
+		    $gazou ='img/hatena.png';
 		    $setumei ='';
 		    return view('home',compact('BMI','BMR','himan','name','weight','gazou','setumei'));
 	    }else{
