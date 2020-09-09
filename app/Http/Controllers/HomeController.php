@@ -23,7 +23,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+     public function index(Request $request)
     {
 	    $users = Auth::user()->email;//user情報の取り出しemailの読み込み(重要)
 	    $name = Auth::user()->name;
@@ -38,16 +38,19 @@ class HomeController extends Controller
 	    //体重はdiaryから最新のデータを取ってくる
 	    //$ataiとは違うクエリを作り下の文も適宜変更する
 	    $weight =$atai->weight;
+	    $setumei = null;
+	    $BMR1 = null;
+	    
 
 
-	    if(is_null($height)&&is_null($weight)&&is_null($age)&&is_null($sexual))
+	    if(is_null($height)&&is_null($weight)&&is_null($age)&&is_null($sexual)&&is_null($setumei))
 	    {
 		    $BMI = "未入力の項目がありましたので表示出来ませんでした";
 		    $BMR = "未入力の項目がありましたので表示できませんでした";
 		    $weight="未入力の項目がありましたので表示できませんでした";
-		    $himan="肥満度は未入力の項目がありましたので表示できませんでした";
-		    $gazou ='img/dummy.png';
-		    $setumei = null;
+		    $himan="";
+		    $gazou ='img/hatena.png';
+		    $setumei ='';
 		    return view('home',compact('BMI','BMR','himan','name','weight','gazou','setumei'));
 	    }else{
 	    
@@ -66,23 +69,32 @@ class HomeController extends Controller
 	    //基礎代謝の計算
 	    if(is_null($sexual)){
 		    $BMR = "未入力の項目があったので表示出来ませんでした";
+		    $hantei ="";
 	     }else{
 	    if(($sexual=="男")&&(!is_null($age)&&!is_null($height)&&!is_null($weight))){
 		    $kei1 = 13.397 * $weight +4.799 * $height - 5.677 * $age + 88.362;
 		    $BMR1 = round($kei1);
 		    $BMR = $BMR1;
+		    $BMR2 = $BMR1 + 300;
+		    $BMR3 = $BMR1 + 100;
 		    $BMR.="kcalです";
+		    $hantei="1";
 
 	    }elseif(($sexual=="女")&&(!is_null($age)&&!is_null($height)&&!is_null($weight)))
 	    {
 		    $kei1 =  9.247 * $weight + 3.098 *  $height - 4.33 * $age + 447.593;
 		    $BMR1 = round($kei1);
 		    $BMR = $BMR1;
+		    $BMR2 = $BMR1 + 300;
+                    $BMR3 = $BMR1 + 100;
 		    $BMR.="kcalです";
+		    $hantei="1"; 
 	    }else{
+		    $BMR1=null;
+		    $hantei  = "";
 		    $BMR = "未入力の項目があったので表示できませんでした";
 	    }
-	    
+	
 	    //肥満度の計算
 
 	    if(is_null($BMI)){
@@ -91,7 +103,7 @@ class HomeController extends Controller
 		    $himan ="未入力の項目があります";
 		    $setumei = null;
 	    }elseif(18 > $BMI){
-		    $himan ="は低体重です";
+		    $himan =$name."さんの体重は低体重です";
 		    $setumei = null;
             if($sexual=="女"){
                      $gazou ='img/woman.png';
@@ -99,7 +111,7 @@ class HomeController extends Controller
 	             $gazou ='img/man.png';
             }
 	    }elseif($BMI >=18 && $BMI < 25){
-		    $himan ="は適正体重です";
+		    $himan =$name."さんの体重は適正体重です";
 		    $setumei = null;
 	   if($sexual=="女"){
 		   $gazou ='img/woman1.png';
@@ -107,14 +119,14 @@ class HomeController extends Controller
 		    $gazou='img/man1.png';
 	    }
 	    }elseif($BMI >=25  && $BMI < 30){
-		    $himan ="は肥満度１です";
+		    $himan =$name."肥満度は１です";
 	   if($sexual=="女"){
 		   $gazou ='img/woman2.png';
             }else{
 		    $gazou ='img/man2.png';
             }
 	    }elseif($BMI >= 30 && $BMI < 35){
-		    $himan ="は肥満度２です";
+		    $himan =$name."さんの肥満度は２です";
 		    $setumei =null;
 	    if($sexual=="女"){
 		    $gazou ='img/woman3.png';
@@ -122,15 +134,15 @@ class HomeController extends Controller
 		    $gazou ='img/man3.png';
 	    }	    
 	    }elseif($BMI >= 35 && $BMI < 40){
-		    $himan ="は肥満度３です";
+		    $himan =$name."さんの肥満度は３です";
 		    $setumei ="高度肥満になります";
 	    if($sexual=="女"){
                     $gazou ='img/woman4.png';
             }else{
                     $gazou ='img/man4.png';
             }            
-	    }elseif($BMI > 40){
-		    $himan ="は肥満度４です";
+	    }elseif($BMI >= 40){
+		    $himan = $name."さんの肥満度は４です";
 		    $setumei ="高度肥満になります";
 	   if($sexual=="女"){
                     $gazou ='img/woman5.png';
@@ -147,13 +159,17 @@ class HomeController extends Controller
 	    //weightの文字列結合は必ず一番最後にする
 	    $weight.="kgです";
 
-	    return view('home',compact('BMI','BMR','himan','name','weight','setumei','gazou'));
+	    return view('home',compact('BMI','BMR','hantei','BMR1','BMR2','BMR3','himan','name','weight','setumei','gazou'));
 	     }	  
 	    }  
-	   } 
-	    
+     }
+
     public function homes(Request $request)
     {       
+	    $dells = $request->input('dells');
+	    if($dells=='1'){
+		   return redirect('homedell');
+             }
 	    $users = Auth::user()->email;
             $moji1=$users;
             $moji1 = str_replace('@','',$moji1);

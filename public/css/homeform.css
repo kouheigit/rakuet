@@ -1,4 +1,9 @@
 @charset"UTF-8";
+button.dell{
+background-color: #ff0000;
+border-color:red;
+}
+
 @media screen and (min-width:768px) and ( max-width:1300px) {
 .change{
 /*position:absolute;*/
