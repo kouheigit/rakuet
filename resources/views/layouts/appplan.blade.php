@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="https://cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
 <link rel="stylesheet" href="https://cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
 <!--cssファイル-->
-<link rel="stylesheet" href="{{ asset('css/layout.css') }}">
+<!--<link rel="stylesheet" href="{{ asset('css/layout.css') }}">-->
 <!--このファイル専門のCSS-->
 <!--jsファイルを読み込む-->
 <script src="https://code.jquery.com/jquery-1.11.3.js"></script>

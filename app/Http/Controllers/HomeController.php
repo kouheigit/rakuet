@@ -119,7 +119,7 @@ class HomeController extends Controller
 		    $gazou='img/man1.png';
 	    }
 	    }elseif($BMI >=25  && $BMI < 30){
-		    $himan =$name."肥満度は１です";
+		    $himan =$name."さんの肥満度は１です";
 	   if($sexual=="女"){
 		   $gazou ='img/woman2.png';
             }else{
@@ -200,11 +200,11 @@ class HomeController extends Controller
 	     }
 	   if(!is_null($heavy)){
                     DB::table($user)->where('id',1)->update(['weight'=>$heavy]);
-	   }    
+           } 
            if(!is_null($tall)){
                     DB::table($user)->where('id',1)->update(['height'=>$tall]);
 	   }
-	   if(!is_null($sexual)){
+	   if(!is_null($sexual)&&$sexual==!'0'){
                     DB::table($user)->where('id',1)->update(['sexual'=>$sexual]);
              }
 	    return redirect('home2'); 

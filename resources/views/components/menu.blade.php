@@ -2,9 +2,9 @@
 <div class ="menubar">
  <ul id="uls">
     <li class="lis"><p class="forms">diary</p></li>
-    <li class="lis"><p class="forms">ダイエットプラン</p></li>
+    <li class="lis"><a href="plan" class="forms">ダイエットプラン</a></li>
     <li class="lis"><p class="forms">グラフ</p></li>
     <li class="lis"><a href="home" class="forms">ホーム</a></li>
-    <li class="lis"><p class="forms">ボディデータ</p></li>
+    <li class="lis"><p class="forms">楽エットについて</p></li>
  </ul>
 </div>
