@@ -20,7 +20,14 @@ class planController extends Controller
             $moji2 = str_replace('.','',$moji1);
             $user = $moji2;
 	    $users =  DB::table($user)->where('id',1)->first();
-	    return view('plan.plan',compact('users'));
+	    return view('plan.plan',compact('users','users1'));
+	}
+	public function plan(Request $request)
+	{
+		$period = $request->input('period');
+		session_start();
+		$_SESSION['period'] = $period;
+		return view('plan.plan1');
 	}
 	public function result(Request $request)
 	{

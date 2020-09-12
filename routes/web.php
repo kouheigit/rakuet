@@ -33,5 +33,6 @@ Route::post('home2','HomeController@home2post');
 Route::get('homedell','HomeController@homedell');
 Route::post('dellmember','HomeController@dellmember');
 Route::get('plan','planController@index');
+Route::post('plan1','planController@plan');
 Route::get('result','planController@result');
 
