@@ -32,35 +32,7 @@ class planController extends Controller
 		session_start();
 		$_SESSION['period'] = $period;
 		$_SESSION['weight'] = $weight;
-                
-	switch($period)
-	{
-		case"14":
-			$periods="2週間";
-			break;
 
-		case"30":
-			$periods="1ヶ月";
-			break;
-
-		case"60":
-			$periods="2ヶ月";
-			break;
-		case"90":
-			$periods="3ヶ月";
-			break;
-		case"120":
-			$periods="4ヶ月";
-			break;
-		case"150":
-			$periods="5ヶ月";
-			break;
-		case"180":
-			$periods="6ヶ月";
-			break;
-
-	}
-                 
 		return view('plan.plan1',compact('weight','periods'));
 	}
 	public function result(Request $request)

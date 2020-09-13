@@ -14,17 +14,8 @@ margin-left:385px;
 font-weight:bold;
 color:black;
 }
-
-input#hev{
-position:absolute;	
-margin-left:400px;
-margin-top:-50px;
-width:20%;
-}
-p.hevkg{
-position:absolute;
-margin-left:540px;
-margin-top:-45px;
+input.heavy{
+width:30%;
 }
 
 select.period{
