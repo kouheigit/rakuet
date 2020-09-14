@@ -40,8 +40,7 @@ class HomeController extends Controller
 	    $weight =$atai->weight;
 	    $setumei = null;
 	    $BMR1 = null;
-	    
-
+	 
 
 	    if(is_null($height)&&is_null($weight)&&is_null($age)&&is_null($sexual)&&is_null($setumei))
 	    {

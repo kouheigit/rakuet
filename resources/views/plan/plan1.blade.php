@@ -4,4 +4,5 @@
 @section('body')
 <h6>{{$weight}}</h6>
 <p>{{$periods}}</p>
+<p>{{$genryo}}</p>
 @endsection

@@ -23,7 +23,8 @@ class planController extends Controller
 	    $weight = $users->weight;
 	    session_start();
 	    $_SESSION['users'] = $users; 
-	    return view('plan.plan',compact('users','weight'));
+	    $beforeweight = $_SESSION['error'];
+	    return view('plan.plan',compact('users','weight','beforeweight'));
 	}
 	public function plan(Request $request)
 	{
@@ -32,7 +33,11 @@ class planController extends Controller
 		session_start();
 		$_SESSION['period'] = $period;
 		$_SESSION['weight'] = $weight;
-                
+		$_SESSION['error'] = null;
+                $users = $_SESSION['users'];
+		$beforeweight = $users->weight;
+		$genryo = $beforeweight - $weight;
+
 	switch($period)
 	{
 		case"14":
@@ -60,8 +65,15 @@ class planController extends Controller
 			break;
 
 	}
-                 
-		return view('plan.plan1',compact('weight','periods'));
+           if($beforeweight == $weight){
+                $_SESSION['error'] = '目標体重が変わっていません';
+		return redirect('plan');
+	   }elseif($periods=="2週間"&&$genryo > 5){
+		   $_SESSION['error'] ='2週間で5キロ以上の減量は体に過度の負担をかけますので目標の減量値を減らして下さい';
+                   return redirect('plan');
+           }
+
+		return view('plan.plan1',compact('weight','periods','genryo'));
 	}
 	public function result(Request $request)
 	{

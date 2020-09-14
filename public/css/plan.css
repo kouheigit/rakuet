@@ -40,7 +40,11 @@ margin-left:280px;
 margin-top:-80px;
 margin-left:20px;
 }
-
+p.error{
+margin-left:-60px;
+font-weight:bold;
+color:red;
+}
 @media only screen and (min-width: 320px) and (max-width: 768px) {
 
 #ank{
@@ -54,6 +58,5 @@ select.period{
 margin-top:30px;
 margin-left:90px;
 }
-
 
 }
