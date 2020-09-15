@@ -22,11 +22,10 @@
 </div>
 <input id="hev"type="number"name="hev"min="30"max="{{$weight}}"value="{{$weight}}"required></input>
 <p class="hevkg">Kg</p>
-<!--<input class="heavy"type="number"name="heavy"min="30"max="200">-->
 <div id="button">
-<p class="error">{{$beforeweight}}</p>
-<br>
-<br>
+<div id="cauntion">
+<p class="cauntion">※減量の目安は一ヶ月で大体2~4kgを目安に減量計画をたてましょう</p>
+</div>
 <button class="kettei" type='submit'>決定する</button>
 </div>
 @else
