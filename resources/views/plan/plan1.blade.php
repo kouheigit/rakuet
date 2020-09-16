@@ -6,6 +6,6 @@
 <form action="plan2" method="get">
 {{ csrf_field() }}
 <div id="button">
-<button class="modoru" type='submit'name='atai'value='1'>プラン診断を開始する</button>
+<button class="sindan" type='submit'name='atai'value='1'>プラン診断を開始する</button>
 </div>
 @endsection
