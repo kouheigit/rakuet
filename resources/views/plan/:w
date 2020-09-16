@@ -1,7 +1,0 @@
-@extends('layouts.appplan')
-<!--CSSを読み込む-->
-<link rel="stylesheet" href="{{ asset('css/plan1.css') }}">
-@section('body')
-<h6>現在の体重は{{$beforeweight}}kgから目標体重{{$weight}}kgまでを{{$periods}}で{{$genryo}}kg減量します</h6>
-<h6>減量する体重は1ヶ月に2~4kgを目安にしましょう</h6>
-@endsection

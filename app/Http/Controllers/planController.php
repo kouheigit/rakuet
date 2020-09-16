@@ -21,20 +21,26 @@ class planController extends Controller
             $user = $moji2;
 	    $users =  DB::table($user)->where('id',1)->first();
 	    $weight = $users->weight;
-	    session_start();
-	    $_SESSION['users'] = $users; 
-	    $beforeweight = $_SESSION['error'];
-	    return view('plan.plan',compact('users','weight','beforeweight'));
+	    return view('plan.plan',compact('users','weight'));
 	}
 	public function plan(Request $request)
 	{
 		$period = $request->input('period');
 		$weight = $request->input('hev');
 		session_start();
-		$_SESSION['period'] = $period;
-		$_SESSION['weight'] = $weight;
+		$_SESSION['period'] = $period;//これは回して使用する
+		$_SESSION['weight'] = $weight;//これは回して使用する
 		$_SESSION['error'] = null;
-                $users = $_SESSION['users'];
+		$_SESSION['error1'] = null;
+		$_SESSION['error2'] = null;
+		$_SESSION['error3'] = null;
+		//user情報を取得する
+	        $users = Auth::user()->email;
+                $moji1=$users;
+                $moji1 = str_replace('@','',$moji1);
+                $moji2 = str_replace('.','',$moji1);
+                $user = $moji2;
+                $users =  DB::table($user)->where('id',1)->first();
 		$beforeweight = $users->weight;
 		$genryo = $beforeweight - $weight;
 
@@ -67,13 +73,45 @@ class planController extends Controller
 	}
            if($beforeweight == $weight){
                 $_SESSION['error'] = '目標体重が変わっていません';
-		return redirect('plan');
+		return redirect('error');
 	   }elseif($periods=="2週間"&&$genryo > 5){
-		   $_SESSION['error'] ='2週間で5キロ以上の減量は体に過度の負担をかけますので目標の減量値を減らして下さい';
+		   $_SESSION['error1'] ='2週間で5キロ以上の減量計画は体に過度の負担をかけますの減量をする体重を減らして下さい';
+                   return redirect('error');
+	   }elseif($periods=="1ヶ月"&& $genryo > 10){
+		   $_SESSION['error2'] ='1ヶ月で10キロ以上の減量計画は体に過度の負担をかけますので減量をする体重を減らして下さい';
+		   return redirect('error');
+           }elseif($periods=="2ヶ月"&& $genryo > 15){
+		   $_SESSION['error3'] ='2ヶ月で15キロ以上の減量計画は体に
+過度の負担をかけますので減量をする体重を減らして下さい';
+		   return redirect('error');
+	   }
+		return view('plan.plan1',compact('beforeweight','weight','periods','genryo'));
+	}
+        public function error(Request $request)
+	{
+		session_start();
+		$error = $_SESSION['error'];
+		$error1 = $_SESSION['error1'];
+		$error2 = $_SESSION['error2'];
+		$error3 = $_SESSION['error3'];
+		return view('plan.error',compact('error','error1','error2','error3'));
+	}
+	public function error1(Request $request)
+	{
+	        $return = $request->input('return');
+		if($return=='1'){
+		   session_start();
+		   $_SESSION['error'] = null;
+                   $_SESSION['error1'] = null;
+		   $_SESSION['error2'] = null;
+		   $_SESSION['error3'] = null;
                    return redirect('plan');
-           }
-
-		return view('plan.plan1',compact('weight','periods','genryo'));
+		 } 
+	}
+        public function plan2(Request $request)
+	{
+		$atai = $request->input('atai');
+		return view('plan.plan2');
 	}
 	public function result(Request $request)
 	{

@@ -34,7 +34,7 @@ Route::get('homedell','HomeController@homedell');
 Route::post('dellmember','HomeController@dellmember');
 Route::get('plan','planController@index');
 Route::post('plan1','planController@plan');
-Route::get('plan2','planController@plan2');//追加した
+Route::get('plan2','planController@plan2');
 Route::get('error','planController@error');
 Route::post('error','planController@error1');
 Route::get('result','planController@result');
