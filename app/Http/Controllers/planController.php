@@ -136,8 +136,7 @@ class planController extends Controller
 		if($atai=='0'){
 			return redirect('plannoswim');
 		}elseif($atai1=='1'){
-			//未実装
-			return redirect('plan4');
+			return redirect('planlittlehard');
 		}elseif($atai2=='2'){
 			return redirect('plan2');
 		}
@@ -221,6 +220,123 @@ class planController extends Controller
                 }
 
 	}
+	public function planlittlehard(Request $request)
+	{
+		return view('plan.planlittlehard');
+	}
+	public function planlittlehardpost(Request $request)
+        {
+                $atai = $request->input('atai');
+                $atai1 = $request->input('atai1');
+                $atai2 = $request->input('atai2');
+		if($atai=='0'){
+			return redirect('plannodanjiki');
+                }elseif($atai1=='1'){
+                        return redirect('plannosport');
+                }elseif($atai2=='2'){
+			return redirect('plan3');
+                }
+
+	}
+	public function plannodanjiki(Request $reques)
+	{
+		return view('plan.plannodanjiki');
+	}
+	public function plannodanjikipost(Request $request)
+        {
+                $atai = $request->input('atai');
+                $atai1 = $request->input('atai1');
+                $atai2 = $request->input('atai2');
+                if($atai=='0'){
+                        //未実装週1断食DB5
+                        return redirect('plan4');
+                }elseif($atai1=='1'){
+                        return redirect('plannoprotein');
+                }elseif($atai2=='2'){
+                        return redirect('planlittlehard');
+                }
+
+        }
+
+	public function plannoprotein(Request $request)
+	{
+		return view('plan.plannoprotein');
+	}
+        public function plannoproteinpost(Request $request)
+	{
+		$atai = $request->input('atai');
+                $atai1 = $request->input('atai1');
+                $atai2 = $request->input('atai2');
+                if($atai=='0'){
+                        //未実装プロテイン+低カロリーDB11
+                        return redirect('plan4');
+		}elseif($atai1=='1'){
+			//未実装VLCDダイエットDB4
+                        return redirect('plannoprotein');
+                }elseif($atai2=='2'){
+                        return redirect('planlittlehard');
+                }
+
+	}
+	public function plannosport(Request $request)
+	{
+		return view('plan.plannosport');
+	}
+	public function plannosportpost(Request $request)
+	{
+		$atai = $request->input('atai');
+                $atai1 = $request->input('atai1');
+                $atai2 = $request->input('atai2');
+                if($atai=='0'){
+                        //未実装食事改善+下半身筋トレDB7
+                        return redirect('plan4');
+                }elseif($atai1=='1'){
+                        return redirect('planlittleeat');
+		}elseif($atai2=='2'){
+                        return redirect('planlittlehard');
+                }
+
+	}
+	public function planlittleeat(Request $request)
+	{
+		return view('plan.planlittleeat');
+	}
+	public function planlittleeatpost(Request $request)
+        {
+                $atai = $request->input('atai');
+                $atai1 = $request->input('atai1');
+                $atai2 = $request->input('atai2');
+                if($atai=='0'){
+                        //未実装
+                        return redirect('plan4');
+                }elseif($atai1=='1'){
+                        //未実装VLCDダイエット(DB8)
+                        return redirect('plan4');
+                }elseif($atai2=='2'){
+                        return redirect('plannosport');
+                }
+        }
+
+
+	public function plannonote(Request $request)
+	{
+		return view('plan.plannonote');
+	}
+	public function plannonotepost(Request $request)
+	{
+		 $atai = $request->input('atai');
+                $atai1 = $request->input('atai1');
+                $atai2 = $request->input('atai2');
+                if($atai=='0'){
+                        //未実装レコーディング・ダイエット(DB12)
+                        return redirect('plan4');
+		}elseif($atai1=='1'){
+			//未実装少食ダイエット法(DB13)
+                        return redirect('planlittleeat');
+                }elseif($atai2=='2'){
+                        return redirect('planlittleeat');
+                } 
+        }
 	public function plan4(Request $request)
         {
                 return view('plan.plan4');

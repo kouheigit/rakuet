@@ -47,7 +47,18 @@ Route::get('plannocycle','planController@plannocycle');
 Route::post('plannocycle','planController@plannocyclepost');
 Route::get('plannostation','planController@plannostation');
 Route::post('plannostation','planController@plannostationpost');
-
+Route::get('planlittlehard','planController@planlittlehard');
+Route::post('planlittlehard','planController@planlittlehardpost');
+Route::get('plannodanjiki','planController@plannodanjiki');
+Route::post('plannodanjiki','planController@plannodanjikipost');
+Route::get('plannoprotein','planController@plannoprotein');
+Route::post('plannoprotein','planController@plannoproteinpost');
+Route::get('plannosport','planController@plannosport');
+Route::post('plannosport','planController@plannosportpost');
+Route::get('planlittleeat','planController@planlittleeat');
+Route::post('planlittleeat','planController@planlittleeatpost');
+Route::get('plannonote','planController@plannonote');
+Route::post('plannonote','planController@plannonotepost');
 
 Route::get('plan4','planController@plan4');
 Route::get('error','planController@error');
