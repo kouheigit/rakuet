@@ -115,17 +115,24 @@ class planController extends Controller
 	}
 	public function plan2post(Request $request)
 	{
-		$atai->$request->input('atai');
-		$atai1->$request->input('atai1');
-		/*plan3,plan4未完
-		 *routeの設定もまだ
+		$atai = $request->input('atai');
+		$atai1= $request->input('atai1');
 		if($atai=='0'){
 		return redirect('plan3');
 		}else{
 		return redirect('plan4');
-		}*/
+		}
 
 	}
+	public function plan3(Request $request)
+	{
+		return view('plan.plan3');
+	}
+	public function plan4(Request $request)
+        {
+                return view('plan.plan4');
+        }
+
 	public function result(Request $request)
 	{
 		return view('plan.result');
