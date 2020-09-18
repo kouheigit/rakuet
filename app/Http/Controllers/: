@@ -174,7 +174,7 @@ class planController extends Controller
                         return redirect('plannocycle');
 		}elseif($atai1=='1'){
 		       //未実装
-                        return redirect('plannostation');
+                        return redirect('plan4');
                 }elseif($atai2=='2'){
                         return redirect('plannoswim');
                 }
@@ -197,30 +197,12 @@ class planController extends Controller
                        //未実装DB6体脂肪減少ダイエット
                         return redirect('plan4');
 		}elseif($atai2=='2'){
+			//未実装
                         return redirect('plannocommute');
 		}
 
-	}
-	public function plannostation(Request $request)
-	{
-		return view('plan.plannostation');
-	}
-        public function plannostationpost(Request $request)
-	{
-		$atai = $request->input('atai');
-                $atai1 = $request->input('atai1');
-                $atai2 = $request->input('atai2');
-                if($atai=='0'){
-                        //未実装DB2夜間ウォーキング;
-                        return redirect('plan4');
-                }elseif($atai1=='1'){
-                       //未実装食事改善+下半身筋トレダイエット
-                        return redirect('plan4');
-                }elseif($atai2=='2'){
-                        return redirect('plannocommute');
-                }
+        }
 
-	}
 	public function plan4(Request $request)
         {
                 return view('plan.plan4');

@@ -1,8 +1,8 @@
 @extends('layouts.appplan')
 <link rel="stylesheet" href="{{ asset('css/plansub.css') }}">
 @section('body')
-<p class="question">質問:運動は積極的に取り入れたい</p>
-<form action="plan3" method="post">
+<p class="question">質問:会社まで自転車で通勤できる<br>　　距離である</p>
+<form action="plannocycle" method="post">
 {{ csrf_field() }}
 <div id="button">
 <button class="sindan"type='submit'name='atai'value="0">YES</button>
