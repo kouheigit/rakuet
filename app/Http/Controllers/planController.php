@@ -308,7 +308,7 @@ class planController extends Controller
                 $atai2 = $request->input('atai2');
                 if($atai=='0'){
                         //未実装
-                        return redirect('plan4');
+                        return redirect('plannonote');
                 }elseif($atai1=='1'){
                         //未実装VLCDダイエット(DB8)
                         return redirect('plan4');
@@ -331,17 +331,87 @@ class planController extends Controller
                         //未実装レコーディング・ダイエット(DB12)
                         return redirect('plan4');
 		}elseif($atai1=='1'){
-			//未実装少食ダイエット法(DB13)
-                        return redirect('planlittleeat');
+			//未実装少食ダイエット法DB13
+                        return redirect('planl4');
                 }elseif($atai2=='2'){
                         return redirect('planlittleeat');
                 } 
-        }
+	}
+        //【ここから先は間食は可能システムのコントローラー】
 	public function plan4(Request $request)
         {
                 return view('plan.plan4');
-        }
+	}
+	public function plan4post(Request $request)
+        {
+                 $atai = $request->input('atai');
+                $atai1 = $request->input('atai1');
+                $atai2 = $request->input('atai2');
+		if($atai=='0'){
+                        return redirect('planyesswim');
+		}elseif($atai1=='1'){
+			//未実装
+                        return redirect('plan4');
+                }elseif($atai2=='2'){
+                        return redirect('plan2');
+                }
+	}
+	public function planyesswim(Request $request)
+	{
+		return view('plan.planyesswim');
+	}
+	public function planyesswimpost(Request $request)
+        {
+                $atai = $request->input('atai');
+                $atai1 = $request->input('atai1');
+                $atai2 = $request->input('atai2');
+                if($atai=='0'){
+                        //未実装DB13水泳療法+分食法
+                        return redirect('plan4');
+                }elseif($atai1=='1'){
+                        return redirect('planyescommute');
+                }elseif($atai2=='2'){
+                        return redirect('plan2');
+                }
+	}
+	public function planyescommute(Request $request)
+	{
+		return view('plan.planyescommute');
+	}
+	public function planyescommutepost(Request $request)
+	{
+		$atai = $request->input('atai');
+                $atai1 = $request->input('atai1');
+                $atai2 = $request->input('atai2');
+                if($atai=='0'){
+                        //未実装DB14通勤療法+分食療法
+                        return redirect('plan4');
+                }elseif($atai1=='1'){
+                        return redirect('planwalkstation');
+		}elseif($atai2=='2'){
+                        return redirect('planyesswim');
+                }
 
+	}
+	public function planwalkstation(Request $request)
+	{
+		return view('plan.planwalkstation');
+	}
+	public function planwalkstationpost(Request $request)
+        {
+                $atai = $request->input('atai');
+                $atai1 = $request->input('atai1');
+                $atai2 = $request->input('atai2');
+                if($atai=='0'){
+                        //未実装DB16夜間ウォーキング+分食法
+                        return redirect('plan4');
+                }elseif($atai1=='1'){
+                        //未実装DB21下半身筋トレ+分食法
+                        return redirect('plan4');
+                }elseif($atai2=='2'){
+                        return redirect('planyescommute');
+                }
+        }
 	public function result(Request $request)
 	{
 		return view('plan.result');

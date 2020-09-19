@@ -61,6 +61,14 @@ Route::get('plannonote','planController@plannonote');
 Route::post('plannonote','planController@plannonotepost');
 
 Route::get('plan4','planController@plan4');
+Route::post('plan4','planController@plan4post');
+Route::get('planyesswim','planController@planyesswim');
+Route::post('planyesswim','planController@planyesswimpost');
+Route::get('planyescommute','planController@planyescommute');
+Route::post('planyescommute','planController@planyescommutepost');
+Route::get('planwalkstation','planController@planwalkstation');
+Route::post('planwalkstation','planController@planwalkstationpost');
+
 Route::get('error','planController@error');
 Route::post('error','planController@error1');
 Route::get('result','planController@result');
