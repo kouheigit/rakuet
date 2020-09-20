@@ -350,8 +350,7 @@ class planController extends Controller
 		if($atai=='0'){
                         return redirect('planyesswim');
 		}elseif($atai1=='1'){
-			//未実装
-                        return redirect('plan4');
+                        return redirect('planyeslittelhard');
                 }elseif($atai2=='2'){
                         return redirect('plan2');
                 }
@@ -371,7 +370,7 @@ class planController extends Controller
                 }elseif($atai1=='1'){
                         return redirect('planyescommute');
                 }elseif($atai2=='2'){
-                        return redirect('plan2');
+                        return redirect('plan4');
                 }
 	}
 	public function planyescommute(Request $request)
@@ -411,7 +410,120 @@ class planController extends Controller
                 }elseif($atai2=='2'){
                         return redirect('planyescommute');
                 }
-        }
+	}
+	public function planyeslittelhard(Request $request)
+	{
+		return view('plan.planyeslittelhard');
+	}
+	public function planyeslittelhardpost(Request $request)
+	{
+		$atai = $request->input('atai');
+                $atai1 = $request->input('atai1');
+                $atai2 = $request->input('atai2');
+                if($atai=='0'){
+                        return redirect('planoneday');
+                }elseif($atai1=='1'){
+                        return redirect('planyeslittleeat');
+                }elseif($atai2=='2'){
+                        return redirect('plan4');
+                }
+	}
+	public function planoneday(Request $request)
+	{
+		return view('plan.planoneday');
+	}
+	public function planonedaypost(Request $request)
+        {
+                $atai = $request->input('atai');
+                $atai1 = $request->input('atai1');
+                $atai2 = $request->input('atai2');
+		if($atai=='0'){
+			//未実装DB16週1断食ダイエット+分食ダイエット
+                        return redirect('planoneday');
+                }elseif($atai1=='1'){
+                        //未実装
+                        return redirect('planyesprotein');
+                }elseif($atai2=='2'){
+                        return redirect('planyeslittelhard');
+                }
+	}
+	public function planyesprotein(Request $request)
+	{
+		return view('plan.planyesprotein');
+	}
+	public function planyesproteinpost(Request $request)
+        {
+                $atai = $request->input('atai');
+                $atai1 = $request->input('atai1');
+                $atai2 = $request->input('atai2');
+                if($atai=='0'){
+                        //未実装DB15週1プロテインダイエット+分食ダイエット
+                        return redirect('planoneday');
+                }elseif($atai1=='1'){
+                        return redirect('planyesnote');
+                }elseif($atai2=='2'){
+                        return redirect('planoneday');
+                }
+	}
+	public function planyesnote(Request $request)
+	{
+		return view('plan.planyesnote');
+	}
+	public function planyesnotepost(Request $request)
+        {
+                $atai = $request->input('atai');
+                $atai1 = $request->input('atai1');
+                $atai2 = $request->input('atai2');
+                if($atai=='0'){
+                        //未実装DB19週1レコーディングダイエット+分食ダイエット
+                        return redirect('planoneday');
+		}elseif($atai1=='1'){
+			//未実装DB18分食+小分食ダイエット
+                        return redirect('planyesnote');
+                }elseif($atai2=='2'){
+                        return redirect('planyesprotein');
+                }
+	}
+	public function planyeslittleeat(Request $request)
+	{
+		return view('plan.planyeslittleeat');
+	}
+	public function planyeslittleeatpost(Request $request)
+	{
+		$atai = $request->input('atai');
+                $atai1 = $request->input('atai1');
+                $atai2 = $request->input('atai2');
+                if($atai=='0'){
+                        //未実装DB18分食+小分食ダイエット
+                        return redirect('planoneday');
+                }elseif($atai1=='1'){
+                        //未実装
+                        return redirect('planafternoon');
+                }elseif($atai2=='2'){
+                        return redirect('planyeslittelhard');
+                }
+
+	}
+	public function planafternoon(Request $request)
+	{
+		return view('plan.planafternoon');
+	}
+	public function planafternoonpost(Request $request)
+	{
+		$atai = $request->input('atai');
+                $atai1 = $request->input('atai1');
+                $atai2 = $request->input('atai2');
+                if($atai=='0'){
+                        //未実装DB20ビーマルワン+食事分食ダイエット
+                        return redirect('planoneday');
+                }elseif($atai1=='1'){
+                        //未実装DB17食事分割ダイエットノーマルver
+                        return redirect('planyesnote');
+                }elseif($atai2=='2'){
+                        return redirect('planyeslittleeat');
+                }
+
+	}
 	public function result(Request $request)
 	{
 		return view('plan.result');

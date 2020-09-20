@@ -68,6 +68,20 @@ Route::get('planyescommute','planController@planyescommute');
 Route::post('planyescommute','planController@planyescommutepost');
 Route::get('planwalkstation','planController@planwalkstation');
 Route::post('planwalkstation','planController@planwalkstationpost');
+Route::get('planyeslittelhard','planController@planyeslittelhard');
+Route::post('planyeslittelhard','planController@planyeslittelhardpost');
+Route::get('planyesprotein','planController@planyesprotein');
+Route::post('planyesprotein','planController@planyesproteinpost');
+Route::get('planoneday','planController@planoneday');
+Route::post('planoneday','planController@planonedaypost');
+Route::get('planyesnote','planController@planyesnote');
+Route::post('planyesnote','planController@planyesnotepost');
+Route::get('planyeslittleeat','planController@planyeslittleeat');
+Route::post('planyeslittleeat','planController@planyeslittleeatpost');
+Route::get('planafternoon','planController@planafternoon');
+Route::post('planafternoon','planController@planafternoonpost');
+
+
 
 Route::get('error','planController@error');
 Route::post('error','planController@error1');
