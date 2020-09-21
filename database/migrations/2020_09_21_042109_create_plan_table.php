@@ -16,7 +16,7 @@ class CreatePlanTable extends Migration
         Schema::create('plan', function (Blueprint $table) {
             $table->id();
 	    $table->string('title','30');
-	    $table->string('text','500');
+	    $table->string('text','1000');
         });
     }
 
