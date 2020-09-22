@@ -150,9 +150,11 @@ class planController extends Controller
 		$atai = $request->input('atai');
                 $atai1 = $request->input('atai1');
                 $atai2 = $request->input('atai2');
-                if($atai=='0'){
-			//未実装水泳療法DB1
-                        return redirect('plan4');
+		if($atai=='0'){
+			//実装済みDB1ダイエット水泳療法
+			session_start();
+			$_SESSION['usedb'] = "1";
+                        return redirect('result');
                 }elseif($atai1=='1'){
                         return redirect('plannocommute');
                 }elseif($atai2=='2'){
@@ -172,7 +174,6 @@ class planController extends Controller
                 if($atai=='0'){
                         return redirect('plannocycle');
 		}elseif($atai1=='1'){
-		       //未実装
                         return redirect('plannostation');
                 }elseif($atai2=='2'){
                         return redirect('plannoswim');
@@ -189,12 +190,16 @@ class planController extends Controller
                 $atai = $request->input('atai');
                 $atai1 = $request->input('atai1');
                 $atai2 = $request->input('atai2');
-                if($atai=='0'){
-                        //未実装DB3自転車通勤療法
-                        return redirect('plan4');
-                }elseif($atai1=='1'){
-                       //未実装DB6体脂肪減少ダイエット
-                        return redirect('plan4');
+		if($atai=='0'){
+			//実装済ダイエットDB3自転車通勤
+			session_start();
+			$_SESSION['usedb'] = "3";
+                        return redirect('result');
+		}elseif($atai1=='1'){
+			//実装済ダイエットDB6体脂肪減少ダイエット
+			session_start();
+			$_SESSION['usedb'] = "6";
+                        return redirect('result');
 		}elseif($atai2=='2'){
                         return redirect('plannocommute');
 		}
@@ -210,11 +215,15 @@ class planController extends Controller
                 $atai1 = $request->input('atai1');
                 $atai2 = $request->input('atai2');
                 if($atai=='0'){
-                        //未実装DB2夜間ウォーキング;
-                        return redirect('plan4');
-                }elseif($atai1=='1'){
-                       //未実装食事改善+下半身筋トレダイエット
-                        return redirect('plan4');
+			session_start();
+			//実装済夜間ウォーキングダイエット
+			$_SESSION['usedb'] ="2";
+                        return redirect('result');
+		}elseif($atai1=='1'){
+			//実装済体脂肪減少ダイエット
+                        session_start();
+                        $_SESSION['usedb'] = "6";
+                        return redirect('result');
                 }elseif($atai2=='2'){
                         return redirect('plannocommute');
                 }
@@ -248,8 +257,10 @@ class planController extends Controller
                 $atai1 = $request->input('atai1');
                 $atai2 = $request->input('atai2');
                 if($atai=='0'){
-                        //未実装週1断食DB5
-                        return redirect('plan4');
+			//実装済週1断食DB5
+			session_start();
+                        $_SESSION['usedb'] = "5";
+                        return redirect('result');
                 }elseif($atai1=='1'){
                         return redirect('plannoprotein');
                 }elseif($atai2=='2'){
@@ -268,11 +279,15 @@ class planController extends Controller
                 $atai1 = $request->input('atai1');
                 $atai2 = $request->input('atai2');
                 if($atai=='0'){
-                        //未実装プロテイン+低カロリーDB11
-                        return redirect('plan4');
+			//実装済プロテイン+低カロリーDB11
+			session_start();
+                        $_SESSION['usedb'] = "11";
+                        return redirect('result');
 		}elseif($atai1=='1'){
-			//未実装VLCDダイエットDB4
-                        return redirect('plannoprotein');
+			//実装済VLCDダイエットDB4
+			session_start();
+			$_SESSION['usedb'] = "4";
+                        return redirect('result');
                 }elseif($atai2=='2'){
                         return redirect('planlittlehard');
                 }
@@ -288,8 +303,10 @@ class planController extends Controller
                 $atai1 = $request->input('atai1');
                 $atai2 = $request->input('atai2');
                 if($atai=='0'){
-                        //未実装食事改善+下半身筋トレDB7
-                        return redirect('plan4');
+			//実装済食事改善+下半身筋トレDB7
+			session_start();
+                        $_SESSION['usedb'] = "7";
+                        return redirect('result');
                 }elseif($atai1=='1'){
                         return redirect('planlittleeat');
 		}elseif($atai2=='2'){
@@ -307,11 +324,12 @@ class planController extends Controller
                 $atai1 = $request->input('atai1');
                 $atai2 = $request->input('atai2');
                 if($atai=='0'){
-                        //未実装
                         return redirect('plannonote');
                 }elseif($atai1=='1'){
-                        //未実装VLCDダイエット(DB8)
-                        return redirect('plan4');
+			//実装済VLCDダイエット(DB8)
+			session_start();
+                        $_SESSION['usedb'] = "8";
+                        return redirect('result');
                 }elseif($atai2=='2'){
                         return redirect('plannosport');
                 }
@@ -328,11 +346,15 @@ class planController extends Controller
                 $atai1 = $request->input('atai1');
                 $atai2 = $request->input('atai2');
                 if($atai=='0'){
-                        //未実装レコーディング・ダイエット(DB12)
-                        return redirect('plan4');
+			//実装済レコーディング・ダイエット(DB12)
+			session_start();
+                        $_SESSION['usedb'] = "12";
+                        return redirect('result');
 		}elseif($atai1=='1'){
-			//未実装少食ダイエット法DB13
-                        return redirect('planl4');
+			//実装済糖質少食ダイエット法DB22
+			session_start();
+			$_SESSION['usedb'] = "22";
+                        return redirect('result');
                 }elseif($atai2=='2'){
                         return redirect('planlittleeat');
                 } 
@@ -365,8 +387,10 @@ class planController extends Controller
                 $atai1 = $request->input('atai1');
                 $atai2 = $request->input('atai2');
                 if($atai=='0'){
-                        //未実装DB13水泳療法+分食法
-                        return redirect('plan4');
+			//実装済DB13水泳療法+分食法
+			session_start();
+                        $_SESSION['usedb'] = "13";
+                        return redirect('result');
                 }elseif($atai1=='1'){
                         return redirect('planyescommute');
                 }elseif($atai2=='2'){
@@ -383,8 +407,10 @@ class planController extends Controller
                 $atai1 = $request->input('atai1');
                 $atai2 = $request->input('atai2');
                 if($atai=='0'){
-                        //未実装DB14通勤療法+分食療法
-                        return redirect('plan4');
+			//実装済DB14通勤療法+分食療法
+			session_start();
+                        $_SESSION['usedb'] = "14";
+                        return redirect('result');
                 }elseif($atai1=='1'){
                         return redirect('planwalkstation');
 		}elseif($atai2=='2'){
@@ -402,11 +428,15 @@ class planController extends Controller
                 $atai1 = $request->input('atai1');
                 $atai2 = $request->input('atai2');
                 if($atai=='0'){
-                        //未実装DB16夜間ウォーキング+分食法
-                        return redirect('plan4');
+			//実装済DB16夜間ウォーキング+分食法
+			session_start();
+                        $_SESSION['usedb'] = "16";
+                        return redirect('result');
                 }elseif($atai1=='1'){
-                        //未実装DB21下半身筋トレ+分食法
-                        return redirect('plan4');
+			//実装済　DB21下半身筋トレ+分食法
+			session_start();
+			$_SESSION['usedb'] = "21";
+                        return redirect('result');
                 }elseif($atai2=='2'){
                         return redirect('planyescommute');
                 }
@@ -438,10 +468,11 @@ class planController extends Controller
                 $atai1 = $request->input('atai1');
                 $atai2 = $request->input('atai2');
 		if($atai=='0'){
-			//未実装DB16週1断食ダイエット+分食ダイエット
-                        return redirect('planoneday');
+	//実装DB7週1断食ダイエット+分食ダイエット
+			session_start();
+			$_SESSION['usedb'] = "7";
+                        return redirect('result');
                 }elseif($atai1=='1'){
-                        //未実装
                         return redirect('planyesprotein');
                 }elseif($atai2=='2'){
                         return redirect('planyeslittelhard');
@@ -457,8 +488,10 @@ class planController extends Controller
                 $atai1 = $request->input('atai1');
                 $atai2 = $request->input('atai2');
                 if($atai=='0'){
-                        //未実装DB15週1プロテインダイエット+分食ダイエット
-                        return redirect('planoneday');
+			//実装済DB15週1プロテインダイエット+分食ダイエット　　
+	　　　　　　　　session_start();
+                        $_SESSION['usedb'] = "15";
+                        return redirect('result');
                 }elseif($atai1=='1'){
                         return redirect('planyesnote');
                 }elseif($atai2=='2'){
@@ -475,11 +508,15 @@ class planController extends Controller
                 $atai1 = $request->input('atai1');
                 $atai2 = $request->input('atai2');
                 if($atai=='0'){
-                        //未実装DB19週1レコーディングダイエット+分食ダイエット
-                        return redirect('planoneday');
+	                //実装DB19週1レコーディングダイエット+分食ダイエット
+	                session_start();
+                        $_SESSION['usedb'] = "19";
+                        return redirect('result');
 		}elseif($atai1=='1'){
-			//未実装DB18分食+小分食ダイエット
-                        return redirect('planyesnote');
+			//実装DB18分食+小分食ダイエット
+			session_start();
+                        $_SESSION['usedb'] ="18";
+                        return redirect('result');
                 }elseif($atai2=='2'){
                         return redirect('planyesprotein');
                 }
@@ -493,11 +530,12 @@ class planController extends Controller
 		$atai = $request->input('atai');
                 $atai1 = $request->input('atai1');
                 $atai2 = $request->input('atai2');
-                if($atai=='0'){
-                        //未実装DB18分食+小分食ダイエット
-                        return redirect('planoneday');
+		if($atai=='0'){
+			//分食+小分食ダイエット
+			session_start();
+                        $_SESSION['usedb'] = "18";
+                        return redirect('result');
                 }elseif($atai1=='1'){
-                        //未実装
                         return redirect('planafternoon');
                 }elseif($atai2=='2'){
                         return redirect('planyeslittelhard');
@@ -514,11 +552,15 @@ class planController extends Controller
                 $atai1 = $request->input('atai1');
                 $atai2 = $request->input('atai2');
                 if($atai=='0'){
-                        //未実装DB20ビーマルワン+食事分食ダイエット
-                        return redirect('planoneday');
+			//実装済DB20ビーマルワン+食事分食ダイエット
+			session_start();
+                        $_SESSION['usedb'] = "20";
+                        return redirect('result');
                 }elseif($atai1=='1'){
-                        //未実装DB17食事分割ダイエットノーマルver
-                        return redirect('planyesnote');
+			//実装済DB17食事分割ダイエットノーマルver
+			session_start();
+                        $_SESSION['usedb'] = "17";
+                        return redirect('result');
                 }elseif($atai2=='2'){
                         return redirect('planyeslittleeat');
                 }
@@ -526,6 +568,17 @@ class planController extends Controller
 	}
 	public function result(Request $request)
 	{
-		return view('plan.result');
+		session_start();
+		//プラン番号
+		$usedb = $_SESSION['usedb'];
+		//DB呼び出し
+		$plan1 = DB::table('plan')->where('id',$usedb)->first();
+		//タイトル呼び出し
+		$plandb = $plan1->title; 
+		//本文呼び出し
+		$plandb1 = $plan1->text;
+		//減量目標体重とダイエット期間を呼び出す
+
+		return view('plan.result',compact('plandb','plandb1'));
 	}
 }

@@ -1,7 +1,7 @@
 @extends('layouts.appplan')
 <link rel="stylesheet" href="{{ asset('css/plansub.css') }}">
 @section('body')
-<p class="question">質問:駅から家まで帰って来れる</p>
+<p class="question">質問:駅から家まで徒歩で帰って来れる</p>
 <form action="planwalkstation" method="post">
 {{ csrf_field() }}
 <div id="button">
