@@ -42,7 +42,9 @@ class planController extends Controller
                 $user = $moji2;
                 $users =  DB::table($user)->where('id',1)->first();
 		$beforeweight = $users->weight;
+		$_SESSION['beforeweight'] = $beforeweight;
 		$genryo = $beforeweight - $weight;
+	        $_SESSION['genryo'] = $genryo;
 
 	switch($period)
 	{
@@ -578,7 +580,11 @@ class planController extends Controller
 		//本文呼び出し
 		$plandb1 = $plan1->text;
 		//減量目標体重とダイエット期間を呼び出す
-
-		return view('plan.result',compact('plandb','plandb1'));
+		$genryo = $_SESSION['genryo'];//減量する体重量
+                $period =  $_SESSION['period'];//ダイエット期間
+		$weight =  $_SESSION['weight'];//減量目標予定の体重
+		$beforeweight = $_SESSION['beforeweight'];//現在の体重
+	    
+		return view('plan.result',compact('beforeweight','genryo','period','weight','plandb','plandb1'));
 	}
 }
