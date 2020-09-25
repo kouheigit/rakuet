@@ -18,13 +18,34 @@ p.plan{
 font-weight:bold;
 color:blue;
 }
+#result{
+position:relative;
+margin-left:180px;
+}
+button.yes{
+margin-left:-70px;
+background-color:green;
+border-color:green;
+}
+button.no{
+margin-left:130px;
+background-color:red;
+border-color:red;
+}
 @media only screen and (min-width: 320px) and (max-width: 768px) {
 p.sub{
 font-size:12px;
 font-weight:bold;
 color:#211f1f;
 }
-
+button.yes{
+margin-left:-170px;
+width:270px;
+}
+button.no{
+margin-left:-170px;
+width:270px;
+}
 
 h1.title{
 font-size:20px;

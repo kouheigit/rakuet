@@ -604,4 +604,20 @@ class planController extends Controller
 
 		return view('plan.result',compact('beforeweight','genryo','period','weight','plandb','plandb1','afterday','today','img'));
 	}
+	public function resultpost(Request $request)
+	{
+		$yes = $request->input('yes');
+		$no = $request->input('no');
+
+		if($yes == '1'){
+		session_start();
+                //現在の体重
+                $beforeweight = $_SESSION['beforeweight'];
+                 //減量目標減量目標に入れる
+		$target = $_SESSION['weight'];
+　　　　　　　　//プラン番号DB1に入力
+		 $plan = $_SESSION['usedb'];
+		//
+			
+	}
 }
