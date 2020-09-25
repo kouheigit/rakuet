@@ -307,7 +307,7 @@ class planController extends Controller
                 if($atai=='0'){
 			//実装済食事改善+下半身筋トレDB7
 			session_start();
-                        $_SESSION['usedb'] = "7";
+                        $_SESSION['usedb'] = "6";
                         return redirect('result');
                 }elseif($atai1=='1'){
                         return redirect('planlittleeat');
@@ -490,8 +490,8 @@ class planController extends Controller
                 $atai1 = $request->input('atai1');
                 $atai2 = $request->input('atai2');
                 if($atai=='0'){
-			//実装済DB15週1プロテインダイエット+分食ダイエット　　
-	　　　　　　　　session_start();
+			//実装済DB15週1プロテインダイエット+分食ダイエット
+			session_start();
                         $_SESSION['usedb'] = "15";
                         return redirect('result');
                 }elseif($atai1=='1'){
@@ -572,6 +572,8 @@ class planController extends Controller
 	{
 		session_start();
 		//プラン番号
+		$imgnomal = [7,13,14,16,17,18,19];
+                $img = null;
 		$usedb = $_SESSION['usedb'];
 		//DB呼び出し
 		$plan1 = DB::table('plan')->where('id',$usedb)->first();
@@ -584,7 +586,22 @@ class planController extends Controller
                 $period =  $_SESSION['period'];//ダイエット期間
 		$weight =  $_SESSION['weight'];//減量目標予定の体重
 		$beforeweight = $_SESSION['beforeweight'];//現在の体重
-	    
-		return view('plan.result',compact('beforeweight','genryo','period','weight','plandb','plandb1'));
+		$today = date("m月d日");
+		$afterday = date("m月d日",strtotime("$period day"));//ダイエット終了の日程
+		if (in_array($usedb, $imgnomal)){
+		        $img = 1;	
+		}
+
+		if($usedb == 15){
+			$img = 15;
+		}elseif($usedb == 20){
+			$img = 20;
+		}elseif($usedb == 21){
+			$img = 21;
+		}elseif($usedb == 22){
+			$img = 22;
+		}
+
+		return view('plan.result',compact('beforeweight','genryo','period','weight','plandb','plandb1','afterday','today','img'));
 	}
 }
