@@ -19,4 +19,10 @@
 <img class="planimg" src="{{ asset('img/22.png') }}">
 @endif
 <p class="plan">{{$today}}から{{$afterday}}までの{{$period}}日間の間で{{$beforeweight}}kgから{{$weight}}kgまでの{{$genryo}}kgを{{$plandb}}で減量する計画を実行します</p>
+<div id ="result">
+<form action="result" method="post">
+{{ csrf_field() }}
+<button class="yes" type='submit' name='yes' value="0">このプランで決定する</button>
+<button class="no" type='submit' name='no' value="1">このプランはやめる</button>
+</div>
 @endsection
