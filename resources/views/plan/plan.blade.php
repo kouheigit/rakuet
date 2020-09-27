@@ -1,4 +1,4 @@
-@extends('layouts.appplan')
+@extends('layouts.appplan2')
 <!--CSSを読み込む-->
 <link rel="stylesheet" href="{{ asset('css/plan.css') }}">
 @section('body')
@@ -29,7 +29,20 @@
 <button class="kettei" type='submit'>決定する</button>
 </div>
 @else
-<h1>ここから下にデータベースからダイエットプランを表示させる</h1>
+<h1 class="title">{{$title}}</h1>
+<p class="text">{{$text}}</p>
+@if ($img == 1)
+<img class="planimg" src="{{ asset('img/nomal.png') }}">
+@elseif ($img == 15)
+<img class="planimg" src="{{ asset('img/15.png') }}">
+@elseif ($img == 20)
+<img class="planimg" src="{{ asset('img/20.png') }}">
+@elseif ($img == 21)
+<img class="planimg" src="{{ asset('img/21.png') }}">
+@elseif ($img == 22)
+<img class="planimg" src="{{ asset('img/22.png') }}">
+@endif
+
 @endif 
 <p>
 @endsection

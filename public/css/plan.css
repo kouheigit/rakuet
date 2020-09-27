@@ -1,4 +1,15 @@
 @charset'utf-8';
+h1.title{
+font-size:20px;
+margin-left:20px;
+font-weight:bold;
+color:black;
+}
+p.text{
+font-weight:bold;
+color:black
+}
+
 
 h1.plan1{
 font-size:17px;

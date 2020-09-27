@@ -30,7 +30,8 @@ class HomeController extends Controller
 	    $moji1=$users;
             $moji1 = str_replace('@','',$moji1);
             $moji2 = str_replace('.','',$moji1);
-	    $user = $moji2; 
+	    $user = $moji2;
+	    //後に仕様変更する 
 	    $atai = DB::table($user)->where('id','1')->first();
 	    $age = $atai->age;
 	    $sexual =$atai->sexual;

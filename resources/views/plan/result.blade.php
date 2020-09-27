@@ -23,6 +23,7 @@
 <form action="result" method="post">
 {{ csrf_field() }}
 <button class="yes" type='submit' name='yes' value="1">このプランで決定する</button>
-<button class="no" type='submit' name='no' value="2">このプランはやめる</button>
+</form>
+<button onclick="history.back()"class="no">このプランはやめる</button>
 </div>
 @endsection

@@ -28,7 +28,8 @@ background-color:green;
 border-color:green;
 }
 button.no{
-margin-left:130px;
+margin-top:-73px;
+margin-left:170px;
 background-color:red;
 border-color:red;
 }
@@ -43,6 +44,7 @@ margin-left:-170px;
 width:270px;
 }
 button.no{
+margin-top:-20px;
 margin-left:-170px;
 width:270px;
 }

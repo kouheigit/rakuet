@@ -14,15 +14,44 @@ class planController extends Controller
 	//データ・ベースで調べてボディデータがなければ分岐させる
         //分岐はifブレード分岐でさせる
 		//データベースのplanカラムを調べてplan番号がない場合はif文で分岐させる
+	    $imgnomal = [7,13,14,16,17,18,19];
+            $img = null;
 	    $users = Auth::user()->email;
             $moji1=$users;
             $moji1 = str_replace('@','',$moji1);
             $moji2 = str_replace('.','',$moji1);
             $user = $moji2;
 	    $users =  DB::table($user)->where('id',1)->first();
-	    $weight = $users->weight;
-	    return view('plan.plan',compact('users','weight'));
-	}
+	    $plan = $users->plan;
+
+	    if($plan==null){  //プランが決まってない時の処理
+
+		    $weight = $users->weight;
+
+		    return view('plan.plan',compact('users','weight'));
+
+	    }else{ //プランが決まっている時の処理
+
+	            $plans =  DB::table('plan')->where('id',$plan)->first();
+	            $title = $plans->title;
+	            $text  = $plans->text;
+	     if (in_array($plan, $imgnomal)){
+                        $img = 1;
+                }
+
+                if($plan == 15){
+                        $img = 15;
+                }elseif($plan == 20){
+                        $img = 20;
+                }elseif($plan == 21){
+                        $img = 21;
+                }elseif($plan == 22){
+                        $img = 22;
+                }
+
+	     return view('plan.plan',compact('img','users','title','text'));
+	     }
+	} 
 	public function plan(Request $request)
 	{
 		$period = $request->input('period');
@@ -604,20 +633,35 @@ class planController extends Controller
 
 		return view('plan.result',compact('beforeweight','genryo','period','weight','plandb','plandb1','afterday','today','img'));
 	}
+
 	public function resultpost(Request $request)
 	{
+		$users = Auth::user()->email;
+                $moji1=$users;
+                $moji1 = str_replace('@','',$moji1);
+                $moji2 = str_replace('.','',$moji1);
+		$user = $moji2;//user情報の取得
 		$yes = $request->input('yes');
 		$no = $request->input('no');
+                $today = date("Y.m.d");
 
-		if($yes == '1'){
+		if($yes == 1){
 		session_start();
+		$period =  $_SESSION['period'];
+		$endday = date("Y.m.d",strtotime("$period day"));
+		DB::table($user)->where('id',1)->update(['endday'=>$endday]);
                 //現在の体重
-                $beforeweight = $_SESSION['beforeweight'];
+		$beforeweight = $_SESSION['beforeweight'];
+		DB::table($user)->where('id',1)->update(['beforeweight'=>$beforeweight]);
                  //減量目標減量目標に入れる
 		$target = $_SESSION['weight'];
-　　　　　　　　//プラン番号DB1に入力
-		 $plan = $_SESSION['usedb'];
-		//
-			
-	}
+		DB::table($user)->where('id',1)->update(['target'=>$target]);
+		//プラン番号DB1に入力
+                $plan = $_SESSION['usedb'];
+		DB::table($user)->where('id',1)->update(['plan'=>$plan]);
+		//現在の体重と現在の日付を新たなカラムに入れる
+		DB::table($user)->insert(['weight'=>$beforeweight,'day'=>$today]);
+		return redirect('plan');
+		}
+       }
 }

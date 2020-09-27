@@ -86,4 +86,4 @@ Route::post('planafternoon','planController@planafternoonpost');
 Route::get('error','planController@error');
 Route::post('error','planController@error1');
 Route::get('result','planController@result');
-
+Route::post('result','planController@resultpost');
