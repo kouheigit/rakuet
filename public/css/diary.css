@@ -1,0 +1,65 @@
+@charset"utf-8";
+body{
+background: #eeeeee;
+}
+h1#main{
+font-weight:bold;
+color:black;
+margin-left:100px;
+}
+p.days{
+font-weight:bold;
+color:black;
+margin-left:100px;
+}
+a{
+margin-left:110px;
+}
+
+table{
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%; 
+}
+
+table tr{
+  border-bottom: solid 1px #eee;
+  cursor: pointer;
+  font-weight:bold;
+  color:black;
+  margin-left:100px;
+
+}
+
+table tr:hover{
+  background-color: #d4f0fd;
+}
+
+table th,table td{
+/*  text-align: center;*/
+  text-align:30px;
+  width: 25%;
+  padding: 15px 0;
+ 
+}
+
+table td.icon{
+  background-size: 35px;
+  background-position: left 5px center;
+  background-repeat: no-repeat;
+  padding-left:30px;
+}
+
+table td.icon.bird{
+}
+
+table td.icon.whale{
+}
+
+table td.icon.crab{
+}
+
+
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+
+}

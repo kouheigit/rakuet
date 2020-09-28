@@ -1,0 +1,9 @@
+@extends('layouts.app3')
+
+@section('body')
+<h1 id="main">体重記録</h1>
+<br>
+<p class="days">やられたらやり返す倍返しだ</p>
+<link rel="stylesheet" href="{{ asset('css/diary.css') }}">
+@endsection
+

@@ -80,10 +80,14 @@ Route::get('planyeslittleeat','planController@planyeslittleeat');
 Route::post('planyeslittleeat','planController@planyeslittleeatpost');
 Route::get('planafternoon','planController@planafternoon');
 Route::post('planafternoon','planController@planafternoonpost');
-
-
-
+//エラーと結果画面
 Route::get('error','planController@error');
 Route::post('error','planController@error1');
 Route::get('result','planController@result');
 Route::post('result','planController@resultpost');
+
+//diaryController
+Route::get('diary','diaryController@index');
+
+
+

@@ -672,7 +672,7 @@ class planController extends Controller
 		   DB::table($user)->insert(['weight'=>$beforeweight,'day'=>$today]);
 
 
-     //ここから後にテストデータ後に必ず削除する、これはdiary機能で使用する
+		   //ここから後にテストデータ後に必ず削除する、これはdiary機能で使用するdiaryコントローラーに移設する
      	       // $plus = 0;
 		for($i = 0; $i<300; $i++){
 		      // $todays = date("Y.m.d",strtotime("$plus day"));
