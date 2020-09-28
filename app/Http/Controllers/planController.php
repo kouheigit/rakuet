@@ -673,10 +673,11 @@ class planController extends Controller
 
 
      //ここから後にテストデータ後に必ず削除する、これはdiary機能で使用する
-     	       //$plus = 0;
-		for($i = 0; $i<120; $i++){
-		       //  $todays = date("Y.m.d",strtotime("$plus day"));
-                       DB::table($user)->where('id','>',1)->delete();
+     	       // $plus = 0;
+		for($i = 0; $i<300; $i++){
+		      // $todays = date("Y.m.d",strtotime("$plus day"));
+		      // $plus = $plus + 1;
+		       DB::table($user)->where('id','>',1)->delete();
 		      // DB::table($user)->insert(['day'=>$todays]);
                  }
 		return redirect('plan');
