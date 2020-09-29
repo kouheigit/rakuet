@@ -8,11 +8,7 @@
 <!--携帯版の奴はtdを左へずらす-->
 <!--aタグは記録する画面に遷移する-->
 <table>
-@foreach ($record as $records)
-<tr>
-  <td><a class="heavy">{{$records->day}}</a></td>
-</tr>
-@endforeach
+<td><a class="heavy">{{$record}}</a></td>
 </table>
 @endsection
 

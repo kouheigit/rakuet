@@ -10,6 +10,13 @@ class diaryController extends Controller
 {
 	public function index(Request $request)
 	{
-		return view('diary.diary');
+	      $users = Auth::user()->email;
+              $moji1=$users;
+              $moji1 = str_replace('@','',$moji1);
+              $moji2 = str_replace('.','',$moji1);
+	      $user = $moji2;
+	      $today = date("Y.m.d");
+	      $record = DB::table($user)->get(); 
+		return view('diary.diary',compact('record'));
 	}
 }
