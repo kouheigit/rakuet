@@ -7,13 +7,10 @@ font-weight:bold;
 color:black;
 margin-left:100px;
 }
-p.days{
-font-weight:bold;
-color:black;
-margin-left:100px;
-}
+
 a.heavy{
-margin-left:110px;
+text-decoration: none;
+color:black;
 }
 
 table{
@@ -36,7 +33,7 @@ table tr:hover{
 }
 
 table th,table td{
-/*  text-align: center;*/
+ text-align: center;
   text-align:30px;
   width: 25%;
   padding: 15px 0;
@@ -58,8 +55,6 @@ table td.icon.whale{
 
 table td.icon.crab{
 }
-
-
 @media only screen and (min-width: 320px) and (max-width: 768px) {
 
 }
