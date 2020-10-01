@@ -7,6 +7,8 @@
 <!--aタグの中にpostへ渡す処理をする-->
 <!--携帯版の奴はtdを左へずらす-->
 <!--aタグは記録する画面に遷移する-->
+<form action="diary" method="post">
+     {{ csrf_field() }}
 <table>
 <tr>
   <td>日付</td>
@@ -15,20 +17,20 @@
 </tr>
 @foreach ($record as $records)
 <tr>
-  <td><a class="heavy"href="day1"?today="{{$records->day}}">{{$records->day}}</a></td>
+  <td><p class="heavy">{{$records->day}}</p>
 @if ($records->weight == null)
-  <td><a class="heavy"href="day1"?today="{{$records->day}}">未入力です</a></td>
+  <td><p class="heavy">未入力です</p></td>
 @else
-  <td><a class="heavy"href="day1"?today="{{$records->day}}">{{$records->weight}}</a></td>
+  <td><p class="heavy">{{$records->weight}}</p></td>
 @endif
 @if ($records->jiki == null) 
-  <td><a class="heavy"href="day1"?today="{{$records->day}}">未入力です</a></td>
+  <td><p class="heavy">未入力です</p></td>
 @else
-  <td><a class="heavy"href="day1"?today="{{$records->day}}">{{$records->jiki}}</a></td>
+  <td><p class="heavy">{{$records->jiki}}</p></td>
 @endif
+  <td><button type='submit'name='theday'value='{{$records->day}}'>ボディーデータを登録する</button></td>
 </tr>
+</form>
 @endforeach
-</a>
 </table>
 @endsection
-

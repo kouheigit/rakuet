@@ -19,13 +19,14 @@ class diaryController extends Controller
 	      $record =  DB::table($user)->orderBy('day','desc')->where('id','>',1)->get();             
 	      return view('diary.diary',compact('record'));
 	}
+	/*
 	public function indexpost(Request $request)
 	{
 		$theday = $request->input('theday');
 		session_start();
 		$_SESSION['theday'] = $theday;
 		return redirect('diaryadd');
-	}
+	}*/
 	public function day1(Request $request)
 	{
 		session_start();

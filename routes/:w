@@ -87,9 +87,6 @@ Route::get('result','planController@result');
 Route::post('result','planController@resultpost');
 
 //diaryController
-Route::get('diary','diaryController@index');
-Route::post('diary','diaryController@indexpost');
+Route::get('diary{theday}','diaryController@index');
 Route::get('diaryadd','diaryController@day1');
-
-
 
