@@ -31,5 +31,26 @@ class diaryController extends Controller
 		session_start();
 		$theday = $_SESSION['theday'];
 		return view('diary.diaryadd',compact('theday'));
-	}	
+	}
+        public function day1post(Request $request)
+	{
+	      //user情報の呼び出し
+	       $users = Auth::user()->email;
+               $moji1=$users;
+               $moji1 = str_replace('@','',$moji1);
+               $moji2 = str_replace('.','',$moji1);
+	       $user = $moji2;
+
+	       $day = $request->input('day');
+	       $jiki = $request->input('jiki');
+	       $heavy = $request->input('heavy');
+
+	     if($jiki == "null"){
+		     $jiki = null;
+	     }
+	       DB::table($user)->where('day',$day)->update(['weight'=>$heavy,'jiki'=>$jiki]);
+	       return redirect('diary');
+
+	}
+	        	
 }

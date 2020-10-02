@@ -90,6 +90,6 @@ Route::post('result','planController@resultpost');
 Route::get('diary','diaryController@index');
 Route::post('diary','diaryController@indexpost');
 Route::get('diaryadd','diaryController@day1');
-
+Route::post('diaryadd','diaryController@day1post');
 
 

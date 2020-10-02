@@ -2,7 +2,7 @@
 <form id ="soudai" action="home2" method="post">
   {{ csrf_field() }}   
   <h5 class="toshi">年齢</h5>
-    <input type="number"class="age" name="age"min="12"maxlength="100">
+    <input type="number"class="age" name="age"min="12"max="100">
      <p class="ages">歳</p>
    </input>
   <h2 class="hv">体重</h2>
