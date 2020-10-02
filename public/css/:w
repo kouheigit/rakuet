@@ -1,0 +1,31 @@
+@charset'utf-8';
+#diary2{
+margin-top:-120px;
+margin-left:280px;
+}
+
+h1.daytitle{
+font-size:25px;
+color:black;
+}
+h1.h1{
+font-size:25px;
+color:black;
+}
+input#heavy{
+width:30%;
+}
+h1#jikkou{
+font-size:25px;
+color:black;
+}
+select#jiki{
+margin-left:30px;
+width:30%;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+

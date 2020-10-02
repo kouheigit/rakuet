@@ -21,12 +21,14 @@
 @if ($records->weight == null)
   <td><p class="heavy">未入力です</p></td>
 @else
-  <td><p class="heavy">{{$records->weight}}</p></td>
+  <td><p class="heavy">{{$records->weight }}kg</p></td>
 @endif
 @if ($records->jiki == null) 
   <td><p class="heavy">未入力です</p></td>
-@else
-  <td><p class="heavy">{{$records->jiki}}</p></td>
+@elseif ($records->jiki == 0)
+  <td><p class="heavy">実行済</p></td>
+@elseif ($records->jiki == 1)</p></td>
+  <td><p class="heavy">未実行</p></td>   
 @endif
   <td><button type='submit'name='theday'value='{{$records->day}}'>ボディーデータを登録する</button></td>
 </tr>
