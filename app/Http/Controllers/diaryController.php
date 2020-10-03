@@ -20,33 +20,36 @@ class diaryController extends Controller
 	        $today = date("Y.m.d",strtotime("$plus day"));
 	      テストコード終了*/
 	      $today = date("Y.m.d");
-	      //plan番号呼び出し
-	      $plan = DB::table($user)->where('id',1)->get('plan');
-	      //日付を呼び出す      
+	      //beforeweigt（ダイエット開始時の体重）を呼び出す
+	      $beforeweight = DB::table($user)->where('id',1)->get('beforeweight');
+	         if($beforeweight=="[]"||$beforeweight=="1"){
+                          $beforeweight = null;
+		 }      
+	      //日付を呼び出す
 	      $today1 = DB::table($user)->where('day',$today)->get();
-	        if($today1=="[]"){
-		     $today1 = null;
-	         }
-	         if($plan=="[]"){
-		          $plan = null;
-                 }
-	         if($today1==null&&$plan=!null){
+	          if($today1=="[]"){
+		           $today1 = null;
+	           }
+	         if($today1==null&&$beforeweight=!null){
 			 DB::table($user)->insert(['day'=>$today]);
 	          }
 	      $record =  DB::table($user)->orderBy('day','desc')->where('id','>',1)->get();
-	      return view('diary.diary',compact('record','plan'));
+	      return view('diary.diary',compact('record','beforeweight'));
 	}
 	public function indexpost(Request $request)
 	{
 		$theday = $request->input('theday');
+
 		session_start();
 		$_SESSION['theday'] = $theday;
+
 		return redirect('diaryadd');
 	}
 	public function day1(Request $request)
 	{
 		session_start();
 		$theday = $_SESSION['theday'];
+
 		return view('diary.diaryadd',compact('theday'));
 	}
         public function day1post(Request $request)

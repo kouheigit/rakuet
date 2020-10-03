@@ -3,8 +3,7 @@
 @section('body')
 <link rel="stylesheet" href="{{ asset('css/diary.css') }}">
 <h1 id="main">体重記録</h1>
-<br>
-<!--aタグの中にpostへ渡す処理をする-->
+<p>{{$beforeweight}}</p>
 <!--携帯版の奴はtdを左へずらす-->
 <!--aタグは記録する画面に遷移する-->
 <form action="diary" method="post">
