@@ -15,9 +15,26 @@ class diaryController extends Controller
               $moji1 = str_replace('@','',$moji1);
               $moji2 = str_replace('.','',$moji1);
 	      $user = $moji2;
+            /*テストコード
+	      $plus = 1;
+	        $today = date("Y.m.d",strtotime("$plus day"));
+	      テストコード終了*/
 	      $today = date("Y.m.d");
+	      //plan番号呼び出し
+	      $plan = DB::table($user)->where('id',1)->get('plan');
+	      //日付を呼び出す      
+	      $today1 = DB::table($user)->where('day',$today)->get();
+	        if($today1=="[]"){
+		     $today1 = null;
+	         }
+	         if($plan=="[]"){
+		          $plan = null;
+                 }
+	         if($today1==null&&$plan=!null){
+			 DB::table($user)->insert(['day'=>$today]);
+	          }
 	      $record =  DB::table($user)->orderBy('day','desc')->where('id','>',1)->get();
-	      return view('diary.diary',compact('record'));
+	      return view('diary.diary',compact('record','plan'));
 	}
 	public function indexpost(Request $request)
 	{
@@ -45,12 +62,23 @@ class diaryController extends Controller
 	       $jiki = $request->input('jiki');
 	       $heavy = $request->input('heavy');
 
-	     if($jiki == "null"){
-		     $jiki = null;
-	     }
-	       DB::table($user)->where('day',$day)->update(['weight'=>$heavy,'jiki'=>$jiki]);
-	       return redirect('diary');
+	       if($jiki == "null"){
+                     $jiki = null;
+             }
 
+
+	       if($jiki==null&&$heavy==null){
+		       return redirect('diary');
+	       }elseif($jiki==null){
+		       DB::table($user)->where('day',$day)->update(['weight'=>$heavy]);
+		       return redirect('diary');
+	       }elseif($heavy==null){
+		       DB::table($user)->where('day',$day)->update(['jiki'=>$jiki]);
+		       return redirect('diary');
+	       }else{
+		       DB::table($user)->where('day',$day)->update(['weight'=>$heavy,'jiki'=>$jiki]);
+		       return redirect('diary');
+	       }
 	}
 	        	
 }

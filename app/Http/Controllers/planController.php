@@ -670,17 +670,8 @@ class planController extends Controller
 
 		//現在の体重と現在の日付を新たなカラムに入れる
 		   DB::table($user)->insert(['weight'=>$beforeweight,'day'=>$today]);
-
-
-		   //ここから後にテストデータ後に必ず削除する、これはdiary機能で使用するdiaryコントローラーに移設する
-     	      $plus = 0;
-		for($i = 0; $i<300; $i++){
-		  $todays = date("Y.m.d",strtotime("$plus day"));
-		 $plus = $plus + 1;
-		 //    DB::table($user)->where('id','>',1)->delete();//削除する時はこれを残す
-		      DB::table($user)->insert(['day'=>$todays]);
-                 }
-		return redirect('plan');
 		}
+		return redirect('plan');
+
        }
 }
