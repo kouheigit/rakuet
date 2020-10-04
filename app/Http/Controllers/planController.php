@@ -653,6 +653,8 @@ class planController extends Controller
 		   $period =  $_SESSION['period'];
 		   $endday = date("Y.m.d",strtotime("$period day"));
 
+		 //ダイエット開始するキー  
+                 DB::table($user)->where('id',1)->update(['daystart'=>'875']);
                 //ダイエット終了日
 		   DB::table($user)->where('id',1)->update(['endday'=>$endday]);
 

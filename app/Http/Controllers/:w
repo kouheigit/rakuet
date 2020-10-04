@@ -15,28 +15,23 @@ class diaryController extends Controller
               $moji1 = str_replace('@','',$moji1);
               $moji2 = str_replace('.','',$moji1);
 	      $user = $moji2;
-	    /*テストコード
-	      $plus = 4;
+            /*テストコード
+	      $plus = 1;
 	        $today = date("Y.m.d",strtotime("$plus day"));
 	      テストコード終了*/
-	     // 本日の体重を記録する
 	      $today = date("Y.m.d");
-	      //体重記録開始キーを読み込む
-	      $dayDB = DB::table($user)->where('id',1)->get('daystart');
-	      //dayDBから数字だけ取り出す
-	      $daystart = preg_replace('/[^0-9]/', '', $dayDB);
+	      $today1 = DB::table($user)->where('id',1)->get('daystart');
 	      //日付を呼び出す
 	      $today1 = DB::table($user)->where('day',$today)->get();
 	          if($today1=="[]"){
 		           $today1 = null;
 		  }
-	      //今日の日付がない場合と体重記録キーがある場合葉読みこむ 
-	         if($today1==null&&$daystart=="875"){
+	         //改編する 
+	         if($today1==null){
 			 DB::table($user)->insert(['day'=>$today]);
-		 }
-	           
+	          }
 	      $record =  DB::table($user)->orderBy('day','desc')->where('id','>',1)->get();
-	      return view('diary.diary',compact('record','daystart'));
+	      return view('diary.diary',compact('record','beforeweight'));
 	}
 	public function indexpost(Request $request)
 	{
