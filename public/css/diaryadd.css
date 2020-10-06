@@ -35,9 +35,47 @@ margin-top:-50px;
 margin-left:380px;
 }
 
-
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
 
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+h1.daytitle{
+font-size:25px;
+font-weight:bold;
+color:black;
+}
+#diary1{
+margin-top:-40px;
+}
+#diary2{
+margin-top:-60px;
+}
+h1.h1{
+font-size:23px;
+color:black;
+}
+h1#jikkou{
+margin-top:90px;
+margin-left:-270px;
+font-size:17px;
+}
+select#jiki{
+margin-left:-270px;
+width:500%;
+}
+button.ok{
+margin-top:1px;
+margin-left:10px;
+width:90%;
+background-color:green;
+}
+button.no{
+margin-top:1px;
+margin-left:10px;
+width:90%;
+background-color:red;
+}
+}

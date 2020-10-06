@@ -30,7 +30,7 @@ class diaryController extends Controller
 	          if($today1=="[]"){
 		           $today1 = null;
 		  }
-	      //今日の日付がない場合と体重記録キーがある場合葉読みこむ 
+	      //今日の日付がない場合と体重記録キーがある場合は読みこむ 
 	         if($today1==null&&$daystart=="875"){
 			 DB::table($user)->insert(['day'=>$today]);
 		 }

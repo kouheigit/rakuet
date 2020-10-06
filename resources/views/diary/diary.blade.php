@@ -13,6 +13,14 @@
   <td>体重</td>
   <td>実行</td>
 </tr>
+@if ($daystart == null)
+<tr>
+  <td><p class="heavy">planが未入力です</p>
+  <td><p class="heavy">planが未入力です</p>
+  <td><p class="heavy">planが未入力です</p>
+</tr>
+<!--elseで2の場合（プラン終了）の処理も入れる-->
+@endif
 @foreach ($record as $records)
 <tr>
   <td><p class="heavy">{{$records->day}}</p>
@@ -28,7 +36,7 @@
 @elseif ($records->jiki == 1)</p></td>
   <td><p class="heavy">未実行</p></td>   
 @endif
-  <td><button type='submit'name='theday'value='{{$records->day}}'>ボディーデータを登録する</button></td>
+  <td><button type='submit' class="theday"name='theday'value='{{$records->day}}'>記録する</button></td>
 </tr>
 </form>
 @endforeach
