@@ -41,6 +41,24 @@ class HomeController extends Controller
 	    $weight =$atai->weight;
 	    $setumei = null;
 	    $BMR1 = null;
+	    //ダイエット期間が終了した際の処理を記述する
+	    //日付取得
+	    $today = date("Y.m.d");
+          
+	    //DBからダイエット終了日を呼び出して整数のみに生成する
+            $endDB = DB::table($user)->where('plan',1)->get('endday');
+	    $endday = preg_replace('/[^0-9]/', '', $endDB);
+
+	    //DBから本日の日時を取得する
+	      //下のはテストデータ 
+	      //$nowDB = date("Y.m.d",strtotime("2 week"));
+	    $nowDB =  DB::table($user)->where('day',$today)->get('day');
+	    $nowday = preg_replace('/[^0-9]/', '', $nowDB);
+
+	   //nullとnullで実行時エラーになる 
+	    if($endday==$nowday){
+		 DB::table($user)->where('id','1')->update(['daystart'=>"2"]);
+	      }
 	 
 
 	    if(is_null($height)&&is_null($weight)&&is_null($age)&&is_null($sexual)&&is_null($setumei))

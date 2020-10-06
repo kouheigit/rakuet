@@ -23,6 +23,14 @@ class planController extends Controller
             $user = $moji2;
 	    $users =  DB::table($user)->where('id',1)->first();
 	    $plan = $users->plan;
+                
+	        //daystartが２（ダイエット期間が終了している場合)の処理
+                $dayDB = DB::table($user)->where('id','1')->get('daystart');
+                $daystart = preg_replace('/[^0-9]/', '', $dayDB);
+                if($daystart=="2")
+                {
+                        return redirect("diaryresult");
+                }
 
 	    if($plan==null){  //プランが決まってない時の処理
 
@@ -68,7 +76,7 @@ class planController extends Controller
                 $moji1=$users;
                 $moji1 = str_replace('@','',$moji1);
                 $moji2 = str_replace('.','',$moji1);
-                $user = $moji2;
+		$user = $moji2;
                 $users =  DB::table($user)->where('id',1)->first();
 		$beforeweight = $users->weight;
 		$_SESSION['beforeweight'] = $beforeweight;
@@ -647,7 +655,6 @@ class planController extends Controller
 		$yes = $request->input('yes');
 	    //日付の取得
                 $today = date("Y.m.d");
-
 		if($yes == 1){
 	           session_start();
 		   $period =  $_SESSION['period'];

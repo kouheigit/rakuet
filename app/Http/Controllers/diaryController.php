@@ -16,7 +16,7 @@ class diaryController extends Controller
               $moji2 = str_replace('.','',$moji1);
 	      $user = $moji2;
 	    /*テストコード
-	      $plus = 4;
+	      $plus = 1;
 	        $today = date("Y.m.d",strtotime("$plus day"));
 	      テストコード終了*/
 	     // 本日の体重を記録する
@@ -84,6 +84,46 @@ class diaryController extends Controller
 		       DB::table($user)->where('day',$day)->update(['weight'=>$heavy,'jiki'=>$jiki]);
 		       return redirect('diary');
 	       }
+	}
+	public function diaryresult(Request $request)
+	{
+	       //テストコード
+	       $users = Auth::user()->email;
+               $moji1=$users;
+               $moji1 = str_replace('@','',$moji1);
+               $moji2 = str_replace('.','',$moji1);
+	       $user = $moji2;
+
+	        $today = date("Y.m.d");
+		$endDB = DB::table($user)->where('plan',1)->get('endday');
+		$endday = preg_replace('/[^0-9]/', '', $endDB);
+                
+		$nowDB =  DB::table($user)->where('day',$today)->get('day');
+                //下のはテストデータ
+		//$nowDB = date("Y.m.d",strtotime("2 week"));
+	        $nowday = preg_replace('/[^0-9]/', '', $nowDB);
+               
+
+
+
+		//このページは本番環境に適応したら削除する。
+
+	//※　ダイエット成功の場合の処理
+
+		//beforeweightよりweightの方が軽い時の処理
+		//beforeweightから(beforeweight-weight)kgやせましたと表記する
+
+	//更に目標体重をしたまわった場合は↓
+		//最新のweightがtargetと同じまたはtargetを下回った場合は減量目標体重
+		//を達成しましたとの表記をする
+
+
+	//※　ダイエット失敗の場合
+		//beforeweightより増量した場合
+		//beforeweightよりweightの方が重い場合はダイエット失敗として処理をする
+		
+		//↑　以上の3パターンの文章を用意しておく
+		return view('diary.diaryresult',compact('endday','nowday'));
 	}
 	        	
 }
