@@ -51,12 +51,15 @@ class HomeController extends Controller
 
 	    //DBから本日の日時を取得する
 	      //下のはテストデータ 
-	      //$nowDB = date("Y.m.d",strtotime("2 week"));
+	    // $nowDB = date("Y.m.d",strtotime("2 week"));
 	    $nowDB =  DB::table($user)->where('day',$today)->get('day');
 	    $nowday = preg_replace('/[^0-9]/', '', $nowDB);
 
-	   //nullとnullで実行時エラーになる 
-	    if($endday==$nowday){
+	    //nullとnullで実行時エラーになる 
+	    if($endday==null||$nowday==null){
+		    //スルー処理
+	    }elseif($endday==$nowday){
+		 //日付がダイエット終了期間になるとplan機能を停止させる
 		 DB::table($user)->where('id','1')->update(['daystart'=>"2"]);
 	      }
 	 
