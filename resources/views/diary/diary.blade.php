@@ -15,11 +15,16 @@
 </tr>
 @if ($daystart == null)
 <tr>
-  <td><p class="heavy">planが未入力です</p>
-  <td><p class="heavy">planが未入力です</p>
-  <td><p class="heavy">planが未入力です</p>
+  <td><p class="heavy">planが未入力です</p></td>
+  <td><p class="heavy">planが未入力です</p></td>
+  <td><p class="heavy">planが未入力です</p></td>
 </tr>
-<!--elseで2の場合（プラン終了）の処理も入れる-->
+@elseif ($daystart == 2)
+<tr>
+  <td><p class="heavy">planが終了しました</p></td>
+  <td><p class="heavy">planが終了しました</p></td>
+  <td><p class="heavy">planが終了しました</p></td>
+</tr>
 @endif
 @foreach ($record as $records)
 <tr>
