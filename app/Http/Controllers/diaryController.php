@@ -34,7 +34,23 @@ class diaryController extends Controller
 	         if($today1==null&&$daystart=="875"){
 			 DB::table($user)->insert(['day'=>$today]);
 		 }
-	           
+
+                /*まだ実証済みではないコード
+	       //ダイエット開始日をとってくる	      
+	       $startday = DB::table($user)->where('id',1)->value('day'); 
+	       $minus = -1;
+	   for($i=0; $i<500; $i++){       
+		   $day = date("Y.m.d",strtotime("$minus day"));
+	           $pastday =  DB::table($user)->where('day',$day)->value('day');
+                if($pastday==null&&$daystart=="875"){
+			DB::table($user)->insert(['day'=>$pastday]);
+			DB::table($user)->update(['day'=>$pastday]);
+	 	 }elseif($startday < $pastday){
+			break;
+		 }
+		   $minus = $minus -1;		    
+	    }
+		 */ 
 	      $record =  DB::table($user)->orderBy('day','desc')->where('id','>',1)->get();
 	      return view('diary.diary',compact('record','daystart'));
 	}
@@ -95,22 +111,29 @@ class diaryController extends Controller
 	       $user = $moji2;
 
 	        //現在の体重の情報を呼び出す【重要】体重が入力されたいちばん最後のIDを取得する	
-	        $weightinfo = DB::table($user)->whereNotNull('weight')->max('id');
+	        //現在の体重取得と精製
+	        $weightinfo = DB::table($user)->whereNotNull('weight')->max('day');
 		 //【重要】取得したIDを元に最後に入力された体重を取得と精製
-		$weightinfo1 = DB::table($user)->where('id',$weightinfo)->get('weight');
+		$weightinfo1 = DB::table($user)->where('day',$weightinfo)->get('weight');
 		$nowweight = preg_replace('/[^0-9]/', '',$weightinfo1);
+
+
 
                 //目標体重の取得と精製
 		$targetDB = DB::table($user)->where('id','1')->get('target');
 		$target = preg_replace('/[^0-9]/', '',$targetDB);
 
-		//【重要】ダイエットを始めた際の体重の取得
+
+		//【重要】ダイエットを始めた際の体重の取得と精製
 		$beforeDB = DB::table($user)->where('id','1')->get('beforeweight');
 		//データの精製
 		$beforeweight = preg_replace('/[^0-9]/', '',$beforeDB);
 
-		if($target > $nowweight||$target==$nowweight)
-		{ 
+                
+		/*後で復活させる
+		if($nowweight==null){
+			$result ="ダイエット期間中体重が一度も記録されていませんでした";
+		}elseif($target > $nowweight||$target==$nowweight){ 
 			$result1 = $beforeweight - $nowweight;
 			$result = "ダイエット成功です!!!目標体重$target kgを下回りました。
 				  合計$result1 kg痩せられました、ダイエット成功おめでとうございます";
@@ -125,8 +148,10 @@ class diaryController extends Controller
                                 もう一度別のプランを考えてみたり、食生活を見直してダイエットを
 				やり直してみましょう";
 		}else{
-			$result="体重の変化はありませんでした、(文を考える)";
-                }
+			$result="体重の変化はありませんでした、もう一度ダイエットプランを考え直して見たり
+				食生活を見直してダイエットをやり直して見ましょう";
+	}*/
+                      
 	//※　ダイエット成功の場合の処理
 
 		//beforeweightよりweightの方が軽い時の処理
@@ -142,7 +167,11 @@ class diaryController extends Controller
 		//beforeweightよりweightの方が重い場合はダイエット失敗として処理をする
 		
 		//↑　以上の3パターンの文章を用意しておく
-		return view('diary.diaryresult',compact('test'));
+		$syamu = DB::table($user)->where('id',1)->value('day');
+		$plus = 10;
+		$today = date("Y.m.d",strtotime("$plus day"));
+		$startday = DB::table($user)->where('day',$today)->value('day');
+		return view('diary.diaryresult',compact('nowweight','startday','syamu'));
 	}
 	        	
 }

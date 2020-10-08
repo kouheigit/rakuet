@@ -663,7 +663,10 @@ class planController extends Controller
 		 //ダイエット開始するキー  
                  DB::table($user)->where('id',1)->update(['daystart'=>'875']);
                 //ダイエット終了日
-		   DB::table($user)->where('id',1)->update(['endday'=>$endday]);
+		 DB::table($user)->where('id',1)->update(['endday'=>$endday]);
+
+		 //開始日をid,1のdayカラムに入れる
+                 DB::table($user)->where('id',1)->update(['day'=>$today]);
 
                 //現在の体重
 		   $beforeweight = $_SESSION['beforeweight'];
