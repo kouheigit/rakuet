@@ -42,7 +42,7 @@ class diaryController extends Controller
 
 	      //楽エットに来る日付が空いた際に空いた分のdiaryを
 	      //挿入する
-	      $forday = 14;//本番で使用する場合は必ず0を入れる
+	      $forday = 0;//本番で使用する場合は必ず0を入れる
 	      for($i=0; $i<500; $i++){
 		  //DBに入ってるダイエット始めの日を探り出す     
 		    $startday = DB::table($user)->where('id',1)->value('day');
