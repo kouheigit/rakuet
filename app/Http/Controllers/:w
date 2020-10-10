@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+//test↓
+use Carbon\Carbon;
+date_default_timezone_set('Asia/Tokyo');
 
 class diaryController extends Controller
 {
@@ -15,10 +18,12 @@ class diaryController extends Controller
               $moji1 = str_replace('@','',$moji1);
               $moji2 = str_replace('.','',$moji1);
 	      $user = $moji2;
-	    /*テストコード	      
-	      $plus = 1;
-	        $today = date("Y.m.d",strtotime("$plus day"));
-	      テストコード終了*/
+	      //新テストコード 
+	      /*
+	      $now = Carbon::now();  
+	      $today = $now->addDays(17)->format("Y.m.d");
+	       */
+	      //新テストコード
 	     // 本日の体重を記録する
 	      $today = date("Y.m.d");
 	      //体重記録開始キーを読み込む
@@ -32,22 +37,45 @@ class diaryController extends Controller
 		  }
 	      //今日の日付がない場合と体重記録キーがある場合は読みこむ 
 	         if($today1==null&&$daystart=="875"){
-			 DB::table($user)->insert(['day'=>$today]);
+		     DB::table($user)->insert(['day'=>$today]);
 		 }
-                   	      
-	       /*$starday = DB::table($user)->where('id',1)->value('day');
-		* 
-	       $minus = -1;
-		for($i=0; $i<500; $i++){
-		$today = date("Y.m.d",strtotime("$minus day"));
-　　　　　　　　　　　　　
-		   DB::table($user)->insert(['day'=>$today]); 
-		   $minus = $minus -1;
-		    
-		 }*/
-	           
+
+	      // まだ実証済みではないコード
+	      $forday = 17;//本番で使用する場合は必ず0を入れる
+	      for($i=0; $i<500; $i++){
+		  //DBに入ってるダイエット始めの日を探り出す     
+		    $startday = DB::table($user)->where('id',1)->value('day');
+		    $day = date("Y.m.d",strtotime("$forday day"));
+		    $forday -=1;
+		    $pastday = DB::table($user)->where('day',$day)->value('day');     
+		    if($pastday==null&&$daystart=="875"){
+			    DB::table($user)->insert(['day'=>$pastday]);
+			    DB::table($user)->update(['day'=>$pastday]);
+		    }elseif($pastday==$startday){
+			    break;
+		    }
+	      }
+
+//ダイエット開始日をとってくる	
+/*
+	       $startday = DB::table($user)->where('id',1)->value('day'); 
+	       for($i=0; $i<500; $i++){
+		   //テストコードとして使用する場合は
+		   //Y.m.dに$todayを入れる       
+		   $day = date($today,strtotime("$minus day"));
+	           $pastday =  DB::table($user)->where('day',$day)->value('day');
+                if($pastday==null&&$daystart=="875"){
+			DB::table($user)->insert(['day'=>$pastday]);
+			DB::table($user)->update(['day'=>$pastday]);
+	 	 }elseif($startday < $pastday){
+			break;
+		 }
+		   $minus = $minus -1;		    
+	       }　
+*/
+	//テストコード終了
 	      $record =  DB::table($user)->orderBy('day','desc')->where('id','>',1)->get();
-	      return view('diary.diary',compact('record','daystart'));
+	      return view('diary.diary',compact('now','record','daystart'));
 	}
 	public function indexpost(Request $request)
 	{
@@ -163,7 +191,8 @@ class diaryController extends Controller
 		
 		//↑　以上の3パターンの文章を用意しておく
 		$syamu = DB::table($user)->where('id',1)->value('day');
-		$plus = 10;
+		$plus = 90;
+		$now = date("Y.m.d");
 		$today = date("Y.m.d",strtotime("$plus day"));
 		$startday = DB::table($user)->where('day',$today)->value('day');
 		return view('diary.diaryresult',compact('nowweight','startday','syamu'));

@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+//test↓
+use Carbon\Carbon;
+date_default_timezone_set('Asia/Tokyo');
 
 class HomeController extends Controller
 {
@@ -41,7 +45,10 @@ class HomeController extends Controller
 	    $weight =$atai->weight;
 	    $setumei = null;
 	    $BMR1 = null;
-	    //ダイエット期間が終了した際の処理を記述する
+	    //テストデータ
+	    /*
+	    $testday = new Carbon();
+	    $testday->addDay();*/
 	    //日付取得
 	    $today = date("Y.m.d");
           
