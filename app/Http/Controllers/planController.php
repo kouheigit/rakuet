@@ -24,13 +24,19 @@ class planController extends Controller
 	    $users =  DB::table($user)->where('id',1)->first();
 	    $plan = $users->plan;
                 
-	        //daystartが２（ダイエット期間が終了している場合)の処理
+	        // if文はdaystartが２の場合（ダイエット期間が終了している場合)
+
                 $dayDB = DB::table($user)->where('id','1')->get('daystart');
                 $daystart = preg_replace('/[^0-9]/', '', $dayDB);
                 if($daystart=="2")
                 {
-                        return redirect("diaryresult");
-                }
+			return redirect("diaryresult");
+
+		}elseif($daystart=="3"){
+                        //daystartが３の場合はプラン変更をしないので
+			//plancontinueへ移行させる 
+			return redirect("plancontinue");
+		}
 
 	    if($plan==null){  //プランが決まってない時の処理
 
@@ -685,5 +691,8 @@ class planController extends Controller
 		}
 		return redirect('plan');
 
-       }
+	}
+	public function plancontinue(Request $request){
+		return view('plan.plancontinue');
+	}
 }

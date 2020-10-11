@@ -8,7 +8,9 @@ class testController extends Controller
 {
 	public function index(Request $request)
 	{
-		$data = ['msg'=>'TESTデータを送信します'];
-		return view('test',$data);
+		$msg ='TESTデータを送信します';
+		session_start();
+		$testcode = $_SESSION['testcode'];
+		return view('test',compact('msg','testcode'));
 	}
 }

@@ -42,16 +42,19 @@ class diaryController extends Controller
 
 	      //楽エットに来る日付が空いた際に空いた分のdiaryを
 	      //挿入する
-	      $forday = 0;//本番で使用する場合は必ず0を入れる
+	      $forday = 0;//【重要】本番で使用する場合は必ず0を入れる
 	      for($i=0; $i<500; $i++){
 		  //DBに入ってるダイエット始めの日を探り出す     
 		    $startday = DB::table($user)->where('id',1)->value('day');
 		    $day = date("Y.m.d",strtotime("$forday day"));
 		    $forday -=1;
-		    $pastday = DB::table($user)->where('day',$day)->value('day');     
-		    if($pastday==null&&$daystart=="875"){
-			    DB::table($user)->insert(['day'=>$day]);
-		    }elseif($pastday==$startday){
+		    $pastday = DB::table($user)->where('day',$day)->value('day');
+
+                 if($pastday==null&&$daystart=="875"){
+
+			 DB::table($user)->insert(['day'=>$day]);
+
+	         }elseif($pastday==$startday){
 			    break;
 		    }
 	      }
@@ -116,9 +119,10 @@ class diaryController extends Controller
 	       $user = $moji2;
 
 	        //現在の体重の情報を呼び出す【重要】体重が入力されたいちばん最後のIDを取得する	
-	        //現在の体重取得と精製
-	        $weightinfo = DB::table($user)->whereNotNull('weight')->max('day');
-		 //【重要】取得したIDを元に最後に入力された体重を取得と精製
+	        //現在の体重取得
+	       $weightinfo = DB::table($user)->whereNotNull('weight')->max('day');
+
+		 //↓【重要】取得したIDを元に最後に入力された体重を取得【session関数に保存する】
 	        $nowweight = DB::table($user)->where('day',$weightinfo)->value('weight');
 
 
@@ -139,10 +143,10 @@ class diaryController extends Controller
 		}elseif($target > $nowweight||$target==$nowweight){ 
 			$result1 = $beforeweight - $nowweight;
 			$result = "ダイエット成功です!!!目標体重$target kgを下回りました。
-				  合計$result1 kg痩せられました、ダイエット成功おめでとうございます";
+				 現在の体重は$nowweight kgで今回のダイエットでダイエット前体重の$beforeweight kgから合計$result1 kg痩せられました、ダイエット成功おめでとうございます";
 		}elseif($beforeweight > $nowweight){
 			$result1 = $beforeweight - $nowweight;
-			$result = "減量に成功しました、現在の体重は$nowweight kgで$beforeweight kgから
+			$result = "減量に成功しました、現在の体重は$nowweight kgでダイエット前体重の$beforeweight kgから
 				$result1 kgの減量に成功しました。";
 		}elseif($nowweight > $beforeweight){
 			$result1 = $nowweight - $beforeweight;
@@ -155,29 +159,58 @@ class diaryController extends Controller
 				食生活を見直してダイエットをやり直して見ましょう";
 	}
                       
-	//※　ダイエット成功の場合の処理
-
-		//beforeweightよりweightの方が軽い時の処理
-		//beforeweightから(beforeweight-weight)kgやせましたと表記する
-
-	//更に目標体重をしたまわった場合は↓
-		//最新のweightがtargetと同じまたはtargetを下回った場合は減量目標体重
-		//を達成しましたとの表記をする
-
-
-	//※　ダイエット失敗の場合
-		//beforeweightより増量した場合
-		//beforeweightよりweightの方が重い場合はダイエット失敗として処理をする
-		
-		//↑　以上の3パターンの文章を用意しておく
-	    /*
-		$syamu = DB::table($user)->where('id',1)->value('day');
-		$plus = 90;
-		$now = date("Y.m.d");
-		$today = date("Y.m.d",strtotime("$plus day"));
-		$startday = DB::table($user)->where('day',$today)->value('day');
-		return view('diary.diaryresult',compact('nowweight','startday','syamu'));*/
 		 return view('diary.diaryresult',compact('target','nowweight','result'));
 	}
-	        	
+
+        public function diaryresultpost(Request $request)
+	{
+	      //user情報の呼び出し
+               $users = Auth::user()->email;
+               $moji1=$users;
+               $moji1 = str_replace('@','',$moji1);
+               $moji2 = str_replace('.','',$moji1);
+	       $user = $moji2;
+            //継続するかどうかの処理
+	       $continue1 = $request->input('continue1');
+	       $continue2 = $request->input('continue2');
+               
+	      //体重の更新
+	       　$weightinfo= DB::table($user)->whereNotNull('weight')->max('day');
+                //↓【重要】取得したIDを元に最後に入力された体重を取得
+　　　　　　　　$nowweight = DB::table($user)->where('day',$weightinfo)->value('weight');
+	       //↓　現在の最新の体重をweightカラムのid,1に挿入する
+　　　　　　　　DB::table($user)->where('id',1)->update(['weight'=>$nowweight]);
+
+
+
+             //【共通リセット項目】
+               //↓　beforeweight（開始前体重)はリセットする
+                  DB::table($user)->where('id',1)->update(['beforeweight'=>null]);
+               //↓ endday（ダイエット終了日)もリセットする
+                  DB::table($user)->where('id',1)->update(['endday'=>null]);
+	      //target（目標体重)もリセットする
+                  DB::table($user)->where('id',1)->update(['target'=>null]);
+              //day（後で挙動をチェックする）もリセットする
+                  DB::table($user)->where('id',1)->update(['day'=>null]);
+		  /*id1以外のdiary削除機能をつける
+		    
+	                   */
+	       
+	       //現在のダイエットを継続する場合↓
+	       //if文で分岐させる
+	       if($continue1 =="0"){
+		//プランを継続する場合はdaystartカラムを3にする
+	         DB::table($user)->where('id',1)->update(['daystart'=>"3"]);
+               return redirect('plancontinue');
+    
+	       }elseif($continue2 =="1"){     
+                 //planもリセットする
+		   DB::table($user)->where('id',1)->update(['plan'=>null]);
+               //終了日もリセットしておく
+                   DB::table($user)->where('id',1)->update(['endday'=>null]);
+	       //daystartもリセットをしておく
+                   DB::table($user)->where('id',1)->update(['daystart'=>null]);        
+	       }
+	     return redirect('home');	  
+        }		
 }

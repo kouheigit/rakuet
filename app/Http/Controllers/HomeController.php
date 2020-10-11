@@ -46,20 +46,18 @@ class HomeController extends Controller
 	    $setumei = null;
 	    $BMR1 = null;
 	    //テストデータ
-	    /*
+	    
 	     $plus = 0;
 	     $today = date("Y.m.d",strtotime("$plus day"));
-	     */
+	     
 	    //日付取得
-	   $today = date("Y.m.d");
+	// $today = date("Y.m.d");
           
 	    //DBからダイエット終了日を呼び出して整数のみに生成する
             $endDB = DB::table($user)->where('plan',1)->get('endday');
 	    $endday = preg_replace('/[^0-9]/', '', $endDB);
 
 	    //DBから本日の日時を取得する
-	      //下のはテストデータ 
-	  // $nowDB = date("Y.m.d",strtotime("2week"));
 	   $nowDB =  DB::table($user)->where('day',$today)->get('day');
 	    $nowday = preg_replace('/[^0-9]/', '', $nowDB);
 
