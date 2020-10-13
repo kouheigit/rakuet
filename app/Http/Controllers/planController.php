@@ -66,7 +66,7 @@ class planController extends Controller
 	     return view('plan.plan',compact('img','users','title','text'));
 	     }
 	} 
-	public function plan(Request $request)
+	public function plan(Request $request)//routeのplan1にあたる
 	{
 		$period = $request->input('period');
 		$weight = $request->input('hev');
@@ -130,6 +130,13 @@ class planController extends Controller
 過度の負担をかけますので減量をする体重を減らして下さい';
 		   return redirect('error');
 	   }
+	   $daystart = DB::table($user)->where('id','1')->value('daystart');
+         
+          if($daystart=="3")
+	  {
+		  $_SESSION['periods'] = $periods;
+		  return redirect('plancontinue1');
+	  }	  
 		return view('plan.plan1',compact('beforeweight','weight','periods','genryo'));
 	}
         public function error(Request $request)
@@ -143,15 +150,17 @@ class planController extends Controller
 	}
 	public function error1(Request $request)
 	{
-	        $return = $request->input('return');
-		if($return=='1'){
+	 $return = $request->input('return');
+
+	   if($return=='1'){
 		   session_start();
 		   $_SESSION['error'] = null;
                    $_SESSION['error1'] = null;
 		   $_SESSION['error2'] = null;
 		   $_SESSION['error3'] = null;
                    return redirect('plan');
-		 } 
+	   } 
+
 	}
         public function plan2(Request $request)
 	{
@@ -692,7 +701,63 @@ class planController extends Controller
 		return redirect('plan');
 
 	}
+	
+	//postはplan1へ【planと同じpost】へ飛ばす
 	public function plancontinue(Request $request){
-		return view('plan.plancontinue');
+
+	      $users = Auth::user()->email;
+              $moji1=$users;
+              $moji1 = str_replace('@','',$moji1);
+              $moji2 = str_replace('.','',$moji1);
+              $user = $moji2;
+              $weight =  DB::table($user)->where('id','1')->value('weight');
+	      return view('plan.plancontinue',compact('weight'));
 	}
+	public function plancontinue1(Request $request)
+	{
+		session_start();
+		$beforeweight = $_SESSION['beforeweight'];
+		$periods = $_SESSION['periods'];
+		$weight = $_SESSION['weight'];
+		$genryo = $_SESSION['genryo'];
+
+		return view('plan.plancontinue1',compact('beforeweight','periods','weight','genryo'));
+		
+	}
+	public function plancontinue1post(Request $request)
+	{
+	      //user情報呼び出し
+	      $users = Auth::user()->email;
+              $moji1=$users;
+              $moji1 = str_replace('@','',$moji1);
+              $moji2 = str_replace('.','',$moji1);
+              $user = $moji2;
+
+	      session_start();
+	      $period =  $_SESSION['period'];
+	      //ダイエット終了期間を割り出す。
+              $endday = date("Y.m.d",strtotime("$period day"));
+
+                 //ダイエット開始するキー  
+                 DB::table($user)->where('id',1)->update(['daystart'=>'85']);
+                //ダイエット終了日
+                 DB::table($user)->where('id',1)->update(['endday'=>$enday]);
+
+                 //開始日をid,1のdayカラムに入れる
+                 DB::table($user)->where('id',1)->update(['day'=>$today]);
+
+                //現在の体重
+                   $beforeweight = $_SESSION['beforeweight'];
+                   DB::table($user)->where('id',1)->update(['beforeweigh'=>$beforeweight]);
+
+                //減量目標に入れる                 
+                   $target = $_SESSION['weight'];
+                   DB::table($user)->where('id',1)->update(['target'=>$trget]);
+
+	        //現在の体重と現在の日付を新たなカラムに入れる
+                  DB::table($user)->insert(['weight'=>$beforeweight,'day'=>$today]); 
+
+
+	}
+	
 }

@@ -174,10 +174,10 @@ class diaryController extends Controller
 	       $continue1 = $request->input('continue1');
 	       $continue2 = $request->input('continue2');
                
-	      //体重の更新
-	       　$weightinfo= DB::table($user)->whereNotNull('weight')->max('day');
+	    //体重の更新
+              $weightinfo = DB::table($user)->whereNotNull('weight')->max('day');
                 //↓【重要】取得したIDを元に最後に入力された体重を取得
-　　　　　　　　$nowweight = DB::table($user)->where('day',$weightinfo)->value('weight');
+	      $nowweight = DB::table($user)->where('day',$weightinfo)->value('weight');
 	       //↓　現在の最新の体重をweightカラムのid,1に挿入する
 　　　　　　　　DB::table($user)->where('id',1)->update(['weight'=>$nowweight]);
 
@@ -191,18 +191,20 @@ class diaryController extends Controller
 	      //target（目標体重)もリセットする
                   DB::table($user)->where('id',1)->update(['target'=>null]);
               //day（後で挙動をチェックする）もリセットする
-                  DB::table($user)->where('id',1)->update(['day'=>null]);
-		  /*id1以外のdiary削除機能をつける
-		    
-	                   */
-	       
+		  DB::table($user)->where('id',1)->update(['day'=>null]);
+
+
+		  //↓　id1以外のdiary削除機能
+		 for($i = 0; $i<500; $i++){
+	            DB::table($user)->where('id','>',1)->delete();
+                 }
 	       //現在のダイエットを継続する場合↓
 	       //if文で分岐させる
 	       if($continue1 =="0"){
 		//プランを継続する場合はdaystartカラムを3にする
-	         DB::table($user)->where('id',1)->update(['daystart'=>"3"]);
-               return redirect('plancontinue');
-    
+		   DB::table($user)->where('id',1)->update(['daystart'=>"3"]);
+                 //daystartが３の場合はplancontinueしか起動しない
+		   return redirect('plancontinue');
 	       }elseif($continue2 =="1"){     
                  //planもリセットする
 		   DB::table($user)->where('id',1)->update(['plan'=>null]);
