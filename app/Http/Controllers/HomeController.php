@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 //test↓
 use Carbon\Carbon;
 date_default_timezone_set('Asia/Tokyo');
-
+//テストコード50行目
 class HomeController extends Controller
 {
     /**

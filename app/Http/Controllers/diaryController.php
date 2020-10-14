@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 //test↓
 use Carbon\Carbon;
 date_default_timezone_set('Asia/Tokyo');
-
+//テストコード45行目
 class diaryController extends Controller
 {
 	public function index(Request $request)
@@ -56,8 +56,16 @@ class diaryController extends Controller
 
 	         }elseif($pastday==$startday){
 			    break;
-		    }
+		 }		    
 	      }
+	      /*while 無限ループでダイエット超過したカラムを消す
+	      for($a = 0; $a<500; $a++){
+		      $overday = DB::table($user)->where('id',1)->value('endday');
+		      DB::table($user)->where('day','>',$overday)->delete();
+                 }
+           */
+
+	      
               //DBにあるすべてのdiaryカラムを取り出している
 	      $record =  DB::table($user)->orderBy('day','desc')->where('id','>',1)->get();
 	      return view('diary.diary',compact('record','daystart'));
@@ -179,10 +187,7 @@ class diaryController extends Controller
                 //↓【重要】取得したIDを元に最後に入力された体重を取得
 	      $nowweight = DB::table($user)->where('day',$weightinfo)->value('weight');
 	       //↓　現在の最新の体重をweightカラムのid,1に挿入する
-　　　　　　　　DB::table($user)->where('id',1)->update(['weight'=>$nowweight]);
-
-
-
+	       DB::table($user)->where('id',1)->update(['weight'=>$nowweight]);
              //【共通リセット項目】
                //↓　beforeweight（開始前体重)はリセットする
                   DB::table($user)->where('id',1)->update(['beforeweight'=>null]);

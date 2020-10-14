@@ -80,11 +80,15 @@ Route::get('planyeslittleeat','planController@planyeslittleeat');
 Route::post('planyeslittleeat','planController@planyeslittleeatpost');
 Route::get('planafternoon','planController@planafternoon');
 Route::post('planafternoon','planController@planafternoonpost');
+Route::get('plancontinue','planController@plancontinue');
+Route::get('plancontinue1','planController@plancontinue1');
+Route::post('plancontinue1','planController@plancontinue1post');
 //エラーと結果画面
 Route::get('error','planController@error');
 Route::post('error','planController@error1');
 Route::get('result','planController@result');
 Route::post('result','planController@resultpost');
+
 
 //diaryController
 Route::get('diary','diaryController@index');
@@ -92,4 +96,6 @@ Route::post('diary','diaryController@indexpost');
 Route::get('diaryadd','diaryController@day1');
 Route::post('diaryadd','diaryController@day1post');
 Route::get('diaryresult','diaryController@diaryresult');
+Route::post('diaryresult','diaryController@diaryresultpost');
+
 

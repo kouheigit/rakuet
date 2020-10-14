@@ -732,32 +732,34 @@ class planController extends Controller
               $moji1 = str_replace('@','',$moji1);
               $moji2 = str_replace('.','',$moji1);
               $user = $moji2;
-
+              //日付割り出し
+	      $today = date("Y.m.d");
+	      //session start
 	      session_start();
 	      $period =  $_SESSION['period'];
 	      //ダイエット終了期間を割り出す。
               $endday = date("Y.m.d",strtotime("$period day"));
 
                  //ダイエット開始するキー  
-                 DB::table($user)->where('id',1)->update(['daystart'=>'85']);
+                 DB::table($user)->where('id',1)->update(['daystart'=>'875']);
                 //ダイエット終了日
-                 DB::table($user)->where('id',1)->update(['endday'=>$enday]);
+                 DB::table($user)->where('id',1)->update(['endday'=>$endday]);
 
                  //開始日をid,1のdayカラムに入れる
                  DB::table($user)->where('id',1)->update(['day'=>$today]);
 
                 //現在の体重
                    $beforeweight = $_SESSION['beforeweight'];
-                   DB::table($user)->where('id',1)->update(['beforeweigh'=>$beforeweight]);
+                   DB::table($user)->where('id',1)->update(['beforeweight'=>$beforeweight]);
 
                 //減量目標に入れる                 
                    $target = $_SESSION['weight'];
-                   DB::table($user)->where('id',1)->update(['target'=>$trget]);
+                   DB::table($user)->where('id',1)->update(['target'=>$target]);
 
 	        //現在の体重と現在の日付を新たなカラムに入れる
                   DB::table($user)->insert(['weight'=>$beforeweight,'day'=>$today]); 
-
-
+                        
+              return redirect("home");
 	}
 	
 }
