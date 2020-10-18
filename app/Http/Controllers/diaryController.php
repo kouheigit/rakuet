@@ -18,13 +18,11 @@ class diaryController extends Controller
               $moji1 = str_replace('@','',$moji1);
               $moji2 = str_replace('.','',$moji1);
 	      $user = $moji2;
-	      //新テストコード 
-	      /*
+	      /*新テストコード 
 	      $now = Carbon::now();  
-	      $today = $now->addDays(17)->format("Y.m.d");
+	      $today = $now->addDays(14)->format("Y.m.d");
 	       */
-	      //新テストコード
-	     // 本日の体重を記録する
+	    // 本日の体重を記録する
 	      $today = date("Y.m.d");
 	      //体重記録開始キーを読み込む
 	      $dayDB = DB::table($user)->where('id',1)->get('daystart');
@@ -40,12 +38,19 @@ class diaryController extends Controller
 		     DB::table($user)->insert(['day'=>$today]);
 		 }
 
-	      //楽エットに来る日付が空いた際に空いた分のdiaryを
-	      //挿入する
-	      $forday = 0;//【重要】本番で使用する場合は必ず0を入れる
-	      for($i=0; $i<500; $i++){
-		  //DBに入ってるダイエット始めの日を探り出す     
-		    $startday = DB::table($user)->where('id',1)->value('day');
+	      //DBの最初の日を探し出す
+	      /*テストデータ(中に任意の日付を書く)*/
+	     $todays = date('2020-11-15'); 
+	    // $todays = date('Y-m-d');
+	      $startday = DB::table($user)->where('id',1)->value('day');
+              $start = str_replace('.', '-',$startday);
+	      $forday = (strtotime($todays) - strtotime($start))/(3600*24);
+
+
+	      //楽エットに来る日付が空いた際に空いた分のdiaryを挿入する
+	      for($i=0; $i<$forday; $i++){
+		      //DBに入ってるダイエット始めの日を探り出す
+		    $startday = DB::table($user)->where('id',1)->value('day');     
 		    $day = date("Y.m.d",strtotime("$forday day"));
 		    $forday -=1;
 		    $pastday = DB::table($user)->where('day',$day)->value('day');
@@ -58,14 +63,23 @@ class diaryController extends Controller
 			    break;
 		 }		    
 	      }
-	      /*while 無限ループでダイエット超過したカラムを消す
-	      for($a = 0; $a<500; $a++){
-		      $overday = DB::table($user)->where('id',1)->value('endday');
-		      DB::table($user)->where('day','>',$overday)->delete();
-                 }
-           */
-
-	      
+	      //while 無限ループでダイエット超過したカラムを消す
+	      $now =0;
+/*	  
+	 while(true){
+                //現在の日付を取得
+		$nowday = DB::table($user)->max('day');
+		//ダイエット終了日
+		$overday = DB::table($user)->where('id',1)->value('endday');
+		$judgeday = date($nowday,strtotime("$now day"));
+            if($judgeday > $overday){
+		    $delete = DB::table($user)->where('day','',$judgeday)->delete();
+		    $now = $now -1;
+	    }else{
+		    break;
+	    }
+          }
+*/
               //DBにあるすべてのdiaryカラムを取り出している
 	      $record =  DB::table($user)->orderBy('day','desc')->where('id','>',1)->get();
 	      return view('diary.diary',compact('record','daystart'));
