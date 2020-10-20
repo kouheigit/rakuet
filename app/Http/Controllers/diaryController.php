@@ -38,23 +38,16 @@ class diaryController extends Controller
 		     DB::table($user)->insert(['day'=>$today]);
 		 }
 
-	      //DBの最初の日を探し出す
-	      /*テストデータ(中に任意の日付を書く)*/
-	     $todays = date('2020-11-15'); 
-	    // $todays = date('Y-m-d');
-	      $startday = DB::table($user)->where('id',1)->value('day');
-              $start = str_replace('.', '-',$startday);
-	      $forday = (strtotime($todays) - strtotime($start))/(3600*24);
-
+	      
 
 	      //楽エットに来る日付が空いた際に空いた分のdiaryを挿入する
-	      for($i=0; $i<$forday; $i++){
+	      $forday = 0;
+	       while(1){
 		      //DBに入ってるダイエット始めの日を探り出す
 		    $startday = DB::table($user)->where('id',1)->value('day');     
 		    $day = date("Y.m.d",strtotime("$forday day"));
 		    $forday -=1;
 		    $pastday = DB::table($user)->where('day',$day)->value('day');
-
                  if($pastday==null&&$daystart=="875"){
 
 			 DB::table($user)->insert(['day'=>$day]);
@@ -64,8 +57,7 @@ class diaryController extends Controller
 		 }		    
 	      }
 	      //while 無限ループでダイエット超過したカラムを消す
-	      $now =0;
-/*	  
+	      /*↓　rakubuhin.phpにある奴をコピペで持ってくる
 	 while(true){
                 //現在の日付を取得
 		$nowday = DB::table($user)->max('day');
