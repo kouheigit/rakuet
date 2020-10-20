@@ -24,16 +24,16 @@ class testController extends Controller
 		 $test =  $today->diffInDays($future);
 		 $carbon1 = new Carbon('2016-01-01');
 		 $carbon2 = new Carbon('2017-01-01');
-		 $future =  $carbon1->diffInDays($carbon2);*/
+		 $future =  $carbon1->diffInDays($carbon2);
 	   
-	/*	$today = date("Y.m.d");
+		$today = date("Y.m.d");
 	        $plus = 14;
 		$plusday = date("Y.m.d",strtotime("$plus day"));
-		$test = var_dump(($plusday - $today)/60/60/24);*/
+		$test = var_dump(($plusday - $today)/60/60/24);
 
              $end = DB::table($user)->where('id',1)->value('endday');
 	      $endday = str_replace('.', '-',$end);
-	     // $test = (strtotime($endday) - strtotime(date('Y-m-d')))/(3600*24); 
+	     $test = (strtotime($endday) - strtotime(date('Y-m-d')))/(3600*24); 
 	      
 	      $startday = DB::table($user)->where('id',1)->value('day');     
 	      $start = str_replace('.', '-',$startday);
@@ -43,8 +43,14 @@ class testController extends Controller
 	       $video = DB::table($user)->max('day');
 	      if($video > $today){
 		      $syamu ="成功した";
-	      }
+	      }*/
 
-	      return view('test',compact('syamu'));
+	      $endday = DB::table($user)->where('id',1)->value('endday');
+	      $nowday = DB::table($user)->where('day',$endday)->value('day');
+	      $delete = DB::table($user)->where('day','>',$endday)->delete();
+
+              $record =  DB::table($user)->orderBy('day','desc')->where('id','>',1)->get();
+
+	      return view('test',compact('endday','nowday'));
 	}
 }
