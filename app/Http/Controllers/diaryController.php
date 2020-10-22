@@ -53,12 +53,18 @@ class diaryController extends Controller
 		 }		    
 	      }
 	      //ダイエット終了日以降の過剰な日付を削除する
-	      $endday = DB::table($user)->where('id',1)->value('endday');
-              $nowday = DB::table($user)->where('day',$endday)->value('day');
-              $delete = DB::table($user)->where('day','>',$endday)->delete();
+	       $endday = DB::table($user)->where('id',1)->value('endday');
+	        if($endday==null){
+		      //何もしない
+		 }else{
+                  $nowday = DB::table($user)->where('day',$endday)->value('day');
+                  $delete = DB::table($user)->where('day','>',$endday)->delete();
+		}
 
-
-
+	        if($endday==!null&&$today > $endday){
+                   DB::table($user)->where('id','1')->update(['daystart'=>"2"]);
+                }
+		
               //DBにあるすべてのdiaryカラムを取り出している
 	      $record =  DB::table($user)->orderBy('day','desc')->where('id','>',1)->get();
 	      return view('diary.diary',compact('record','daystart'));
@@ -94,8 +100,7 @@ class diaryController extends Controller
 
 	       if($jiki == "null"){
                      $jiki = null;
-             }
-
+               }
 
 	       if($jiki==null&&$heavy==null){
 		       return redirect('diary');
@@ -191,11 +196,9 @@ class diaryController extends Controller
               //day（後で挙動をチェックする）もリセットする
 		  DB::table($user)->where('id',1)->update(['day'=>null]);
 
-
 		  //↓　id1以外のdiary削除機能（後で直す)
-		 for($i = 0; $i<500; $i++){
-	            DB::table($user)->where('id','>',1)->delete();
-                 }
+		  DB::table($user)->where('id','>',1)->delete();
+               
 	       //現在のダイエットを継続する場合↓
 	       //if文で分岐させる
 	       if($continue1 =="0"){

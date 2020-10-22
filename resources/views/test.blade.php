@@ -2,7 +2,6 @@
 <html lang="ja">
 <meta charset="UTF-8">
 <body>
-{{$nowday}}
-{{$endday}}
+{{$test}}
 </body>
 </html>

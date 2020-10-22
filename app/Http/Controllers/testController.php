@@ -44,13 +44,22 @@ class testController extends Controller
 	      if($video > $today){
 		      $syamu ="成功した";
 	      }*/
-
+	      /*
 	      $endday = DB::table($user)->where('id',1)->value('endday');
 	      $nowday = DB::table($user)->where('day',$endday)->value('day');
 	      $delete = DB::table($user)->where('day','>',$endday)->delete();
 
-              $record =  DB::table($user)->orderBy('day','desc')->where('id','>',1)->get();
+	      $record =  DB::table($user)->orderBy('day','desc')->where('id','>',1)->get();*/
 
-	      return view('test',compact('endday','nowday'));
+	      $endday = DB::table($user)->where('id',1)->value('endday');
+	      $today = date("Y.m.d");
+
+	      if($today > $endday){
+		   $test = "成功";
+	      }else{
+		      $test = "失敗";
+	      }
+
+	      return view('test',compact('test'));
 	}
 }

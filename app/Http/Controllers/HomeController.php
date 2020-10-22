@@ -49,7 +49,7 @@ class HomeController extends Controller
 	    
 	     $plus = 14;
 	     $today = date("Y.m.d",strtotime("$plus day"));
-	     */ 
+	     */
 	    //日付取得
 	   $today = date("Y.m.d");
 	    //DBからダイエット終了日を呼び出して整数のみに生成する
@@ -64,8 +64,8 @@ class HomeController extends Controller
 	    if(($endday==!NULL&&$nowday==!NULL)&&($endday==$nowday)){
 		 //日付がダイエット終了期間になるとplan機能を停止させる
 		 DB::table($user)->where('id','1')->update(['daystart'=>"2"]);
-	      }
-	 
+	    }
+	    
 
 	    if(is_null($height)&&is_null($weight)&&is_null($age)&&is_null($sexual)&&is_null($setumei))
 	    {
