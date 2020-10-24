@@ -94,7 +94,6 @@ Route::get('plandell','planController@plandelldecide');
 Route::post('plandelldecide','planController@plandelldecidepost');
 
 
-
 //diaryController
 Route::get('diary','diaryController@index');
 Route::post('diary','diaryController@indexpost');
@@ -103,4 +102,5 @@ Route::post('diaryadd','diaryController@day1post');
 Route::get('diaryresult','diaryController@diaryresult');
 Route::post('diaryresult','diaryController@diaryresultpost');
 
-
+//graphController
+Route::get('graph','graphController@index');
