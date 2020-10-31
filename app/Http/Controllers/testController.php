@@ -16,7 +16,9 @@ class testController extends Controller
               $moji1=$users;
               $moji1 = str_replace('@','',$moji1);
               $moji2 = str_replace('.','',$moji1);
-              $user = $moji2;
+	      $user = $moji2;
+
+	      $today = date("Y.m.d");
 		// $today = Carbon::now()->format("Y.m.d");
 		/*
 		 $today = Carbon::now();
@@ -44,22 +46,30 @@ class testController extends Controller
 	      if($video > $today){
 		      $syamu ="成功した";
 	      }*/
+	      
+	      
 	      /*
-	      $endday = DB::table($user)->where('id',1)->value('endday');
 	      $nowday = DB::table($user)->where('day',$endday)->value('day');
 	      $delete = DB::table($user)->where('day','>',$endday)->delete();
 
-	      $record =  DB::table($user)->orderBy('day','desc')->where('id','>',1)->get();*/
-
+	      $record =  DB::table($user)->orderBy('day','desc')->where('id','>',1)->get();
+	       */
 	      $endday = DB::table($user)->where('id',1)->value('endday');
+/*
 	      $today = date("Y.m.d");
-
 	      if($today > $endday){
 		   $test = "成功";
 	      }else{
 		      $test = "失敗";
 	      }
-
+ */            
+	      $startday = DB::table($user)->where('id',1)->value('day');     
+	      $start = str_replace('.', '-',$startday);
+	      $todays = str_replace('.', '-',$today);
+	      $test = (strtotime($todays) - strtotime($start))/(3600*24)+1;
+	      if($today > $endday){
+		      $test ="終了";
+	      }
 	      return view('test',compact('test'));
 	}
 }

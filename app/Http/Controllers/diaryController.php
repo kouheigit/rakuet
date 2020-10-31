@@ -63,11 +63,22 @@ class diaryController extends Controller
 
 	        if($endday==!null&&$today > $endday){
                    DB::table($user)->where('id','1')->update(['daystart'=>"2"]);
-                }
-
+		}
+                
+		//経過日
+		if($daystart==875&&$startday==!null&&$endday==!null){
+                   $start = str_replace('.', '-',$startday);
+                   $todays = str_replace('.', '-',$today);
+		   $progress = (strtotime($todays) - strtotime($start))/(3600*24)+1;
+		   $progress .='日';
+	 	 }elseif($daystart==null){
+		      $progress =null;
+		 }elseif($today > $endday){
+                      $progress ="終了";
+                 }
               //DBにあるすべてのdiaryカラムを取り出している
 	      $record =  DB::table($user)->orderBy('day','desc')->where('id','>',1)->get();
-	      return view('diary.diary',compact('record','daystart','startday','endday'));
+	      return view('diary.diary',compact('record','daystart','startday','endday','progress'));
 	}
 	public function indexpost(Request $request)
 	{

@@ -31,6 +31,10 @@
 @else
 <h1 class="title">{{$title}}</h1>
 <p class="text">{{$text}}</p>
+<form action="plandell" method="post">
+{{ csrf_field() }}
+ <button class="stop" type='submit'name='stop'value='1'>ダイエットを中断する</button>
+</form>
 @if ($img == 1)
 <img class="planimg" src="{{ asset('img/nomal.png') }}">
 @elseif ($img == 15)

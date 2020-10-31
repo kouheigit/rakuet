@@ -13,7 +13,7 @@
      <p class="ages">歳</p>
    </input>
    @endif
-  <h2 class="hv">体重(設定した体重{{$users->weight}}kg)</h2>
+  <h2 class="hv">体重(設定した体重{{$weight}}kg)</h2>
   @if ($users->weight == null)
   <input class="heavy" type="number"name="heavy"min="30"max="200"required>
    <p class="hensyu">kg</p>

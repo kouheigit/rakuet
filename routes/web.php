@@ -88,6 +88,11 @@ Route::get('error','planController@error');
 Route::post('error','planController@error1');
 Route::get('result','planController@result');
 Route::post('result','planController@resultpost');
+//削除
+Route::post('plandell','planController@plandell');
+Route::get('plandell','planController@plandelldecide');
+Route::post('plandelldecide','planController@plandelldecidepost');
+
 
 
 //diaryController
