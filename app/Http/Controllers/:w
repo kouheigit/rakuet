@@ -19,7 +19,7 @@ class graphController extends Controller
 
 	    $syamu = "これは成功です";
 	    $syamu2 = ["3","4","10","300"];
-	   // $syamu5  = DB::table($user)->where('id','>',1)->value('weight');
+	    $syamu5  = DB::table($user)->where('id',1)->value();
 
 	    return view('graph.graph',compact('syamu','syamu2','syamu5'));
     }
