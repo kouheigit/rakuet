@@ -104,3 +104,5 @@ Route::post('diaryresult','diaryController@diaryresultpost');
 
 //graphController
 Route::get('graph','graphController@index');
+Route::get('graph1','graphController@graph1');
+

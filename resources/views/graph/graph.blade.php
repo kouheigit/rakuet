@@ -13,17 +13,17 @@
 <script>
 $(function(){
 //laravelの配列からjavascriptに渡す
-var array = "{{ json_encode($syamu2) }}";
+var array = "{{ json_encode($syamu2) }}"	
 var set = [2,4,9,6,5,43,2,1]
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
-  type:'doughnut',
+  type:'line',
   data: {
-    labels: ['{{$syamu}}','2', '5', 'E', 'F', 'G'],
+    labels: ['3','2', '5', 'E', 'F', 'G'],
     datasets: [{
-    label: 'label',
-      data:array,
-      backgroundColor: ['red','blue','yellow','green','silver','gold','pink']
+    label:array,
+     data:set,
+     backgroundColor: ["red","blue","yellow","pink","white","gold","blue"]
     }]
   }
 });
