@@ -37,12 +37,15 @@ class HomeController extends Controller
 	    $user = $moji2;
 	    //後に仕様変更する 
 	    $atai = DB::table($user)->where('id','1')->first();
+	    $weightinfo = DB::table($user)->whereNotNull('weight')->max('day');
+               //↓【重要】取得したIDを元に最後に入力された体重を取得
+            $weight = DB::table($user)->where('day',$weightinfo)->value('weight');
 	    $age = $atai->age;
 	    $sexual =$atai->sexual;
 	    $height =$atai->height;
 	    //体重はdiaryから最新のデータを取ってくる
 	    //$ataiとは違うクエリを作り下の文も適宜変更する
-	    $weight =$atai->weight;
+	   // $weight =$atai->weight;
 	    $setumei = null;
 	    $BMR1 = null;
 	    /*テストデータ
@@ -199,12 +202,16 @@ class HomeController extends Controller
             $moji1 = str_replace('@','',$moji1);
 	    $moji2 = str_replace('.','',$moji1);
 	    $user = $moji2;
-            $users =  DB::table($user)->where('id',1)->first();	    
+	    $users =  DB::table($user)->where('id',1)->first();
+
+            $weightinfo = DB::table($user)->whereNotNull('weight')->max('day');
+               //↓【重要】取得したIDを元に最後に入力された体重を取得
+            $weight = DB::table($user)->where('day',$weightinfo)->value('weight');	    
               
-	     return view('home.home2',compact('users')); 
+	     return view('home.home2',compact('users','weight')); 
     }
     public function home2(Request $request)
-    {	  
+    {	 
             return redirect('home');
     }
     public function home2post(Request $request)

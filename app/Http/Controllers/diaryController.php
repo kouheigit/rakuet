@@ -64,10 +64,10 @@ class diaryController extends Controller
 	        if($endday==!null&&$today > $endday){
                    DB::table($user)->where('id','1')->update(['daystart'=>"2"]);
                 }
-		
+
               //DBにあるすべてのdiaryカラムを取り出している
 	      $record =  DB::table($user)->orderBy('day','desc')->where('id','>',1)->get();
-	      return view('diary.diary',compact('record','daystart'));
+	      return view('diary.diary',compact('record','daystart','startday','endday'));
 	}
 	public function indexpost(Request $request)
 	{
@@ -196,7 +196,7 @@ class diaryController extends Controller
               //day（後で挙動をチェックする）もリセットする
 		  DB::table($user)->where('id',1)->update(['day'=>null]);
 
-		  //↓　id1以外のdiary削除機能（後で直す)
+		  //↓　id1以外のdiary削除機能
 		  DB::table($user)->where('id','>',1)->delete();
                
 	       //現在のダイエットを継続する場合↓

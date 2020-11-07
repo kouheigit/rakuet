@@ -767,7 +767,7 @@ class planController extends Controller
 		$stop = $request->input('stop');
 
 		if($stop==1){
-			return redirect('plandell');
+			return redirect('test');
 		}
 
 	}
@@ -778,8 +778,7 @@ class planController extends Controller
 	}
 
 	public function plandelldecidepost(Request $request)
-	{
-	
+	{	
 		//user情報を取得する
 		$users = Auth::user()->email;
                 $moji1=$users;
@@ -793,21 +792,10 @@ class planController extends Controller
 		//daystartはnullにする
 		DB::table($user)->where('id',1)->update(['daystart'=>null]);
 
-		//enddayはnullにする
-                DB::table($user)->where('id',1)->update(['endday'=>null]);
-
-
-               	
-	       //diaryに記した最終体重をセットする
-		$weightinfo = DB::table($user)->whereNotNull('weight')->max('day');
-               //↓【重要】取得したIDを元に最後に入力された体重を取得
+　　　　　　　　//diaryに記した最終体重をセットする
+	        $weightinfo = DB::table($user)->whereNotNull('weight')->max('day');
+		//↓【重要】取得したIDを元に最後に入力された体重を取得
 		$nowweight = DB::table($user)->where('day',$weightinfo)->value('weight');
-
-		DB::table($user)->where('id',1)->update(['weight'=>$nowweight]);
-		//↓　id1以外のdiary削除機能
-		DB::table($user)->where('id','>',1)->delete();
-
-		return redirect('home');
 
         }
 
