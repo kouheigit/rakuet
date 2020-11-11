@@ -33,11 +33,15 @@ class graphController extends Controller
               $moji1 = str_replace('@','',$moji1);
               $moji2 = str_replace('.','',$moji1);
 	      $user = $moji2;
-	      $keys = ['家','研究室','外出','学内','長期不在','test'];
-           
-	      $test = DB::table($user)->where('id','>',1)->value('weight');
-	     
-            $counts = [20,4,3,2,1,$test];
-	    return view('graph.graph1',compact('keys','counts','test'));
+	      // $keys = ['家','研究室','外出','学内','長期不在','test'];
+	      //パイグラフから棒グラフにする
+	      $keys = [];
+	      $weight = DB::table($user)->where('id','>',1)->whereNotNull('weight')->get();
+	      $counts = [];
+	      foreach($weight as $weights){
+		      $keys[] = $weights->day;
+		      $counts[] = $weights->weight;
+	      }	      
+	    return view('graph.graph1',compact('keys','counts'));
     }
 }
