@@ -36,7 +36,7 @@ class graphController extends Controller
 	      // $keys = ['家','研究室','外出','学内','長期不在','test'];
 	      //パイグラフから棒グラフにする
 	      $keys = [];
-	      $weight = DB::table($user)->where('id','>',1)->whereNotNull('weight')->get();
+	      $weight = DB::table($user)->where('id','>',1)->whereNotNull('weight')->orderBy('day')->get();
 	      $counts = [];
 	      foreach($weight as $weights){
 		      $keys[] = $weights->day;
