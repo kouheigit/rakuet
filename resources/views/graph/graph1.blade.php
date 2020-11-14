@@ -7,7 +7,9 @@
        <meta name="viewport" content="width=device-width, initial-scale=1">
    </head>
    <body>
-  <h1>{{$testcode}}</h1>
+  <h1>{{$newcountnumber}}</h1>
+  <h1>{{$countnumber}}</h1>
+  <h1>{{$testcode}}<h1>
        <div class="content">
            <canvas id="allChart"></canvas>
        </div>
@@ -19,4 +21,5 @@
          make_chart(id,labels,data);
        </script>
    </body>
+   <h1>これはテストです</h1>
 @endsection
