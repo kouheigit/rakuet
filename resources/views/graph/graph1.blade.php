@@ -9,7 +9,7 @@
    <body>
   <h1>{{$newcountnumber}}</h1>
   <h1>{{$countnumber}}</h1>
-  <h1>{{$testcode}}<h1>
+  <h1>{{$testcode ?? ''}}<h1>
        <div class="content">
            <canvas id="allChart"></canvas>
        </div>
