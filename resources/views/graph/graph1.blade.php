@@ -7,9 +7,6 @@
        <meta name="viewport" content="width=device-width, initial-scale=1">
    </head>
    <body>
-  <h1>{{$newcountnumber}}</h1>
-  <h1>{{$countnumber}}</h1>
-  <h1>{{$testcode ?? ''}}<h1>
        <div class="content">
            <canvas id="allChart"></canvas>
        </div>
@@ -20,6 +17,11 @@
 	data = @json($counts);
          make_chart(id,labels,data);
        </script>
+    <form action="graph" method="post">
+      {{ csrf_field() }}
+     <button class="previous" type='submit'name='atai'value='10'>前の10件</button>
+     <button class="next" type='submit'name='atai'value='10'>次の10件</button>
+   </form>
+   <p class="position">.</p>
    </body>
-   <h1>これはテストです</h1>
 @endsection

@@ -1,35 +1,23 @@
-@extends('layouts.app3')
+@extends('layouts.app4')
 @section('body')
-<title>chart</title>
-<link rel="stylesheet" href="{{ asset('css/graph.css') }}">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
-</head>
-<body>
-<h1>宮本天外</h1>
-@foreach ($syamu2 as $syamu3)
-<h1>{{$syamu3}}</h1>
-
-<canvas id="myChart"></canvas>
-<script>
-$(function(){
-//laravelの配列からjavascriptに渡す
-var array = "{{ json_encode($syamu2) }}"	
-var set = [2,4,9,6,5,43,2,1]
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-  type:'line',
-  data: {
-    labels: ['3','2', '5', 'E', 'F', 'G'],
-    datasets: [{
-    label:array,
-     data:set,
-     backgroundColor: ["red","blue","yellow","pink","white","gold","blue"]
-    }]
-  }
-});
-});
-</script>
-@endforeach
-</body>
+   <head> 
+       <meta charset="utf-8">
+       <link rel="stylesheet" href="{{ asset('css/graph.css') }}">
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+   </head>
+   <body>
+    <!--graph.blade.phpでは一切反映されず、graph1.blade.phpが共通して反映される-->
+    <!--Controller post部分未完成-->
+       <div class="content">
+           <canvas id="allChart"></canvas>
+       </div>
+       <script src="{{ mix('js/graph_chart.js') }}"></script>
+       <script type="text/javascript"> 
+       id = 'allChart';
+        labels = @json($keys);
+	data = @json($counts);
+         make_chart(id,labels,data);
+       </script>
+   <p class="position">.</p>
+   </body>
 @endsection
-
