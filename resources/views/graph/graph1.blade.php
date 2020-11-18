@@ -19,8 +19,8 @@
        </script>
     <form action="graph" method="post">
       {{ csrf_field() }}
-     <button class="previous" type='submit'name='atai'value='10'>前の10件</button>
-     <button class="next" type='submit'name='atai'value='10'>次の10件</button>
+     <button class="previous" type='submit'name='graphatai'value='-10'>前の10件</button>
+     <button class="next" type='submit'name='graphatai'value='10'>次の10件</button>
    </form>
    <p class="position">.</p>
    </body>
