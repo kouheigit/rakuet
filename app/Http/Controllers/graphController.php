@@ -152,6 +152,36 @@ class graphController extends Controller
 		 }
 		
 	 }
+       public function graphpie(Request $request)
+       {
+	      //sintyoku.php
+	      $users = Auth::user()->email;
+              $moji1=$users;
+              $moji1 = str_replace('@','',$moji1);
+              $moji2 = str_replace('.','',$moji1);
+              $user = $moji2;
+
+              //plan=nullの場合はgraph2に渡す
+            $plan = DB::table($user)->where('id','1')->value('plan');
+            if($plan == null){
+                    return redirect('graph2');
+	    }
+           
+	   $all = DB::table($user)->where('id','>',1)->get()->count();//目標の数(全体の総数)
+	   $jikkoubi = DB::table($user)->where('id','>',1)->where('jiki',0)->get()->count();//実績
+	   //達成値の計算 
+	   $tassei = $jikkoubi / $all * 100;
+	   $tasseiti = floor($tassei);
+	   //未実行率
+	   $mijikko = 100 - $tasseiti;
+	   
+	    
+	    $keys = ['達成率(%)','未実行(%)'];
+	   $counts =[$tasseiti,$mijikko];
+
+
+	    return view('graph.graphpie',compact('tasseiti','keys','counts'));
+       }
    
        public function graph2(Request $request)
        {

@@ -1,28 +1,24 @@
 @extends('layouts.app4')
 @section('body')
-   <head>
-       
+   <head> 
        <meta charset="utf-8">
        <link rel="stylesheet" href="{{ asset('css/graph.css') }}">
        <meta name="viewport" content="width=device-width, initial-scale=1">
    </head>
    <body>
+    <!--graph.blade.phpでは一切反映されず、graph1.blade.phpが共通して反映される-->
+    <!--Controller post部分未完成-->
        <div class="content">
            <canvas id="allChart"></canvas>
        </div>
-       <script src="{{ mix('js/show_chart.js') }}"></script>
+       <script src="{{ mix('js/pie_chart.js') }}"></script>
        <script type="text/javascript"> 
        id = 'allChart';
         labels = @json($keys);
 	data = @json($counts);
          make_chart(id,labels,data);
        </script>
-    <form action="graph" method="post">
-      {{ csrf_field() }}
-     <button class="previous" type='submit'name='graphatai'value='-10'>前の10件</button>
-     <button class="next" type='submit'name='graphatai'value='10'>次の10件</button>
-     <input type="hidden"name='graphswitch'value='ON'>
-   </form>
+    <h1>現在の達成率は{{$tasseiti}}%</h1>
    <p class="position">.</p>
    </body>
 @endsection
