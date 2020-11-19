@@ -50,7 +50,17 @@ class graphController extends Controller
 
     public function graph1(Request $request)
     {
-	   
+      //graph1以外からgraph1にアクセス出来なくする(アクセスチェック)
+            session_start();
+	    $graphswitch = $_SESSION['graphswitch'];
+	    
+	   if($graphswitch == 'ON'){
+	   }else{
+	      return redirect('home');	   
+	   }	
+                //アクセスチェック終了
+
+	    
 	    //↓ ユーザー情報を呼び出す
 	    $users = Auth::user()->email;
               $moji1=$users;
@@ -64,7 +74,6 @@ class graphController extends Controller
 	      }
 
 	   
-              session_start();
 	      $skipnumber = $_SESSION['graphatai'];//次のプログラムで必ず使う$_SESSION関数にする
 
 	      //↓ 次のプログラムで必ず使用する--start--
@@ -98,13 +107,21 @@ class graphController extends Controller
 	      //配列を反転する
 	      $keys = array_reverse($beforekeys);
 	      $counts = array_reverse($beforecounts);
+	      
+	      //アクセスチェックのためにnullに戻す 
+	      $_SESSION['graphswitch'] = null;
 
-	         
 	      return view('graph.graph1',compact('keys','counts'));
     }
 
          public function graphpost(Request $request)
 	 {
+		 $graphswitch = $request->input('graphswitch');
+		 
+		 session_start();
+		 $_SESSION['graphswitch'] = $graphswitch;
+		 
+		 
 		 //↓ ユーザー情報を呼び出す
                $users = Auth::user()->email;
                  $moji1=$users;
@@ -114,7 +131,6 @@ class graphController extends Controller
 
 		 $now = $request->input('graphatai');
 
-		 session_start();
 		 $before = $_SESSION['graphatai'];
 		 $_SESSION['graphatai'] = $before + $now;
 		 $graphatai = $_SESSION['graphatai'];
