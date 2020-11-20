@@ -159,7 +159,9 @@ class graphController extends Controller
               $moji1=$users;
               $moji1 = str_replace('@','',$moji1);
               $moji2 = str_replace('.','',$moji1);
-              $user = $moji2;
+	      $user = $moji2;
+
+	      $name = Auth::user()->name;
 
               //plan=nullの場合はgraph2に渡す
             $plan = DB::table($user)->where('id','1')->value('plan');
@@ -180,7 +182,7 @@ class graphController extends Controller
 	   $counts =[$tasseiti,$mijikko];
 
 
-	    return view('graph.graphpie',compact('tasseiti','keys','counts'));
+	    return view('graph.graphpie',compact('name','tasseiti','keys','counts','mijikko'));
        }
    
        public function graph2(Request $request)
