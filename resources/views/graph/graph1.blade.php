@@ -21,6 +21,8 @@
       {{ csrf_field() }}
      <button class="previous" type='submit'name='graphatai'value='-10'>前の10件</button>
      <button class="next" type='submit'name='graphatai'value='10'>次の10件</button>
+     <br>
+     <button class="gopies"type='submit' name='gopie'value='1'>ダイエット実行率を見る</button>   
      <input type="hidden"name='graphswitch'value='ON'>
    </form>
    <p class="position">.</p>

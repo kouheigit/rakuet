@@ -117,6 +117,17 @@ class graphController extends Controller
          public function graphpost(Request $request)
 	 {
 		 $graphswitch = $request->input('graphswitch');
+		 $returns = $request->input('returns');
+		 $gopie = $request->input('gopie');
+		 
+
+		 if($returns==!null){
+			 return redirect('graph');
+		 }
+
+		 if($gopie==!null){
+			 return redirect('graphpie');
+	         }
 		 
 		 session_start();
 		 $_SESSION['graphswitch'] = $graphswitch;
@@ -162,7 +173,11 @@ class graphController extends Controller
 	      $user = $moji2;
 
 	      $name = Auth::user()->name;
-
+              
+	      //アクセスチェック
+	      session_start();
+              $_SESSION['graphatai'] = null;
+	       
               //plan=nullの場合はgraph2に渡す
             $plan = DB::table($user)->where('id','1')->value('plan');
             if($plan == null){

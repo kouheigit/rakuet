@@ -22,6 +22,10 @@
     <h1 class="complete">現在の実行率は{{$tasseiti}}%</h1>
     <h1 class="incomplete">未実行の割合は{{$mijikko}}%</h1>
     <p class="explain">この円グラフはダイエット開始時から現在までの{{$name}}さんのダイエット実行率を円グラフとして表しています。</p>
-   <p class="position">.</p>
+   <form action="graph" method="post">
+    {{ csrf_field() }}
+    <button class="returns" type='submit'name='returns'value='-1'>グラフへ戻る</button>
+
+   </form>
    </body>
 @endsection
