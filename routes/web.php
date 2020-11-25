@@ -93,6 +93,9 @@ Route::post('plandell','planController@plandell');
 Route::get('plandell','planController@plandelldecide');
 Route::post('plandelldecide','planController@plandelldecidepost');
 
+//stripe
+Route::get('stripe','stripeController@index');
+Route::post('/charge', 'stripeController@charge');
 
 //diaryController
 Route::get('diary','diaryController@index');
