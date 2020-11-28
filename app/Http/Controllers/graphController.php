@@ -30,19 +30,24 @@ class graphController extends Controller
 	      $_SESSION['graphatai'] = null;
 	  
 	      $weight = DB::table($user)->where('id','>',1)->whereNotNull('weight')->limit(10)->orderBy('day','desc')->get();
+	      
 
 	      $counts = [];
 	      $keys = [];
+	      $beforekeys = [];
+	      $beforecounts = [];
+
 	      foreach($weight as $weights){
 		      $beforekeys[] = $weights->day;
 		      $beforecounts[] = $weights->weight;
 		      
 	      }
 
-
 	      //配列を反転する
 	      $keys = array_reverse($beforekeys);
 	      $counts = array_reverse($beforecounts);
+
+	      
 	      //weightのlimit部分は改良の余地有り
 	      ////postのsession関数で値を受け取って値を表示するchart.jsのプログラムを書く
 	      return view('graph.graph1',compact('keys','counts'));
