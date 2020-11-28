@@ -18,7 +18,10 @@ class stripeController extends Controller
 	{
 		return view('stripe.stripe');
 	}
-
+	public function stripestart(Request $request)
+	{
+		return view('stripe.stripestart');
+	}
 	public function charge(Request $request)
 	{
 	    $users = Auth::user()->email;

@@ -8,4 +8,5 @@
 <div id="button">
 <button class="sindan" type='submit'name='atai'value='1'>プラン診断を開始する</button>
 </div>
+</form>
 @endsection

@@ -95,6 +95,7 @@ Route::post('plandelldecide','planController@plandelldecidepost');
 
 //stripe
 Route::get('stripe','stripeController@index');
+Route::get('stripestart','stripeController@stripestart');
 Route::post('/charge', 'stripeController@charge');
 
 //diaryController
