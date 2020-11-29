@@ -1,0 +1,41 @@
+@charset"utf-8";
+
+h1.paid{
+font-size:30px;
+font-weight:bold;
+margin-left:30px;
+color:black;
+}
+
+p.paidsub{
+font-size:15px;
+font-weight:bold;
+color:black;
+}
+p.paidcauntion{
+font-size:15px;
+font-weight:bold;
+color:red;
+}
+
+div#stripe{
+padding: 1em;
+margin: 2em auto;
+width:400px;
+color: #696969;
+background: #ffffe0;
+border-top: solid 15px #ff8c00;
+box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
+}
+div.stripe2{
+margin-top:70px;
+margin-left:130px;
+}
+h1.stripe3{
+margin-top:30px;
+margin-left:80px;
+font-size:25px;
+font-weight:bold;
+color:black;
+}
+

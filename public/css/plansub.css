@@ -1,24 +1,5 @@
 @charset"utf-8";
 
-h1.paid{
-font-size:30px;
-font-weight:bold;
-margin-left:170px;
-color:black;
-}
-
-p.paidsub{
-font-size:15px;
-font-weight:bold;
-color:black;
-}
-p.paidcauntion{
-font-size:15px;
-font-weight:bold;
-color:red;
-}
-
-
 .question{
 margin-left:200px;
 font-size:20px;

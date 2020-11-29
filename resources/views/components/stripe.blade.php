@@ -1,12 +1,6 @@
-@extends('layouts.app4')
-@section('body')
 <link rel="stylesheet" href="{{ asset('css/stripecss.css') }}">
 <div id="stripe">
- <h1 class="paid">有料サービスの御案内</h1>
-<p class="paidsub">有料サービスに登録するとダイエット診断を受けずにお好きなダイエットプランをご自由に選ぶことが可能です
-。(登録料１００円)</p>
-<p class="paidcauntion">※一度登録すると再度登録する必要はありません
-　※お支払はクレジットカードのみ対応しています</p>
+ <h1 class="stripe3">有料プランに登録する</h1>
   <div class="stripe2">
      <form action="{{ asset('charge') }}" method="POST">
              {{ csrf_field() }}
@@ -24,4 +18,4 @@
       </form>
   </div>
 </div>
-@endsection
+

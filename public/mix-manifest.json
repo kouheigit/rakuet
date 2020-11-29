@@ -3,5 +3,6 @@
     "/css/app.css": "/css/app.css",
     "/js/graph_chart.js": "/js/graph_chart.js",
     "/js/pie_chart.js": "/js/pie_chart.js",
-    "/js/show_chart.js": "/js/show_chart.js"
+    "/js/show_chart.js": "/js/show_chart.js",
+    "/js/stripe.js": "/js/stripe.js"
 }

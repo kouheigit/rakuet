@@ -16,7 +16,14 @@ class stripeController extends Controller
 {
 	public function index(Request $request)
 	{
+            session_start();
+            $paid = $_SESSION['paid'];
+	    if($paid == 1){
+		$_SESSION['paid'] = null;
 		return view('stripe.stripe');
+	    }else{
+		return back();
+	    }
 	}
 	public function stripestart(Request $request)
 	{

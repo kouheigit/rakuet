@@ -1,4 +1,4 @@
-@extends('layouts.appplan')
+@extends('layouts.appplan1')
 <!--CSSを読み込む-->
 <link rel="stylesheet" href="{{ asset('css/plan1.css') }}">
 @section('body')
@@ -6,7 +6,9 @@
 <form action="plan2" method="get">
 {{ csrf_field() }}
 <div id="button">
-<button class="sindan" type='submit'name='atai'value='1'>プラン診断を開始する</button>
+<button class="sindan" type='submit'name='atai'value=1>プラン診断を開始する</button>
+<button class="sindan" type='submit'name='atai'value=2>有料サービスを使う</button>
 </div>
 </form>
+
 @endsection

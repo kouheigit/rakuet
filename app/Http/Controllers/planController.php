@@ -165,6 +165,11 @@ class planController extends Controller
         public function plan2(Request $request)
 	{
 		$atai = $request->input('atai');
+		if($atai==2){
+			session_start();
+			$_SESSION['paid'] = 1;
+			return redirect('stripe');
+		}
 		return view('plan.plan2');
 	}
 	public function plan2post(Request $request)
