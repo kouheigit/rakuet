@@ -1,4 +1,4 @@
 @extends('layouts.app4')
 @section('body')
-<h1>有料ページテスト</h1>
+<h1>{{$pass}}</h1>
 @endsection

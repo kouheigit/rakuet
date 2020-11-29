@@ -16,7 +16,8 @@ class stripeController extends Controller
 {
 	public function index(Request $request)
 	{
-            session_start();
+	    session_start();
+            $paid = null; 
             $paid = $_SESSION['paid'];
 	    if($paid == 1){
 		$_SESSION['paid'] = null;
@@ -24,6 +25,24 @@ class stripeController extends Controller
 	    }else{
 		return back();
 	    }
+	}
+	public function paid(Request $request)
+	{
+	    $users = Auth::user()->email;
+              $moji1=$users;
+              $moji1 = str_replace('@','',$moji1);
+              $moji2 = str_replace('.','',$moji1);
+	      $user = $moji2;
+
+
+	      
+	      $pass = DB::table($user)->where('id','1')->value('paid');
+	      
+	      if($pass==null){
+		      return back();
+	      }
+	      
+		return view('stripe.paid',compact('pass'));
 	}
 	public function stripestart(Request $request)
 	{
