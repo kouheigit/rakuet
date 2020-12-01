@@ -98,6 +98,7 @@ Route::get('stripe','stripeController@index');
 Route::get('paid','stripeController@paid');
 Route::get('stripestart','stripeController@stripestart');
 Route::post('/charge', 'stripeController@charge');
+Route::post('charge1','stripeController@charge1');
 
 //diaryController
 Route::get('diary','diaryController@index');
