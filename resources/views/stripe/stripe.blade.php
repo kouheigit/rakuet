@@ -12,13 +12,15 @@
     <div class="sindan">
      <form action="charge1" method="POST">
 	   {{ csrf_field() }}
+     <input type="hidden" name="paidauth"value=1>
      <button class="sindan1" type='submit'>【登録済み】有料サービスを使用する</button>
 
      </form>
  </div>
    @else
      <form action="{{ asset('charge') }}" method="POST">
-             {{ csrf_field() }}
+	     {{ csrf_field() }}
+        <input type="hidden" name="paidauth"value=1>
         <script
                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                data-key="{{ env('STRIPE_KEY') }}"
