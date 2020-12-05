@@ -1,0 +1,25 @@
+div#stripe{
+margin-left:-730px;
+/*これはスマホでは消す*/
+
+}
+div.stripe1{
+padding: 1em;
+margin: 2em auto;
+width:300px;
+color: #696969;
+background: #ffffe0;
+border-top: solid 15px #ff8c00;
+box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
+}
+div.stripe2{
+margin-top:70px;
+margin-left:100px;
+}
+button.sindan1{
+margin-left:-70px;
+}
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+
+}
+

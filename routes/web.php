@@ -99,6 +99,7 @@ Route::get('paid','stripeController@paid');
 Route::get('stripestart','stripeController@stripestart');
 Route::post('/charge', 'stripeController@charge');
 Route::post('charge1','stripeController@charge1');
+Route::post('chargeauth','stripeController@chargeauth');
 
 //diaryController
 Route::get('diary','diaryController@index');

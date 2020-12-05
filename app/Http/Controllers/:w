@@ -14,7 +14,6 @@ use StripeCharge;
 
 class stripeController extends Controller
 {
-	//支払いページ
 	public function index(Request $request)
 	{
             //plan2で入れたpaidのsession関数を入れる
@@ -81,10 +80,7 @@ class stripeController extends Controller
 	      //特定ページ以外はたどり着けなくする
 	      $_SESSION['paidauth'] = null;
 
-	      $plans = DB::table('plan')->get();
-
-
-	      return view('stripe.paid',compact('pass','plans'));
+	      return view('stripe.paid',compact('pass'));
 
 	}
         //このページはテストです。
