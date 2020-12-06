@@ -45,7 +45,7 @@ class stripeController extends Controller
 		return back();
 	    }
 	}
-	//有料ページ、まだ何も手を加えていない
+	//有料ページの一覧、まだ何も手を加えていない
 	public function paid(Request $request)
 	{
 	    $users = Auth::user()->email;
@@ -58,7 +58,7 @@ class stripeController extends Controller
 	      $plan = null;
               
 	      session_start();  
-	      //session関数でpaidauthを取得する
+	      //session関数でusedbを取得する
 	      if (empty($_SESSION['paidauth'])) {
 		      return back();
 	      }
@@ -87,7 +87,8 @@ class stripeController extends Controller
 	      return view('stripe.paid',compact('pass','plans'));
 
 	}
-        //このページはテストです。
+	
+	//このページはテストです。仮想有料ページ
 	public function stripestart(Request $request)
 	{
 		//新たに作るresult（新）に追加する
@@ -97,8 +98,8 @@ class stripeController extends Controller
                       return back();
 		}
 
-                $_SESSION['paidauth'] = null;
-		return view('stripe.stripestart');
+                $paidauth =  $_SESSION['paidauth'];
+		return view('stripe.stripestart',compact('paidauth'));
 	}
         //post
 	public function charge(Request $request)
@@ -165,9 +166,10 @@ class stripeController extends Controller
 	{
 		$paidauth = $request->input('paidauth');
 		session_start();
-		$_SESSION['paidauth'] = $paidauth;
+		//$_SESSION['paidauth'] = $paidauth;
+		$_SESSION['usedb'] = $paidauth;
 		//問題点、resultページは全く同じものをつくりstripeだけ別の物を使用する
 		//resultchargeを作成した後にページ遷移させる
-		return redirect('stripestart');		
+		return redirect('result');		
 	}
 }
