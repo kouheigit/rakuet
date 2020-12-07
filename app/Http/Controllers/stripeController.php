@@ -48,6 +48,7 @@ class stripeController extends Controller
 	//有料ページの一覧、まだ何も手を加えていない
 	public function paid(Request $request)
 	{
+	    //ユーザー情報の取得
 	    $users = Auth::user()->email;
               $moji1=$users;
               $moji1 = str_replace('@','',$moji1);
