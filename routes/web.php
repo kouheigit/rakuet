@@ -97,9 +97,11 @@ Route::post('plandelldecide','planController@plandelldecidepost');
 Route::get('stripe','stripeController@index');
 Route::get('paid','stripeController@paid');
 Route::get('stripestart','stripeController@stripestart');
+Route::get('striperesult','stripeController@striperesult');
 Route::post('/charge', 'stripeController@charge');
 Route::post('charge1','stripeController@charge1');
 Route::post('chargeauth','stripeController@chargeauth');
+
 
 //diaryController
 Route::get('diary','diaryController@index');

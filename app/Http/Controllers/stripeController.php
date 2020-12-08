@@ -60,7 +60,10 @@ class stripeController extends Controller
               
 	      session_start();  
 	      //session関数でusedbを取得する
+	      //paidauthが1ではなければ弾く
 	      if (empty($_SESSION['paidauth'])) {
+		      return back();
+	      }elseif($_SESSION['paidauth']==!1){
 		      return back();
 	      }
 	  
@@ -88,21 +91,91 @@ class stripeController extends Controller
 	      return view('stripe.paid',compact('pass','plans'));
 
 	}
+	     public function striperesult(Request $request)
+ 	     {
+		session_start();
+		if($_SESSION['angou']==null){
+			$_SESSION['paidauth'] = null;
+			return redirect('home');
+		}
+
+		
+		//プラン番号
+		$imgnomal = [7,13,14,16,17,18,19];
+                $img = null;
+		$usedb = $_SESSION['usedb'];
+		//DB呼び出し
+		$plan1 = DB::table('plan')->where('id',$usedb)->first();
+		//タイトル呼び出し
+		$plandb = $plan1->title; 
+		//本文呼び出し
+		$plandb1 = $plan1->text;
+		//減量目標体重とダイエット期間を呼び出す
+		$genryo = $_SESSION['genryo'];//減量する体重量
+                $period =  $_SESSION['period'];//ダイエット期間
+		$weight =  $_SESSION['weight'];//減量目標予定の体重
+		$beforeweight = $_SESSION['beforeweight'];//現在の体重
+		$today = date("m月d日");
+		$afterday = date("m月d日",strtotime("$period day"));//ダイエット終了の日程
+		if (in_array($usedb, $imgnomal)){
+		        $img = 1;	
+		}
+
+		if($usedb == 15){
+			$img = 15;
+		}elseif($usedb == 20){
+			$img = 20;
+		}elseif($usedb == 21){
+			$img = 21;
+		}elseif($usedb == 22){
+			$img = 22;
+		}
+ 
+		//angouをnullにする
+		$_SESSION['angou'] = null;
+
+		return view('stripe.striperesult',compact('beforeweight','genryo','period','weight','plandb','plandb1','afterday','today','img'));
+	}
+
 	
-	//このページはテストです。仮想有料ページ
+	//このページは中間考査ページにする
 	public function stripestart(Request $request)
 	{
-		//新たに作るresult（新）に追加する
-		//下記の機能は新resulutにも追加する
+		//新たに作るresult（新）を作成する
+		//paidから送られてくるpaidauthには3
+		//paidauthが3のものは新リザルトへ送る
+		//3の場合はpaidauthを4にして
+		//angouに新しいパスを入れる
+		
+		//新リザルトから送られてくるものには4
+		//新リザルトから送られて来たものはangouの他に
+		//paidauthに1の値を入れてpaidへ送る
+
 		session_start();
 		if (empty($_SESSION['paidauth'])) {
                       return back();
 		}
+               //paidページから送られてきたもののみに暗号を付与する
+	       if($_SESSION['paidauth']==3){
+		       $_SESSION['paidauth'] = 4;
+		       //暗号化する
+		       $angou = random_bytes(10);
+		       $_SESSION['angou'] = bin2hex($angou);
+		       //striperesultへ送る
+		       return redirect('striperesult');
+		//striperesultから送られてきたら4から１に変える
+		}elseif($_SESSION['paidauth']==4){
+                       $_SESSION['paidauth']== 1;
+		       return redirect('paid');
+		}else{
+			return back();
+		}
 
-                $paidauth =  $_SESSION['paidauth'];
-		return view('stripe.stripestart',compact('paidauth'));
+              //  $paidauth =  $_SESSION['paidauth'];
+		return view('stripe.stripestart');
 	}
-        //post
+
+        //post　
 	public function charge(Request $request)
 	{
 	    $users = Auth::user()->email;
@@ -165,12 +238,14 @@ class stripeController extends Controller
         //post 支払い済みユーザーかどうかを見分ける
 	public function chargeauth(Request $request)
 	{
+		//ダイエットプランを記入する
+		$usedb = $request->input('usedb');
 		$paidauth = $request->input('paidauth');
 		session_start();
-		//$_SESSION['paidauth'] = $paidauth;
-		$_SESSION['usedb'] = $paidauth;
+		$_SESSION['usedb'] = $usedb;
+		$_SESSION['paidauth'] = $paidauth;
 		//問題点、resultページは全く同じものをつくりstripeだけ別の物を使用する
 		//resultchargeを作成した後にページ遷移させる
-		return redirect('result');		
+		return redirect('stripestart');		
 	}
 }
