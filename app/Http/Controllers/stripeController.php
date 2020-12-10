@@ -92,11 +92,14 @@ class stripeController extends Controller
 
 	}
 	     public function striperesult(Request $request)
- 	     {
+	     {
+		
 		session_start();
+                
 		if($_SESSION['angou']==null){
 			$_SESSION['paidauth'] = null;
-			return redirect('home');
+		        return back();
+	
 		}
 
 		
@@ -158,8 +161,8 @@ class stripeController extends Controller
                //paidページから送られてきたもののみに暗号を付与する
 	       if($_SESSION['paidauth']==3){
 		       $_SESSION['paidauth'] = 4;
-		       //暗号化する
-		       $angou = random_bytes(10);
+		        //暗号
+		        $angou = random_bytes(10);
 		       $_SESSION['angou'] = bin2hex($angou);
 		       //striperesultへ送る
 		       return redirect('striperesult');

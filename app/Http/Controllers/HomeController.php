@@ -186,6 +186,7 @@ class HomeController extends Controller
 	    //weightの文字列結合は必ず一番最後にする
 	    $weight.="kgです";
 
+
 	    return view('home',compact('BMI','BMR','hantei','BMR1','BMR2','BMR3','himan','name','weight','setumei','gazou'));
 	     }	  
 	    }  
