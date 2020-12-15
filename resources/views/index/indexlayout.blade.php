@@ -22,40 +22,25 @@
 $(function(){
   ScrollReveal().reveal('.speed', { distance: '200px', origin: 'left', viewFactor: '0.8' });
   ScrollReveal().reveal('.speed1', { duration: '1800' ,delay: '1000'} );
-  // ScrollReveal().reveal('.start', { distance: '200px', origin: 'right', viewFactor: '0.8' });
+  // ScrollReveal().reveal('.syamu', { distance: '200px', origin: 'right', viewFactor: '0.8' });
+  ScrollReveal().reveal('.dai',{ duration: '1900'});
   ScrollReveal().reveal('.start',{ duration: '1900'});
+  ScrollReveal().reveal('.mei',{ duration: '4000'});
   });
  </script>
  <header>
   <p class="speed">完全無料の健康管理ツール</p>
   <h2 class="speed1">楽エット</h2>
  </header>
- <!--カルーセルパネル用の読み込み-->
-  <div class="swiper-container">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide"><img class="logo" src="{{ asset('img/test.jpeg') }}" width="700" height="400">
-    </div>
-      <div class="swiper-slide"><img class="logo" src="{{ asset('img/test2.jpeg') }}" width="700" height="400">
-     </div>
-      <div class="swiper-slide"><img class="logo" src="{{ asset('img/test3.jpeg') }}" width="700" height="400">
-    </div>
-    <div class="swiper-slide"><img class="logo" src="{{ asset('img/test6.jpg') }}" width="700" height="400">
-    </div>
-    <div class="swiper-slide"><img class="logo" src="{{ asset('img/test5.jpg') }}" width="700" height="400">
-    </div>
-    </div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
- <!--カルーセルパネル用jquery-->
- <script>
-var swiper = new Swiper('.swiper-container', {
-      // ここからはオプションです。
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  }
-});
-</script>
+   <img class="img1" src="{{ asset('img/index.png') }}">
+<!--
+testend -->
+  </div>
+  <div id="setumei">
+   <h1 class="dai">手軽にダイエット始めませんか</h1>
+    <p class="mei">楽エットは自分に合うダイエットが中々見つからない、<br>
+ 手軽にダイエットを始めたい方向けのサービスです。<br>プラン診断を受けるだけであなたに最適な
+ ダイエットプランが<br>見つかります。まずはスタートボタンを押して無料登録から</p>
   </div>
   <div id="content">
    @yield('content')
