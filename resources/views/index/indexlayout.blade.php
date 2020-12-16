@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 <!--googleフォントを読み込む-->
 <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
 <body>
 <!--文字用jsファイルの読み込み-->
