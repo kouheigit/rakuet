@@ -32,16 +32,18 @@ $(function(){
  <header>
   <p class="speed">完全無料の健康管理ツール</p>
   <h2 class="speed1">楽エット</h2>
+  <p class="dai">楽エット</p>
  </header>
    <img class="img1" src="{{ asset('img/index.png') }}">
 <!--
 testend -->
   </div>
   <div id="setumei">
-   <h1 class="dai">手軽にダイエット始めませんか</h1>
+   <h1 class="dai">手軽にダイエット始めませんか?</h1>
     <p class="mei">楽エットは自分に合うダイエットが中々見つからない、<br>
  手軽にダイエットを始めたい方向けのサービスです。<br>プラン診断を受けるだけであなたに最適な
  ダイエットプランが<br>見つかります。まずはスタートボタンを押して無料登録から</p>
+  <p class="meimobail">楽エットは自分に合うダイエットが中々見つからない、 手軽にダイエットを始めたい方向けのサービスです。プラン診断を受けるだけであなたに最適なダイエットプランが見つかります。まずはスタートボタンを押して無料登録から</p>
   </div>
   <div id="content">
    @yield('content')
