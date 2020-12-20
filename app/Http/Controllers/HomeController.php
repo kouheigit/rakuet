@@ -256,4 +256,8 @@ class HomeController extends Controller
             $delltable = DB::statement($dell1);
 	    return redirect('index');
     }
+    public function about(Request $request)
+    {
+	    return view('home.about');
+    }
 }

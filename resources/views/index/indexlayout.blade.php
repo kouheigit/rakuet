@@ -48,8 +48,6 @@ $(function(){
   <img class="img4" src="{{ asset('img/index3.png') }}">
   <img class="img5" src="{{ asset('img/index4.png') }}">
 
-<!--
-testend -->
   </div>
   <div id="setumei">
    <h1 class="dai">手軽にダイエット始めませんか?</h1>
