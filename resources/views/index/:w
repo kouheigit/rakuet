@@ -27,8 +27,6 @@ $(function(){
   ScrollReveal().reveal('.img3', { distance: '200px', origin: 'left', viewFactor: '0.8' });
   ScrollReveal().reveal('.img4', { distance: '200px', origin: 'right', viewFactor: '0.8' });
   ScrollReveal().reveal('.img5', { distance: '200px', origin: 'left', viewFactor: '0.8' });
-  ScrollReveal().reveal('.img7',{ duration: '3000',delay:'10'});
-  ScrollReveal().reveal('.img6',{ duration: '3000'});
   ScrollReveal().reveal('.dai',{ duration: '1900'});
   ScrollReveal().reveal('.start',{ duration: '1900'});
   ScrollReveal().reveal('.mei',{ duration: '4000'});
@@ -41,7 +39,7 @@ $(function(){
  </header>
 
   <img class="img6" src="{{ asset('img/fat.png') }}">
-  <img class="img7" src="{{ asset('img/happy.png') }}">
+　<img class="img7" src="{{ asset('img/happy.png') }}">
   <img class="img1" src="{{ asset('img/index.png') }}">
   <img class="img2" src="{{ asset('img/index1.png') }}">
 　<img class="img3" src="{{ asset('img/index2.png') }}">

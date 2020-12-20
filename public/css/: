@@ -20,10 +20,18 @@ img.img1{
 	margin-top:80px;
 }
 
+img.img2{
+        position:absolute;
+        box-sizing: border-box;
+        margin-top:280px;
+}
+
+
+
 header {
-   z-index: 9999;
+   z-index: 999;
    width: 100%;
-   height:90px;
+   height:100px;
    padding: 5px 1% 5px;
    background-color: #ffe1c9;
    position: fixed;
@@ -36,16 +44,26 @@ header p
   margin-left:75px;
   font-size:35px;
 }
+
 header h2
 {
-	margin-left:530px;
+	margin-left:500px;
 	margin-top:-110px;
 	font-family: "Nico Moji";
 	font-size:70px;
 }
 
+#setumei p.meimobail{
+position:absolute;
+font-size:0px;
+margin-top:50px;
+margin-left:10px;
+font-weight:bold;
+}
+
+
 #content{
-	margin-top:50px;
+        margin-top:-110px;
 	margin-left:500px;
 }
 
@@ -61,7 +79,7 @@ header h2
 #content button:hover {
   box-shadow    : none;        
   color         : #e68c55;     
-  background    : #ffffff;     
+  background    : #ffbe85;     
 }
 
 #setumei h1.dai{
@@ -79,9 +97,20 @@ margin-left:400px;
 font-weight:bold;
 }
 
+header p.dai
+{       
+  margin-top:-410px;
+  margin-left:75px;
+  font-family: "Nico Moji";
+   font-size:0.001px;
+}
+
+
 @media only screen and (min-width: 320px) and (max-width: 768px) {
 body {
+
 margin: 0;
+width:300px;
 padding: 0;
 line-height:2;
 background: url("../img/fast1.jpg") no-repeat center center;
@@ -89,60 +118,105 @@ background-size:1700px;
 background-repeat: repeat-y;
 }
 
-#content button{
-margin:-300px;
-margin-left:-500px;
+#content{
+	position:absolute;
+        margin-top:300px;
+        margin-left:150px;
+}
 
-width:300px;
-height:50px;
-font-size:20px;
+
+#content button{
+z-index: 9999;
+margin:10px;
+margin-left:-70px;
+width:200px;
+height:40px;
+font-size:15px;
 background:#e68c55;
 border:#000000;
-
 }
 
 #content button:hover {
+  z-index: 9999;
   box-shadow    : none;
   color         : #e68c55;
   background    : #ffffff;
 }
 
-img.img1{
-/*↓　画像の崩れを防止する
-box-sizing: border-box;
-width:2400px;
-height:1000px;
-margin-left:30px;
-*/
-margin-top:300px;
-max-width: 100%; 
-height:auto;
-
-}
-#setumei h1.dai{
-position:absolute;
-margin-top:-500px;
-margin-left:-100px;
-font-weight:bold;
-}
-header h2
+header p.dai
 {
-        margin-left:130px;
+  margin-top:-300px;
+  margin-left:110px;
+  font-family: "Nico Moji";
+   font-size:50px;
+}
+
+
+header h2.speed1
+{
+        margin-left:530px;
         margin-top:-110px;
         font-family: "Nico Moji";
         font-size:70px;
 }
 
+header p.speed
+{
+  margin-top:10px;
+  margin-left:85px;
+  font-size:15px;
+  font-weight:bold;
+}
+
+img.img1{
+   margin-top:83px;
+   /*画像崩れを防止する↓*/
+   box-sizing: border-box;   
+   width: 100%;
+   height:290px;
+   padding: 5px 1% 5px;
+   position: fixed;
+   top: 0;
+   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+}
+
+img.img2{
+   position:relative;
+   margin-top:-903px;
+   /*
+   box-sizing: border-box;
+   width: 100%;
+   height:290px;
+   padding: 5px 1% 5px;
+   position: fixed;
+   top: 0;
+   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);*/
+}
+
 
 #setumei p.mei{
 position:absolute;
-font-size:20px;
+font-size:0.01px;
 margin-top:-350px;
-margin-left:-100px;
+margin-left:-10px;
 font-weight:bold;
 }
 
 
+#setumei h1.dai{
+position:absolute;
+margin-top:130px;
+margin-left:80px;
+font-size:17px;
+font-weight:bold;
+}
 
-}	
+#setumei p.meimobail{
+position:absolute;
+font-size:13px;
+margin-top:170px;
+margin-left:10px;
+font-weight:bold;
+}
+	
 
