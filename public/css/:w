@@ -17,19 +17,8 @@ margin-top:30px;
 margin-left:30px;
 }
 p.main1{
-margin-left:70px;
-font-size:15px;
 font-weight:bold;
 color:black;
-}
-
-p.main2{
-margin-top:30px;
-margin-left:70px;
-font-size:15px;
-font-weight:bold;
-color:black;
-
 }
 
 h1#method1{
@@ -50,16 +39,5 @@ margin-left:10px;
 font-weight:bold;
 font-family:'SimHei';
 color:black;
-}
-h1#method1{
-font-size:18px;
-margin-top:30px;
-margin-left:10px;
-font-weight:bold;
-font-family:'SimHei';
-color:black;
-}
-p.main1{
-margin-left:10px;
 }
 }
