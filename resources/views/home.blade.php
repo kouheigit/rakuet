@@ -19,8 +19,10 @@
                         <div class="alert alert-success" role="alert">
                              {{ session('status') }}
                         </div>
-		@endif
+		  @endif
+		  <p class="datetoday">{{$datetoday ?? ''}}</p>
 		   <img class="gazou" src="{{$gazou}}">
+                 <!-- <p>{{$datetoday ?? ''}}</p>-->
 		  <div id="moji">
 		   <h1>{{$name}}さんのボディデータ</h1>
                    <h2>{{$name}}さんの現在の体重は{{$weight}}</h2>

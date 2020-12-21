@@ -35,6 +35,8 @@ class HomeController extends Controller
             $moji1 = str_replace('@','',$moji1);
             $moji2 = str_replace('.','',$moji1);
 	    $user = $moji2;
+
+	    $datetoday = date("Y年m月d日");
 	    //後に仕様変更する 
 	    $atai = DB::table($user)->where('id','1')->first();
 	    $weightinfo = DB::table($user)->whereNotNull('weight')->max('day');
@@ -187,7 +189,7 @@ class HomeController extends Controller
 	    $weight.="kgです";
 
 
-	    return view('home',compact('BMI','BMR','hantei','BMR1','BMR2','BMR3','himan','name','weight','setumei','gazou'));
+	    return view('home',compact('datetoday','BMI','BMR','hantei','BMR1','BMR2','BMR3','himan','name','weight','setumei','gazou'));
 	     }	  
 	    }  
      }

@@ -55,6 +55,13 @@ margin-left:335px;
 width: 60px;
 height: 60px;
 }
+p.datetoday{
+position:absolute;
+margin-top:10px;
+margin-left:30px;
+font-size:30px;
+font-weight:bold;
+}
 
 p.sport3{
 margin-top:-70px;
@@ -140,6 +147,7 @@ h1::before{
   border-right: 15px solid transparent;
   border-left: 15px solid transparent;
 }
+
 p.mei{
 position:absolute;
 margin-top:-80px;
@@ -210,10 +218,18 @@ margin-left:20px;
 }
 p.mei{
 margin-top:-340px;
-margin-left:40px;
+margin-left:20px;
 font-size:14px;
 font-weight:bold;
 }
+p.datetoday{
+position:absolute;
+margin-top:0px;
+margin-left:70px;
+font-size:20px;
+font-weight:bold;
+}
+
 
 p.sport{
 margin-top:-60px;
