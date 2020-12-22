@@ -10,7 +10,21 @@
 <p class="main2">登録ボタンを押すと次はボディデータを登録出来ます、身長、体重、年齢、性別を入力し終えたらBMI、BMR、あなたに適切な運動量などを計算して表示してくれます。</p>
 <img class="step2" src="{{ asset('img/step2.png') }}">
 <p class="main3">ボディデータ登録後ホーム画面が以下のような画面に切り替わります。↓</p>
-<img class="step2" src="{{ asset('img/step3.png') }}">
+<img class="step3" src="{{ asset('img/step3.png') }}">
 <h1 id="method2">手順２　プラン診断を受ける</h1>
+<p class="main4">ボディデータの登録が完了したらプラン画面のプラン診断を受ける事が可能になります。プラン画面を見てみると以下のような画面になりますのでダイエットを実施する期間と目標体重を決めて見ましょう↓</p>
+<img class="step4" src="{{ asset('img/step4.png') }}">
+<p class="main5">実施期間を決定したら体重の予定減量数値を確認出来ます。（有料プランに申し込むとプラン診断を受けずにダイエットメニューを選択する事が出来ます）</p>
+<img class="step5" src="{{ asset('img/step5.png') }}">
+<p class="main6">プラン診断開始を選択するとプラン診断が開始されプラン診断を受けていきます</p>
+<img class="step6" src="{{ asset('img/step6.png') }}">
+<p class="main7">ダイエットプランが診断され、診断されたダイエットプランが自身にあっていると思えば"このプランで決定する"ボタンを押せばこのダイエットプランでのダイエットがスタートします</p>
+<img class="step7" src="{{ asset('img/step7.png') }}">
+<p class="main8">ダイエットプランが決定されるとこれから実施するダイエットプランが決定されプラン画面が以下の用に固定されます</p>
+<img class="step8" src="{{ asset('img/step8.png') }}">
+<p class="main9">ダイエットプランが決定されるとdiary機能が更新されdiary機能が使えるようになります。diary機能はダイエット終了期間まで使用する事ができ、日々の体重とダイエット実行の有無を記録することが出来ます（初日のみボディデータから体重が反映され体重が予め記述されております）</p>
+<img class="step9" src="{{ asset('img/step9.png') }}">
+<p class="main10">diary機能の記述欄は日付が進む事に更新されていきます</p>
+<img class="step10" src="{{ asset('img/step10.png') }}">
 @endsection 
 
