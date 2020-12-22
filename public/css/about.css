@@ -29,7 +29,13 @@ margin-left:70px;
 font-size:15px;
 font-weight:bold;
 color:black;
-
+}
+p.main3{
+margin-top:30px;
+margin-left:70px;
+font-size:15px;
+font-weight:bold;
+color:black;
 }
 
 h1#method1{
@@ -40,6 +46,16 @@ font-weight:bold;
 font-family:'SimHei';
 color:black;
 }
+
+h1#method2{
+font-size:25px;
+margin-top:30px;
+margin-left:150px;
+font-weight:bold;
+font-family:'SimHei';
+color:black;
+}
+
 
 @media only screen and (min-width: 320px) and (max-width: 768px) {
 h1#dai{
@@ -54,12 +70,18 @@ color:black;
 h1#method1{
 font-size:18px;
 margin-top:30px;
-margin-left:10px;
+margin-left:15px;
 font-weight:bold;
 font-family:'SimHei';
 color:black;
 }
 p.main1{
+margin-left:10px;
+}
+p.main2{
+margin-left:10px;
+}
+p.main3{
 margin-left:10px;
 }
 }
