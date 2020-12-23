@@ -26,5 +26,12 @@
 <img class="step9" src="{{ asset('img/step9.png') }}">
 <p class="main10">diary機能の記述欄は日付が進む事に更新されていきます</p>
 <img class="step10" src="{{ asset('img/step10.png') }}">
+<p class="main11">diary機能の体重記録欄に入って見ましょう。すると体重を２つの記述欄が出てきます、体重記述欄ダイエット実行の有無についての記述欄になります</p>
+<img class="step11" src="{{ asset('img/step11.png') }}">
+<p class="main12">本日の体重とダイエット実行の記録をつけてみましょう。</p>
+<img class="step12" src="{{ asset('img/step12.png') }}">
+<p class="main13">ダイエット記録をつけ終わったら記録一覧ページに戻ってみましょう。すると本日の記録が記録一覧ページに反映されているのがわかります。</p>
+<img class="step13" src="{{ asset('img/step13.png') }}">
+<p class="main14">体重とダイエット実行記録の記録した後に次はグラフ機能を使って見ましょう、メニューバーにあるグラフをクリックしてみると体重の推移が記録されています</p>
 @endsection 
 
