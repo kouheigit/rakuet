@@ -262,4 +262,8 @@ class HomeController extends Controller
     {
 	    return view('home.about');
     }
+    public function about1(Request $request)
+    {
+	    return view('home.about1');
+    }
 }

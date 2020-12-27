@@ -1,0 +1,21 @@
+@charset"UTF-8";
+h1#method1{
+font-size:35px;
+margin-top:30px;
+margin-left:100px;
+font-weight:bold;
+font-family:'SimHei';
+color:black;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+h1#method1{
+font-size:17px;
+margin-top:30px;
+margin-left:40px;
+font-weight:bold;
+font-family:'SimHei';
+color:black;
+}
+
+}

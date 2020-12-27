@@ -22,6 +22,7 @@
 <img class="step7" src="{{ asset('img/step7.png') }}">
 <p class="main8">ダイエットプランが決定されるとこれから実施するダイエットプランが決定されプラン画面が以下の用に固定されます</p>
 <img class="step8" src="{{ asset('img/step8.png') }}">
+<h1 id="method3">手順３　diary機能で記録をつける</h1>
 <p class="main9">ダイエットプランが決定されるとdiary機能が更新されdiary機能が使えるようになります。diary機能はダイエット終了期間まで使用する事ができ、日々の体重とダイエット実行の有無を記録することが出来ます（初日のみボディデータから体重が反映され体重が予め記述されております）</p>
 <img class="step9" src="{{ asset('img/step9.png') }}">
 <p class="main10">diary機能の記述欄は日付が進む事に更新されていきます</p>
@@ -32,6 +33,7 @@
 <img class="step12" src="{{ asset('img/step12.png') }}">
 <p class="main13">ダイエット記録をつけ終わったら記録一覧ページに戻ってみましょう。すると本日の記録が記録一覧ページに反映されているのがわかります。</p>
 <img class="step13" src="{{ asset('img/step13.png') }}">
+<h1 id="method4">手順４　グラフ機能を使用する</h1>
 <p class="main14">体重とダイエット実行記録の記録した後に次はグラフ機能を使って見ましょう、メニューバーにあるグラフをクリックしてみると体重の推移が記録されています</p>
 <img class="step14" src="{{ asset('img/step14.png') }}">
 <p class="jikkou">次にダイエットの実行率を見てみましょう、グラフページの下部に前の10件、次の10件、ダイエット実行率の３つのボタンがあり、このうちのダイエット実行率のボタンを押してみましょう。</p>
