@@ -5,6 +5,6 @@
     <li class="lis"><a href="plan" class="forms">ダイエットプラン</a></li>
     <li class="lis"><a href="graph" class="forms">グラフ</a></li>
     <li class="lis"><a href="home" class="forms">ホーム</a></li>
-    <li class="lis"><p class="forms">楽エットについて</p></li>
+    <li class="lis"><a href="about" class="forms">楽エットについて</a></li>
  </ul>
 </div>
