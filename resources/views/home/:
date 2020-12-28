@@ -16,6 +16,6 @@
 <img class="step6" src="{{ asset('img/yuryo6.png') }}">
 <p class="main6">プランを選択するとダイエットプランが表示され、そのダイエットプランが気に入った場合は決定ボタンを押して下さい</p>
 <img class="step7" src="{{ asset('img/yuryo7.png') }}">
-<p class="main7">決定ボタンを押すとダイエットプランが決定されます。</p>
+
 @endsection
 
