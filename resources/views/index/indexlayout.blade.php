@@ -32,6 +32,7 @@ $(function(){
   ScrollReveal().reveal('.img3', { distance: '200px', origin: 'left', viewFactor: '0.8' });
   ScrollReveal().reveal('.img4', { distance: '200px', origin: 'right', viewFactor: '0.8' });
   ScrollReveal().reveal('.img5', { distance: '200px', origin: 'left', viewFactor: '0.8' });
+   ScrollReveal().reveal('.dai2', { distance: '200px', origin: 'left', viewFactor: '0.8' });
   ScrollReveal().reveal('.img7',{ duration: '3000',delay:'10'});
   ScrollReveal().reveal('.dai1',{ duration: '3000',delay:'10'});
   ScrollReveal().reveal('.text1',{ duration: '3000',delay:'20'});
