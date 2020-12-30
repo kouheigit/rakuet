@@ -13,6 +13,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <!--title&metaタグ-->
 <title>楽エット|完全無料の健康管理ツール</title>
+<meta property="og:title" content="楽エット|完全無料の健康管理ツール">
 <meta name="description" content="楽エットは無理なダイエットや体に負荷をかけたくない人のためのダイエットツールになります。ご自身のボディデータを入力後プラン診断であなたにピッタリなダイエット方法を提案、体重管理のサポートなどあなたのダイエット成功をサポートします。"/>
 <meta name="keywords" content="ダイエットツール,ダイエットプラン診断,楽エット,楽なダイエット,健康管理ツール,ダイエットサポート,ダイエットプラン,プラン診断"/>
 </head>

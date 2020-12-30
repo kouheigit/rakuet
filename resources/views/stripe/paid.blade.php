@@ -1,4 +1,4 @@
-@extends('layouts.app4')
+@extends('layouts.paidall')
 @section('body')
 <link rel="stylesheet" href="{{ asset('css/paid.css') }}">
 @foreach ($plans as $plan)

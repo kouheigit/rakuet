@@ -1,4 +1,4 @@
-@extends('layouts.app4')
+@extends('layouts.paid')
 @section('body')
 <link rel="stylesheet" href="{{ asset('css/stripecss.css') }}">
 <div id="stripe">
