@@ -1,4 +1,4 @@
-@extends('layouts.about')
+@extends('layouts.about1')
 @section('body')
 <link rel="stylesheet" href="{{ asset('css/about1.css') }}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">

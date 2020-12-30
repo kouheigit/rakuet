@@ -1,4 +1,4 @@
-@extends('layouts.appplan')
+@extends('layouts.diary')
 <link rel="stylesheet" href="{{ asset('css/diaryadd.css') }}">
 @section('body')
 <form action="diaryadd" method="post">

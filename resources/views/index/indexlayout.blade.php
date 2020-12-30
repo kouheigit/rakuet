@@ -11,6 +11,10 @@
 <!--googleフォントを読み込む-->
 <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<!--title&metaタグ-->
+<title>楽エット|完全無料の健康管理ツール</title>
+<meta name="description" content="楽エットは無理なダイエットや体に負荷をかけたくない人のためのダイエットツールになります。ご自身のボディデータを入力後プラン診断であなたにピッタリなダイエット方法を提案、体重管理のサポートなどあなたのダイエット成功をサポートします。"/>
+<meta name="keywords" content="ダイエットツール,ダイエットプラン診断,楽エット,楽なダイエット,健康管理ツール,ダイエットサポート,ダイエットプラン,プラン診断"/>
 </head>
 <body>
 <!--文字用jsファイルの読み込み-->
@@ -40,8 +44,8 @@ $(function(){
   <p class="dai">楽エット</p>
  </header>
 
-  <img class="img6" src="{{ asset('img/fat.png') }}">
-  <img class="img7" src="{{ asset('img/happy.png') }}">
+  <img class="img6" src="{{ asset('img/fat.png') }}"alt="ダイエット前の人"title="ダイエット前の人">
+  <img class="img7" src="{{ asset('img/happy.png') }}"alt="ダイエット成功"title="ダイエット成功">
   <img class="img1" src="{{ asset('img/index.png') }}">
   <img class="img2" src="{{ asset('img/index1.png') }}">
 　<img class="img3" src="{{ asset('img/index2.png') }}">

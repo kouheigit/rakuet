@@ -1,4 +1,4 @@
-@extends('layouts.apphome')
+@extends('layouts.apphomedell')
 
 @section('body')
 <link rel="stylesheet" href="{{ asset('css/homedell.css') }}">

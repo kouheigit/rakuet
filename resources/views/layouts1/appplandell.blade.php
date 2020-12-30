@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--meta & title-->
-    <title>楽エット</title>
-   <meta name="description" content="楽エットは無理なダイエットや体に負荷をかけたくない人のためのダイエットツールになります。ご自身のボディデータを入力後プラン診断であなたにピッタリなダイエット方法を提案、体重管理のサポートなどあなたのダイエット成功をサポートします。"/>
+   <title>プランを中断する</title>
+   <meta name="description" content="ダイエットプランを中断します、プランが初期化され今までの体重記録及びダイエット記録は完全に失われます"/>
   <meta name="keywords" content="ダイエットツール,ダイエットプラン診断,>楽エット,楽なダイエット,健康管理ツール,ダイエットサポート,ダイエットプ
 ラン,プラン診断"/>
     <!-- CSRF Token -->

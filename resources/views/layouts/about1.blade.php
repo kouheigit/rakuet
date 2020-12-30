@@ -1,4 +1,4 @@
-@extends('layouts1.apphome')
+@extends('layouts1.about1')
 
 @section('content')
 <!--CSS軽量ファイルを読み込む-->
@@ -37,9 +37,10 @@
 $(function(){
  if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
  }else{
+/*
 	ScrollReveal().reveal('.card', { distance: '200px', origin: 'right', viewFactor: '0.8' });
 	ScrollReveal().reveal('.menubar', { duration: 1600, origin: 'bottom', distance: '50px',reset: true });
- }
+ }*/
 });
 </script>
 @endsection

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts1.app4')
 
 @section('content')
 <!--CSS軽量ファイルを読み込む-->
