@@ -146,7 +146,15 @@ font-weight:bold;
 font-size:40px;
 color:black;
 }
-
+div#content h1.dai3{
+z-index: 800;
+position:absolute;
+margin-top:980px;
+margin-left:-190px;
+font-weight:bold;
+font-size:30px;
+color:#66CC33;
+}
 
 div#content p.text1{
 z-index: 800;
@@ -158,6 +166,18 @@ font-size:20px;
 color:#99FF33;
 }
 div#content p.text1m{
+font-size:0px;
+}
+div#content p.text2{
+z-index: 800;
+position:absolute;
+margin-top:1070px;
+margin-left:-340px;
+font-weight:bold;
+font-size:20px;
+color:#99FF33;
+}
+div#content p.text2m{
 font-size:0px;
 }
 
