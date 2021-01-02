@@ -35,8 +35,14 @@ $(function(){
    ScrollReveal().reveal('.dai2', { distance: '200px', origin: 'left', viewFactor: '0.8' });
   ScrollReveal().reveal('.img7',{ duration: '3000',delay:'10'});
   ScrollReveal().reveal('.dai1',{ duration: '3000',delay:'10'});
+  ScrollReveal().reveal('.dai2',{ duration: '3000',delay:'10'});
+  ScrollReveal().reveal('.dai3',{ duration: '3000',delay:'10'});
   ScrollReveal().reveal('.text1',{ duration: '3000',delay:'20'});
   ScrollReveal().reveal('.text1m',{ duration: '3000',delay:'20'});
+   ScrollReveal().reveal('.text2',{ duration: '3000',delay:'20'});
+  ScrollReveal().reveal('.text2m',{ duration: '3000',delay:'20'});
+   ScrollReveal().reveal('.text3',{ duration: '3000',delay:'20'});
+  ScrollReveal().reveal('.text3m',{ duration: '3000',delay:'20'});
   ScrollReveal().reveal('.img6',{ duration: '3000'});
   ScrollReveal().reveal('.dai',{ duration: '1900'});
   ScrollReveal().reveal('.start',{ duration: '1900'});
