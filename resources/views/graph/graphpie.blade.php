@@ -21,6 +21,10 @@
        </script>
     <h1 class="complete">現在の実行率は{{$tasseiti}}%</h1>
     <h1 class="incomplete">未実行の割合は{{$mijikko}}%</h1>
+    <p class="before">ダイエット開始時の体重は{{$beforeweight}}kgです</p>
+    <p class="now">現在の体重は{{$nowweight}}kgです</p>
+    <p class="genjo">{{$genryo}}</p>
+    
     <p class="explain">この円グラフはダイエット開始時から現在までの{{$name}}さんのダイエット実行率を円グラフとして表しています。</p>
    <form action="graph" method="post">
     {{ csrf_field() }}

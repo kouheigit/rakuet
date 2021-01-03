@@ -196,13 +196,31 @@ class graphController extends Controller
 	   $tasseiti = floor($tassei);
 	   //未実行率
 	   $mijikko = 100 - $tasseiti;
-	   
-	    
-	    $keys = ['達成率(%)','未実行(%)'];
+	   	   
+	   $keys = ['実行率(%)','未実行(%)'];
 	   $counts =[$tasseiti,$mijikko];
-
-
-	    return view('graph.graphpie',compact('name','tasseiti','keys','counts','mijikko'));
+            
+	    //ダイエット開始時の体重です
+	    $beforeweight =  DB::table($user)->where('id','1')->value('weight');
+          
+	    $weightinfo = DB::table($user)->whereNotNull('weight')->max('day');
+	    //↓【重要】取得したIDを元に最後に入力された体重を所得
+	    $nowweight = DB::table($user)->where('day',$weightinfo)->value('weight');
+	    
+	   $ans = $beforeweight - $nowweight;
+	    //ダイエット開始時より減量した体重数
+	   if($ans > 0){
+		   $genryo = "ダイエット開始時より$ans kg減量に成功
+しています。";
+	    }elseif($ans == 0){
+                   $genryo = null;
+	    }else{
+	           $ans1 = -$ans;
+	           $genryo = "【注意】ダイエット開始時より$ans1 kg体重が増加しています";
+	     }
+	    
+               
+	    return view('graph.graphpie',compact('name','tasseiti','keys','counts','mijikko','nowweight','beforeweight','genryo'));
        }
    
        public function graph2(Request $request)

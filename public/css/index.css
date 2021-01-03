@@ -4,8 +4,8 @@ body {
 	padding: 0;
 	line-height:2;
 	background: url("../img/fast1.jpg") no-repeat center center;
-	background-size: 1700px;
-	background-repeat: repeat-y;
+	background-size: 1500px;
+     	background-repeat: repeat-y;
 }
 /*
 img{
@@ -30,19 +30,19 @@ img.img3{
 	position:absolute;
         box-sizing: border-box;
         margin-top:600px;
-	margin-left:-20px;
+	margin-left:-15px;
 }
 img.img4{
         position:absolute;
         box-sizing: border-box;
         margin-top:970px;
-        margin-left:-20px;
+	margin-left:-15px;
 }
 img.img5{
         position:absolute;
         box-sizing: border-box;
         margin-top:1550px;
-        margin-left:-20px;
+	margin-left:-15px;
 }
 
 img.img6{
@@ -221,12 +221,12 @@ header p.dai
 
 @media only screen and (min-width: 320px) and (max-width: 768px) {
 body {
+background-size:1300px;
 margin: 0;
 width:300px;
 padding: 0;
 line-height:2;
 background: url("../img/fast1.jpg") no-repeat center center;
-background-size:1300px;
 background-repeat: repeat-y;
 }
 
@@ -317,7 +317,7 @@ img.img5{
         position:absolute;
         box-sizing: border-box;
         margin-top:770px;
-        margin-left:-20px;
+        margin-left:-15px;
 }
 
 img.img6{
