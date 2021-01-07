@@ -5,11 +5,22 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Notifications\CustomPasswordReset;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    
+    /**
+     * パスワードリセット通知の送信
+     * @param  string  $token
+     * @return void */
 
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new CustomPasswordReset($token));
+    }
+    
     /**
      * The attributes that are mass assignable.
      *
