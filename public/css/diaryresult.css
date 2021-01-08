@@ -8,9 +8,13 @@ color:black;
 p.text{
 font-size:17px;
 font-weight:bold;
-color:black
+color:black;
 }
-
+p.main{
+font-size:17px;
+font-weight:bold;
+color:black;
+}
 #button {
 margin-left:150px;
 }
@@ -27,13 +31,17 @@ background-color:red;
 @media only screen and (min-width: 320px) and (max-width: 768px) {
 button.yes{
 width:250px;
-margin-left:-140px;
+margin-left:-130px;
 background-color:green;
 }
 
 button.no{
 width:250px;
-margin-left:-140px;
+margin-left:-130px;
 background-color:red;
+}
+p.main{
+font-size:13px;
+margin-left:-140px;
 }
 }

@@ -7,6 +7,7 @@
 <form action="diaryresult" method="post">
 {{ csrf_field() }}
 <div id="button">
+<p class="main">もう一度同じダイエットを続行しますか？</p>
 <button class="yes"type='submit'name='continue1'value="0">YES</button>
 <button class="no" type='submit'name='continue2'value="1">NO</button>
 @endsection
