@@ -52,7 +52,7 @@ margin-left:280px;
 margin-top:-80px;
 margin-left:20px;
 }
-h1#cauntion{
+p.cauntion{
 font-weight:bold;
 color:red;
 margin-left:-180px;
@@ -87,11 +87,11 @@ select.period{
 }
 
 
-h1#cauntion{
-font-size:15px;
+p.cauntion{
+font-size:40px;
 font-weight:bold;
 color:red;
-margin-left:-70px;
+margin-left:-110px;
 }
 
 #button{

@@ -24,7 +24,7 @@
 <p class="hevkg">Kg</p>
 <div id="button">
 <div id="cauntion">
-<p class="cauntion">※減量の目安は一ヶ月で大体2~4kgを目安に減量計画をたてましょう</p>
+<h1 id="cauntion">※減量の目安は一ヶ月で大体2~4kgを目安に減量計画をたてましょう</h1>
 </div>
 <button class="kettei" type='submit'>決定する</button>
 </div>
