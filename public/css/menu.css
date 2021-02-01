@@ -63,8 +63,6 @@ display: flex;
 }
 
 .lis{
-/*天外*/
-margin-top: -23px;
 width: 25%;
 text-align: center;
 background-color: #ebb081; /*#000000;*/
