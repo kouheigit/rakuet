@@ -10,7 +10,11 @@
 <table>
 <tr>
    <td>経過日{{$progress}}</td>
+@if ($daystart == null)
+   <td>開始日</td>
+@else
    <td>開始日　{{$startday}}　</td>
+@endif
    <td id="end">終了日　{{$endday}}</td>
 </tr>
 
