@@ -5,8 +5,8 @@
 @if ($users->weight == null)
 <p>ボディデータが登録されていません、ボディデータの登録を完了させて下さい</p>
 @elseif ($users->plan == null)
-<h1 class="plan1">あなたはどれくらいの期間ダイエットを<br>予定していますか？</h1>
-<h1 class="plan2">現在の体重からどれくらい減量しますか?</h1>
+<h1 id="plan1">あなたはどれくらいの期間ダイエットを<br>予定していますか？</h1>
+<h1 id="plan2">現在の体重からどれくらい減量しますか?</h1>
 <form action="plan1" method="post">
 {{csrf_field() }}
 <div id="ank">
