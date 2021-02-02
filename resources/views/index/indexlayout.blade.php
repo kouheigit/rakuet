@@ -28,8 +28,6 @@
 $(function(){
   ScrollReveal().reveal('.speed', { distance: '200px', origin: 'left', viewFactor: '0.8' });
   ScrollReveal().reveal('.speed1', { duration: '1800' ,delay: '1000'} );
-  ScrollReveal().reveal('.img3', { distance: '200px', origin: 'left', viewFactor: '0.8' });
-  ScrollReveal().reveal('.img4', { distance: '200px', origin: 'right', viewFactor: '0.8' });
    ScrollReveal().reveal('.dai2', { distance: '200px', origin: 'left', viewFactor: '0.3' });
   ScrollReveal().reveal('.img7',{ duration: '3000',delay:'10'});
   ScrollReveal().reveal('.dai1',{ duration: '3000',delay:'10'});
@@ -41,7 +39,8 @@ $(function(){
   ScrollReveal().reveal('.text2m',{ duration: '3000',delay:'20'});
    ScrollReveal().reveal('.text3',{ duration: '3000',delay:'20'});
   ScrollReveal().reveal('.text3m',{ duration: '3000',delay:'20'});
-  ScrollReveal().reveal('.img2',{ duration: '3000'});
+  ScrollReveal().reveal('.img3',{ duration: '3000'});
+  ScrollReveal().reveal('.img4',{ duration: '3000'});
   ScrollReveal().reveal('.img5',{ duration: '3000'});
   ScrollReveal().reveal('.img6',{ duration: '3000'});
   ScrollReveal().reveal('.dai',{ duration: '1900'});
