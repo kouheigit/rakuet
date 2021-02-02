@@ -3,7 +3,6 @@
   font-family:'SimHei';
   font-size:40px;
   font-weight: 700;
-  margin-left:200px;
   color:red;
 }
 .dai{
@@ -20,7 +19,7 @@
 .dellmember{
     background-color:red;
     border-color:red;
-    margin-left:220px;
+    margin-left:30px;
 }
 @media screen and (min-width:768px) and ( max-width:1300px) {
 .dellmember{
