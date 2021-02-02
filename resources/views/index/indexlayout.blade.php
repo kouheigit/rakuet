@@ -28,7 +28,7 @@
 $(function(){
   ScrollReveal().reveal('.speed', { distance: '200px', origin: 'left', viewFactor: '0.8' });
   ScrollReveal().reveal('.speed1', { duration: '1800' ,delay: '1000'} );
-   ScrollReveal().reveal('.img2', { distance: '200px', origin: 'left', viewFactor: '0.3' });
+   ScrollReveal().reveal('.img2', { distance: '100px', origin: 'left', viewFactor: '0.8' });
   ScrollReveal().reveal('.img3', { distance: '200px', origin: 'left', viewFactor: '0.8' });
   ScrollReveal().reveal('.img4', { distance: '200px', origin: 'right', viewFactor: '0.8' });
    ScrollReveal().reveal('.dai2', { distance: '200px', origin: 'left', viewFactor: '0.3' });
