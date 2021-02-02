@@ -9,8 +9,8 @@
      {{ csrf_field() }}
 <table>
 <tr>
-   <td>経過日{{$progress}}</td>
-   <td>開始日　{{$startday}}　</td>
+   <td>経過日  {{$progress}}</td>
+   <td>開始日　{{$startday}}</td>
    <td id="end">終了日　{{$endday}}</td>
 </tr>
 
