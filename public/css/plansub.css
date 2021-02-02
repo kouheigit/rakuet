@@ -36,18 +36,18 @@ color:black;
 .sindan{
 display: inline-block;
 margin-top:100px;
-margin-left:10px;
+margin-left:-5px;
 width:270px;
 background-color:green;
 }
 .sindan1{
 margin-top:0px;
-margin-left:10px;
+margin-left:-5px;
 width:270px;
 background-color:red;
 }
 .sindan2{
-margin-left:10px;
+margin-left:-5px;
 width:270px;
 margin-top:0px;
 
