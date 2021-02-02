@@ -114,225 +114,211 @@ p.kisosetu{
 
 	h1{
 		  position: relative;
-		    width:350px;
-		      padding: 20px;
-		        background-color: #ffecb3;
-			  border-radius: 10px;
-			    box-shadow: 6px 6px 0px 0px #ffcc80;/*影*/
-			      margin-bottom: 2em;
-		      }
+		  width:350px;
+	          padding: 20px;
+                  background-color: #ffecb3;
+	          border-radius: 10px;
+	          box-shadow: 6px 6px 0px 0px #ffcc80;/*影*/
+	          margin-bottom: 2em;
+          }
 
 
 		      h1::after{
 			        content: '';
-				  position: absolute;
-				    display: block;
-				      width: 0;
-				        height: 0;
-					  left: 20px;
+			         position: absolute;
+				 display: block;
+		                 width: 0;
+		                 height: 0;
+			         left: 20px;
+			         bottom: -15px;
+			         border-top: 15px solid #ffecb3;
+			         border-right: 15px solid transparent;
+			         border-left: 15px solid transparent;
+			      }
+
+			  h1::before{
+				       content: '';
+				       position: absolute;
+				       display: block;
+				       width: 0;
+				       height: 0;
+			               left: 27px;
+			               bottom: -18px;
+				       border-top: 15px solid #ffcc80;
+				       border-right: 15px solid transparent;
+			               border-left: 15px solid transparent;
+	          		     }
+
+				     p.mei{
+					      position:absolute;
+					      margin-top:-80px;
+					      font-size:14px;
+					      font-weight:bold;
+					      margin-left:410px;
+				      }
+				     img.gazou{
+					       margin-left:400px;
+					       width: 200px;
+		  			        height:200px;
+				      }
+				      .hutoi{
+					    font-weight: bold;
+		 		      }
+				    #moji{
+					      margin-top:-120px;
+				         }
+					      #dell{
+						      position:absolute;
+						      margin-top:120px;
+						      margin-left:250px;
+						      }
+					      } 
+
+		  @media only screen and (min-width: 320px) and (max-width: 768px) {
+				  h1{
+				       font-size:15px;
+				       position: relative;
+				       margin-left:-20px;
+				       width:250px;
+				       padding: 20px;
+			               background-color: #ffecb3;
+	   	 		       border-radius: 10px;
+				       box-shadow: 6px 6px 0px 0px #ffcc80;/*影*/
+				       margin-bottom: 2em;
+			          }
+
+
+			      h1::after{
+					    content: '';
+		   			    position: absolute;
+					    display: block;
+		          		    width: 0;
+				            height: 0;
+					    left: 20px;
 					    bottom: -15px;
-					      border-top: 15px solid #ffecb3;
-					        border-right: 15px solid transparent;
-						  border-left: 15px solid transparent;
+					    border-top: 15px solid #ffecb3;
+				            border-right: 15px solid transparent;
+					    border-left: 15px solid transparent;
 					  }
 
-					  h1::before{
-						    content: '';
-						      position: absolute;
-						        display: block;
-							  width: 0;
-							    height: 0;
-							      left: 27px;
-							        bottom: -18px;
-								  border-top: 15px solid #ffcc80;
-								    border-right: 15px solid transparent;
-								      border-left: 15px solid transparent;
-							      }
+					h1::before{
+						   content: '';
+					           position: absolute;
+					           display: block;
+				         	   width: 0;
+					           height: 0;
+					           left: 27px;
+					           bottom: -18px;
+					       	   border-top: 15px solid #ffcc80;
+					           border-right: 15px solid transparent;
+					           border-left: 15px solid transparent;							
+					   }
 
-							      p.mei{
-								      position:absolute;
-								      margin-top:-80px;
-								      font-size:14px;
-								      font-weight:bold;
-								      margin-left:410px;
-							      }
-							      img.gazou{
-								      margin-left:400px;
-								      width: 200px;
-								      height:200px;
-							      }
-							      .hutoi{
-								      font-weight: bold;
-							      }
-							      #moji{
-								      margin-top:-120px;
-							      }
-							      #dell{
-								      position:absolute;
-								      margin-top:120px;
-								      margin-left:250px;
-							      }
-						      } 
+					  #moji{
+					        margin-top:75px;
+					        margin-left:20px;
+					      }
+					  p.mei{
+					        margin-top:-340px;
+					        margin-left:20px;
+					        font-size:14px;
+				                font-weight:bold;
+	                                       }
+					   p.datetoday{
+					        position:absolute;
+					        margin-top:0px;
+					        margin-left:60px;
+					        font-size:20px;
+					        font-weight:bold;
+					   }
+				           p.sport{
+					          margin-top:-60px;
+					          margin-left:50px;
+					          font-size:11px;
+					          font-weight:bold;
+					   }
+				         img.swim{
+					          margin-left:-30px;
+			         		  width: 100px;
+					          height:100px;
+					  }
+				         img.cycle{
+					         margin-top:-10px;
+				                 margin-left:-10px;
+					         width: 60px;
+					         height: 60px;
+				         }
 
-						      @media only screen and (min-width: 320px) and (max-width: 768px) {
-							      h1{
-								        font-size:15px;
-									  position: relative;
-									  margin-left:-20px;
-									    width:250px;
-									      padding: 20px;
-									        background-color: #ffecb3;
-										  border-radius: 10px;
-										    box-shadow: 6px 6px 0px 0px #ffcc80;/*影*/
-										      margin-bottom: 2em;
-									      }
-
-
-									      h1::after{
-										        content: '';
-											  position: absolute;
-											    display: block;
-											      width: 0;
-											        height: 0;
-												  left: 20px;
-												    bottom: -15px;
-												      border-top: 15px solid #ffecb3;
-												        border-right: 15px solid transparent;
-													  border-left: 15px solid transparent;
-												  }
-
-												  h1::before{
-													    content: '';
-													      position: absolute;
-													        display: block;
-														  width: 0;
-														    height: 0;
-														      left: 27px;
-														        bottom: -18px;
-															  border-top: 15px solid #ffcc80;
-															    border-right: 15px solid transparent;
-															      border-left: 15px solid transparent;
-														      }
-
-														      #moji{
-															      margin-top:75px;
-															      margin-left:20px;
-														      }
-														      p.mei{
-															      margin-top:-340px;
-															      margin-left:20px;
-															      font-size:14px;
-															      font-weight:bold;
-														      }
-														      p.datetoday{
-															      position:absolute;
-															      margin-top:0px;
-															      margin-left:60px;
-															      font-size:20px;
-															      font-weight:bold;
-														      }
-
-
-														      p.sport{
-															      margin-top:-60px;
-															      margin-left:50px;
-															      font-size:11px;
-															      font-weight:bold;
-														      }
-														      img.swim{
-															      margin-left:-30px;
-															      width: 100px;
-															      height:100px;
-														      }
-
-
-														      img.cycle{
-															      margin-top:-10px;
-															      margin-left:-10px;
-															      width: 60px;
-															      height: 60px;
-														      }
-
-														      p.sport1{
-															      margin-top:-40px;
-															      margin-left:50px;
-															      font-size:10px;
-															      font-weight:bold;
-														      }
-
-														      img.running{
-															      margin-top:-10px;
-															      margin-left:-10px;
-															      width: 60px;
-															      height: 60px;
-														      }
-
-														      p.sport2{
-															      margin-top:-40px;
-															      margin-left:50px;
-															      font-size:10px;
-															      font-weight:bold;
-														      }
-														      img.working{
-															      margin-top:-10px;
-															      margin-left:-10px;
-															      width: 60px;
-															      height: 60px;
-														      }
-
-														      p.sport3{
-															      margin-top:-40px;
-															      margin-left:50px;
-															      font-size:10px;
-															      font-weight:bold;
-														      }
-														      img.kaji{
-															      margin-top:-10px;
-															      margin-left:-10px;
-															      width: 60px;
-															      height: 60px;
-														      }
-
-														      p.sport4{
-															      margin-top:-40px;
-															      margin-left:50px;
-															      font-size:10px;
-															      font-weight:bold;
-														      }
-														      img.kick{
-															      margin-top:0px;
-															      margin-left:-10px;
-															      width: 60px;
-															      height: 60px;
-														      }
-
-														      p.sport5{
-															      margin-top:-40px;
-															      margin-left:50px;
-															      font-size:10px;
-															      font-weight:bold;
-														      }
-
-														      #dell{
-															      position:absolute;
-															      margin-top:70px;
-															      margin-left:50px;
-														      }
-														      p.kisosetu{
-															      position:absolute;
-															      margin-top:230px;
-															      font-size:10px;
-															      font-weight:bold;
-														      }
-
-														      button.change{
-															      margin-top:310px;
-															      margin-left:30px;
-														      }
-
-														      #homeform{
-															      margin-top:120px;
-															      margin-left:-10px;
-														      }
-													      }
+					   p.sport1{
+						      margin-top:-40px;
+						      margin-left:50px;
+						      font-size:10px;
+						      font-weight:bold;
+			   	           }
+					     img.running{
+						      margin-top:-10px;
+		               			      margin-left:-10px;
+						      width: 60px;
+						      height: 60px;
+				         }
+					     p.sport2{
+					      margin-top:-40px;
+					      margin-left:50px;
+					      font-size:10px;
+					      font-weight:bold;
+				          }
+					      img.working{
+					      margin-top:-10px;
+					      margin-left:-10px;
+					      width: 60px;
+					      height: 60px;
+				         }
+			                     p.sport3{
+					      margin-top:-40px;
+		       		              margin-left:50px;
+					      font-size:10px;
+					      font-weight:bold;
+		 		        }
+					      img.kaji{
+					      margin-top:-10px;
+					      margin-left:-10px;
+		         		      width: 60px;
+   				              height: 60px;
+					     }														      p.sport4{															      margin-top:-40px;
+				  	      margin-left:50px;
+				              font-size:10px;
+					      font-weight:bold;
+				      }
+				      img.kick{
+					      margin-top:0px;
+					      margin-left:-10px;
+					      width: 60px;
+					      height: 60px;
+		         	      }
+				      p.sport5{
+					      margin-top:-40px;
+					      margin-left:50px;
+					      font-size:10px;
+					      font-weight:bold;
+				      }
+				      #dell{
+					      position:absolute;
+				              margin-top:70px;
+					      margin-left:50px;
+				      }
+				      p.kisosetu{
+					      position:absolute;
+			         	      margin-top:230px;
+					      font-size:10px;
+					      font-weight:bold;
+				      }
+				      button.change{
+					      margin-top:310px;
+				              margin-left:30px;
+				      }
+				      #homeform{
+					      margin-top:120px;
+					      margin-left:-10px;
+				     }
+		      }
 
