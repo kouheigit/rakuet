@@ -8,7 +8,7 @@
 <div id="diary">
    <input type="hidden" name="day" value="{{$theday}}">
 <div id="diary1">
-  <h1 class="h1">{{$theday}}の体重</h1>
+  <h1 class="h1" >{{$theday}}の体重</h1>
    <input id="heavy" type="number"name="heavy"min="30"max="200">Kg
 </div>
 <div id="diary2">

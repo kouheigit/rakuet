@@ -24,15 +24,17 @@ width:200px;
 button.previous{
 margin-left:350px;
 width:200px;
-background-color:blue;
-border-color:blue;
+    background-color: #fff;
+    border-color: #999;
+    color: #000;
 }
 
 button.next{
 width:200px;
 margin-left:150px;
-background-color:#32ab38;
-border-color:#32ab38;
+    background-color: #fff;
+    border-color: #999;
+    color: #000;
 }
 h1.title{
 color:black;
@@ -47,7 +49,7 @@ position:absolute;/*スマホのときは消す */
 margin-top:30px;
 margin-left:135px;
 font-weight:bold;
-font-size:45px;
+font-size:35px;
 color: red;
 }
 h1.incomplete{
@@ -56,7 +58,7 @@ position:absolute;/*スマホの時は消す*/
 margin-top:30px;
 margin-left:730px;
 font-weight:bold;
-font-size:45px;
+font-size:35px;
 color: blue;
 }
 p.now{
@@ -65,7 +67,7 @@ position:absolute;/*スマホの時は消す*/
 margin-top:100px;
 margin-left:140px;
 font-weight:bold;
-font-size:35px;
+font-size:25px;
 color: red;
 }
 p.before{
@@ -74,7 +76,7 @@ position:absolute;/*スマホの時は消す*/
 margin-top:100px;
 margin-left:710px;
 font-weight:bold;
-font-size:35px;
+font-size:25px;
 color: blue;
 }
 p.genjo{

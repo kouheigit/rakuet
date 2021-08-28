@@ -4,13 +4,8 @@ body {
 	padding: 0;
 	line-height:2;
 	background: url("../img/fast1.jpg") no-repeat center center;
-	background-size: 100%;
+	background-size: 1500px;
      	background-repeat: repeat-y;
-        font-family: 'Noto Sans JP', sans-serif;
-}
-p{
-    font-size: 18px;
-    line-height: 1.5;
 }
 /*
 img{
@@ -18,9 +13,7 @@ img{
         margin-top:150px;
         margin-left:300px;
 }*/
-img{
-    vertical-align: bottom;
-}
+
 img.img1{
 	/*↓　画像の崩れを防止する*/
 	box-sizing: border-box;
@@ -29,37 +22,43 @@ img.img1{
 }
 
 img.img2{
+        position:absolute;
+        box-sizing: border-box;
+        margin-top:60px;
 }
 img.img3{
+	position:absolute;
+        box-sizing: border-box;
+        margin-top:600px;
+	margin-left:-15px;
 }
 img.img4{
+        position:absolute;
+        box-sizing: border-box;
+        margin-top:970px;
+	margin-left:-15px;
 }
 img.img5{
+        position:absolute;
+        box-sizing: border-box;
+        margin-top:1550px;
+	margin-left:-15px;
 }
 
 img.img6{
-        position: absolute;
+        position:absolute;
         box-sizing: border-box;
-        left: -100px;
-        top: 0;
-        bottom: 0;
-        margin: auto;
+        margin-top:83px;
+        margin-left:-20px;
 }
 img.img7{
-    position: absolute;
-    box-sizing: border-box;
-    right: -100px;
-    top: 0;
-    bottom: 0;
-    margin: auto;
+        position:absolute;
+        box-sizing: border-box;
+        margin-top:83px;
+        margin-left:890px;
 }
-.sp-only{
-    display: none;
-}
-.about,.routine,.plan,.function{
-    position: relative;
-    overflow: hidden;
-}
+
+
 
 header {
    z-index: 999;/*重なり順数字が大きい方が上*/
@@ -70,29 +69,22 @@ header {
    position: fixed;
    top: 0;
    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
-   display: flex;
-   align-items: center;
 }
 header p
 {
-   font-size: 20px;
-   margin: 0 20px 0 0;
+  margin-top:10px;
+  margin-left:75px;
+  font-size:35px;
 }
 
 header h2
 {
+	margin-left:500px;
+	margin-top:-110px;
 	font-family: "Nico Moji";
 	font-size:70px;
-    margin-bottom: 0;
 }
-#setumei{
-    background: #FFEEF7;
-    display: flex;
-    position: relative;
-    align-items: center;
-    justify-content: center;
-    padding: 240px 0 120px;
-}
+
 #setumei p.meimobail{
 position:absolute;
 font-size:0px;
@@ -101,16 +93,13 @@ margin-left:10px;
 font-weight:bold;
 }
 
-.setsumei-text {
-    text-align: center;
-}
 
 #content{
         margin-top:-120px;
 	margin-left:500px;
 }
 
-button.start{
+#content button{
 	width:300px;
 	height:50px;
 	font-size:20px;
@@ -119,63 +108,27 @@ button.start{
 
 }
 
-button.start:hover {
+#content button:hover {
   box-shadow    : none;        
   color         : #e68c55;     
   background    : #ffbe85;     
 }
 
-h2.dai2{
+#setumei h1.dai{
+position:absolute;
+margin-top:-450px;
+margin-left:350px;
 font-weight:bold;
-line-height: 1.5;
 }
 
 #setumei p.mei{
+position:absolute;
+font-size:20px;
+margin-top:-350px;
+margin-left:400px;
 font-weight:bold;
 }
-.about-text {
-    position: absolute;
-    left: 10%;
-    top: 10%;
-}
-.about-text p{
-    width: 400px;
-   margin-top: 50px;
-}
-.routine .dai2 {
-    position: absolute;
-    text-align: center;
-    left: 0;
-    right: 0;
-    top: 10%;
-}
-.plan-text {
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: auto;
-    text-align: center;
-    top: 8%;
-}
-.plan-text p {
-    margin-bottom: 0;
-}
-.func-h1 {
-    position: absolute;
-    text-align: center;
-    top: 10%;
-    left: 0;
-    right: 0;
-    margin-top: 100px;
-}
-.func-text {
-    right: 10%;
-    top: 45%;
-    position: absolute;
-}
-h2.dai1{
-    font-weight: bold;
-}
+
 div#content h1.dai1{
 z-index: 800;
 position:absolute;
@@ -270,20 +223,13 @@ header p.dai
 body {
 background-size:1300px;
 margin: 0;
+width:300px;
 padding: 0;
 line-height:2;
 background: url("../img/fast1.jpg") no-repeat center center;
 background-repeat: repeat-y;
 }
-.pc-only{
-    display: none;
-}
-.sp-only{
-    display: block;
-}
-h2.dai2{
-    font-size: 1.3em;
-}
+
 #content{
 	position:absolute;
         margin-top:270px;
@@ -308,9 +254,7 @@ border:#000000;
   color         : #e68c55;
   background    : #ffffff;
 }
-header{
-    height: 60px;
-}
+
 header p.dai
 {
   margin-top:-300px;
@@ -322,14 +266,18 @@ header p.dai
 
 header h2.speed1
 {
-    font-size: 30px;
+        margin-left:530px;
+        margin-top:-110px;
+        font-family: "Nico Moji";
+        font-size:70px;
 }
 
 header p.speed
 {
+  margin-top:10px;
+  margin-left:85px;
   font-size:15px;
   font-weight:bold;
-  margin: 0 10px 0 10px;
 }
 
 img.img1{
@@ -345,9 +293,9 @@ img.img1{
 }
 
 img.img2{
-   /*position:absolute;
+   position:absolute;
    margin-top:370px;
-   
+   /*
    box-sizing: border-box;
    width: 100%;
    height:290px;
@@ -357,61 +305,64 @@ img.img2{
    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);*/
 }
 img.img3{
+   position:absolute;
+   margin-top:520px;
+  
 }
 img.img4{
+   position:absolute;
+   margin-top:610px;
 }
 img.img5{
-    width: 180%;
-    max-width: 180%;
+        position:absolute;
+        box-sizing: border-box;
+        margin-top:770px;
+        margin-left:-15px;
 }
+
 img.img6{
 	display:none;
+	margin-left:20px;
+        position:relative;
+        box-sizing: border-box;
+        margin-top:83px;
+        margin-left:-20px;
 }
 img.img7{
 	display:none;
+	margin-left:20px;
+        position:relative;
+        box-sizing: border-box;
+        margin-top:83px;
+        margin-left:890px;
 }
-#setumei {
-    padding: 100px 0 50px;
-}
+
+
 #setumei p.mei{
-    line-height: 1.5;
-    padding: 10px;
+position:absolute;
+font-size:0.01px;
+margin-top:-350px;
+margin-left:-10px;
+font-weight:bold;
 }
+
 
 #setumei h1.dai{
-
+position:absolute;
+margin-top:100px;
+margin-left:80px;
+font-size:17px;
+font-weight:bold;
 }
 
-.about-text{
-    position: relative;
-    background: #ffffca;
-    padding: 10px;
-    left: 0;
-    top: 0;
+#setumei p.meimobail{
+position:absolute;
+font-size:13px;
+margin-top:130px;
+margin-left:10px;
+font-weight:bold;
 }
-.routine .dai2{
-    position: relative;
-    background: #fff;
-    margin-bottom: 0;
-    padding: 10px 10px 0 10px;
-}
-.plan-text{
-    position: relative;
-    background: #ececec;
-    text-align: left;
-    padding: 10px;
-}
-.func-h1{
-    margin-top: 0;
-}
-.func-text{
-    position: relative;
-    background: #ffe8f0;
-    padding: 10px;
-    right: 0;
-    top: 0;
-    margin-bottom: 0;
-}
+
 div#content h1.dai1{
 z-index: 800;
 position:absolute;

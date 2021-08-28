@@ -579,7 +579,9 @@ pre code {
   margin-right: auto;
   margin-left: auto;
 }
-
+.SP{
+  display: none;
+}
 @media (min-width: 576px) {
   .container {
     max-width: 540px;
@@ -1374,6 +1376,12 @@ pre code {
 
   .offset-md-11 {
     margin-left: 91.6666666667%;
+  }
+  .SP{
+    display: block;
+  }
+  .PC{
+    display: none;
   }
 }
 
@@ -9701,6 +9709,9 @@ button.bg-dark:focus {
   .ml-md-auto,
   .mx-md-auto {
     margin-left: auto !important;
+  }
+  .card-body{
+    padding: 4rem;
   }
 }
 

@@ -5,18 +5,24 @@ background: #eeeeee;
 h1#main{
 font-weight:bold;
 color:black;
-margin-left:100px;
+text-align: center;
+margin: 15px 0;
 }
 
 a.heavy{
 text-decoration: none;
 color:black;
 }
-
+table button,table p{
+  margin-bottom: 0;
+}
 table{
   border-collapse: collapse;
   border-spacing: 0;
-  width: 100%; 
+  width: 90%;
+  background: #fff;
+  margin:50px auto;
+  padding: 10px;
 }
 
 table tr{
@@ -63,5 +69,9 @@ width:110px;
 }
 td.end{
 margin-left:100px;
+}
+table{
+  width: 96%;
+  font-size: 0.9em;
 }
 }

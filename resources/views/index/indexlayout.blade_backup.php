@@ -10,9 +10,6 @@
 <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 <!--googleフォントを読み込む-->
 <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <!--title&metaタグ-->
 <title>楽エット|完全無料の健康管理ツール</title>
@@ -54,55 +51,28 @@ $(function(){
  <header>
   <p class="speed">完全無料の健康管理ツール</p>
   <h2 class="speed1">楽エット</h2>
+  <p class="dai">楽エット</p>
  </header>
 
-  
-  <!--<img class="img1" src="../../img/index.png"　>-->
- 
+  <img class="img6" src="{{ asset('img/fat.png') }}"alt="ダイエット前の人"title="ダイエット前の人">
+  <img class="img7" src="{{ asset('img/happy.png') }}"alt="ダイエット成功"title="ダイエット成功">
+  <img class="img1" src="{{ asset('img/index.png') }}">
+  <img class="img2" src="{{ asset('img/index1.png') }}">
+　<img class="img3" src="{{ asset('img/index2.png') }}">
+  <img class="img4" src="{{ asset('img/index3.png') }}">
+  <img class="img5" src="{{ asset('img/index4.png') }}">
+
+  </div>
   <div id="setumei">
-    <div class="setsumei-text">
-     <img class="img6" src="{{ asset('img/fat.png') }}"alt="ダイエット前の人"title="ダイエット前の人">
-     <img class="img7" src="{{ asset('img/happy.png') }}"alt="ダイエット成功"title="ダイエット成功">
-      <h2 class="dai2">手軽にダイエット始めませんか?</h2>
-      <p class="mei">楽エットは自分に合うダイエットが中々見つからない、<br class="pc-only">手軽にダイエットを始めたい方向けのサービスです。<br class="pc-only">プラン診断を受けるだけであなたに最適な ダイエットプランが<br class="pc-only">見つかります。まずはスタートボタンを押して無料登録から</p>
-      <form action="index2" method="post">
-          {{ csrf_field() }}
-         <button class="start" type='submit' name='start' value='start'>スタートする</button>
-      </form>
-    </div>
+   <h1 class="dai">手軽にダイエット始めませんか?</h1>
+    <p class="mei">楽エットは自分に合うダイエットが中々見つからない、<br>
+ 手軽にダイエットを始めたい方向けのサービスです。<br>プラン診断を受けるだけであなたに最適な
+ ダイエットプランが<br>見つかります。まずはスタートボタンを押して無料登録から</p>
+  <p class="meimobail">楽エットは自分に合うダイエットが中々見つからない、 手軽にダイエットを始めたい方向けのサービスです。プラン診断を受けるだけであなたに最適なダイエットプランが見つかります。まずはスタートボタンを押して無料登録から</p>
   </div>
-
-  <div class="about">
-     <img class="img2" src="{{ asset('img/index1.png') }}">
-    <div class="about-text">
-      <h2 class="dai2">身体情報を入力するだけでダイエットに必要<br class="pc-only">なカロリー数やBMIなどを割り出します。</h2>
-      <p class="text1">身長、体重、年齢、性別の四項目を入力するとその値をもとにダイエットに必要な消費カロリーやBMIなどを割り出します</p>
-    </div>
-  </div>
-
-  <div class="routine">
-    <h2 class="dai2">理想的なダイエットルーチンを<br class="sp-only">築きましょう!!!</h2>
-     　<img class="img3" src="{{ asset('img/index2.png') }}">
-
-  </div>
-
-  <div class="plan">
-    <img class="img4" src="{{ asset('img/index3.png') }}">
-    <div class="plan-text">
-      <h2 class="dai2">あなたにピッタリなダイエットプランを提案します</h2>
-      <p class="text2">ダイエットを実行する期間やどのようなダイエットが<br class="pc-only">理想的なダイエットプランなのかをプラン診断を通して<br class="pc-only">あなたにピッタリなダイエットプランを提案します。</p>
-    </div>
-  </div>
-
-  <div class="function">
-    <h2 class="dai2 func-h1">体重の推移とダイエット実行率が<br>ひとめでわかるグラフ機能</h2>
-      <img class="img5" src="{{ asset('img/index4.png') }}">
-    <p class="text3 func-text">毎日の体重の推移とどれくらいダイエットを<br class="pc-only">実行できているかをわかりやすい線グラフ<br class="pc-only">円グラフで表示します</p>
-  </div>
-
-  <!--<div id="content">
+  <div id="content">
    @yield('content')
-  </div>-->
+  </div>
 </body>
 </html>
 

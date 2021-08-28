@@ -18,12 +18,11 @@ padding: 0;
 }
 #uls {
     overflow: hidden;
-    display: flex;
 }
 
 .lis {
-    width: 20%;
-    flex: 0 0 20%;
+    float: left;
+    width: 256px;
     list-style-type: none;
 }
 .lis + .lis {

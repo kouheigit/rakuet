@@ -2,7 +2,7 @@
 
 body{
 	background: url("../img/fast1.jpg") no-repeat center center;
-	background-size: 1550px;
+	background-size: 100% auto;
 	background-repeat: repeat-y;
 }
 
