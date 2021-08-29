@@ -1380,9 +1380,7 @@ pre code {
   .SP{
     display: block;
   }
-  .PC{
-    display: none;
-  }
+  
 }
 
 @media (min-width: 992px) {
@@ -2118,6 +2116,9 @@ pre code {
 
   .table-responsive-md > .table-bordered {
     border: 0;
+  }
+  .PC{
+    display: none;
   }
 }
 
