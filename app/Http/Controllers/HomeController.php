@@ -256,7 +256,7 @@ class HomeController extends Controller
             $moji2 = str_replace('.','',$moji1);
             $dell1 = "drop table $moji2";
             $delltable = DB::statement($dell1);
-	    return redirect('index');
+	    return redirect('/');
     }
     public function about(Request $request)
     {
